@@ -1,0 +1,4 @@
+The Ore Plants mod adds new plants and seeds that allow you to grow most ores.
+
+
+0.1* very unfinished

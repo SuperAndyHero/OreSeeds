@@ -1,0 +1,4 @@
+author = SuperAndyHero
+
+version = 0.1.1
+displayName = Ore Plants
