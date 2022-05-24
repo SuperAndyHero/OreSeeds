@@ -2,16 +2,17 @@ using Terraria.ModLoader;
 
 namespace OreSeeds
 {
-	class OreSeeds : Mod
+	public class OreSeeds : Mod
 	{
-		public OreSeeds()
-		{
-			Properties = new ModProperties()
-			{
-				Autoload = true,
-				AutoloadGores = true,
-				AutoloadSounds = true
-			};
-		}
-	}
+        public static OreSeeds Instance { get; set; }
+        public override void Load()
+        {
+            Instance = this;
+            SeedLoader.Load();
+        }
+        public override void AddRecipeGroups()
+        {
+            SeedLoader.AddRecipeGroups();
+        }
+    }
 }

@@ -1,4 +1,6 @@
 author = SuperAndyHero
-
-version = 0.1.1
-displayName = Ore Plants
+version = 2.0
+displayName = Ore Seeds v2.0
+homepage = https://ore-seeds-mod.fandom.com/wiki/Ore_Seeds_Mod_Wiki
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
+weakReferences = ThoriumMod, CalamityMod, ForgottenMemories, SpiritMod, SacredTools, Bluemagic

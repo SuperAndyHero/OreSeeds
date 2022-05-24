@@ -1,4 +1,41 @@
-The Ore Plants mod adds new plants and seeds that allow you to grow most ores.
+This mod adds growable plants which produce ores (and more) and can be planted with craftable seeds.
 
+Plus ores from:
++Thorium
++Calamity
++Sacred Tools
++Spirit
++Beyond The Forgotten Ages
++Bluemagic
++Starlight River (WIP)
 
-0.1* very unfinished
+It is suggested you have recipe browser too.
+This mod also has cross-mod support for luiafk's auto harvester.
+
+Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
+(WIP) Recipes can be made easier or harder via the config if need-be.
+
+TODO: Most ore seeds recipes require 20 ore and mushroom seeds at a demon altar, but recipes may vary based on the rarity of said ore.
+I suggest you take some mushroom seeds to the guide or use recipe browser for a list of the seeds.
+
+Most plants will give back extra seeds
+
+Also works in multiplayer!
+
+If you find any bugs, have have some feedback, or want to help with sprites then contact me on discord: [c/40fff8:SuperAndyHero#1185], or via my discord for all of my mods: [c/2040ff:DISCORDLINKHERE]
+
+Tell me if ive missed any ores from a supported mod, or what other things I should add a plant for!
+
+Credits:
+
+Developer: [c/40fff8:SuperAndyHero#1185]
+
+Any sprites not listed below: [c/40fff8:SuperAndyHero#1185]
+
+Demonite, Crimtane, Enchanted Granite,
+Enchanted Marble, Cryolite, Thermite, Star Piece,
+Spirit Ore, & Floran Ore Sprites: [c/FFee51:Darkpuppey#9233]
+
+Copper, Tin, Iron, Lead, Silver, Tungsten, & Soul Plants Sprites: [c/FFee51:beberhard22#8066]
+
+Chaotic Sprite: [c/FFee51:Stuckinahol3#9719]
