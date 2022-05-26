@@ -1,34 +1,35 @@
 This mod adds growable plants which produce ores (and more) and can be planted with craftable seeds.
 
-Plus ores from:
+Plus supports ores from:
 +Thorium
 +Calamity
-+Sacred Tools
++Shadows of Abbadon
 +Spirit
-+Beyond The Forgotten Ages
-+Bluemagic
-+Starlight River (WIP)
++Starlight River (Unreleased)
++Endless Escapade (Unreleased)
 
 It is suggested you have recipe browser too.
 This mod also has cross-mod support for luiafk's auto harvester.
 
 Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
-(WIP) Recipes can be made easier or harder via the config if need-be.
-
-TODO: Most ore seeds recipes require 20 ore and mushroom seeds at a demon altar, but recipes may vary based on the rarity of said ore.
-I suggest you take some mushroom seeds to the guide or use recipe browser for a list of the seeds.
-
 Most plants will give back extra seeds
+
+(Coming soon) Recipes can be made easier or harder via the config if need-be.
+
+Coming soon in a future version:
+Auto harvesters
+Growth accelerators
 
 Also works in multiplayer!
 
-If you find any bugs, have have some feedback, or want to help with sprites then contact me on discord: [c/40fff8:SuperAndyHero#1185], or via my discord for all of my mods: [c/2040ff:DISCORDLINKHERE]
+If you find any bugs, have have some feedback, or want to help with sprites then contact me on discord: [c/40fff8:SuperAndyHero#1185], or via my discord for all of my mods: [c/4040ff:https://discord.gg/upFBjZS] 
+[c/576899:Or click the homepage button at the bottom]
 
-Tell me if ive missed any ores from a supported mod, or what other things I should add a plant for!
+Tell me if ive missed any ores from a supported mod, what mods I should add support for, or what other things I should add a plant for!
 
 Credits:
 
-Developer: [c/40fff8:SuperAndyHero#1185]
+Developer: [c/40fff8:SuperAndyHero#1185] [c/2F3C70:<@317900589830897675>]
 
 Any sprites not listed below: [c/40fff8:SuperAndyHero#1185]
 

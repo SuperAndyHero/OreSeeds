@@ -12,25 +12,30 @@ using static OreSeeds.SeedLoader;
 
 namespace OreSeeds
 {
+    [Flags]
     public enum Tags
     {
-        None,
-        MundaneOre,
-        Gem,
-        Evil,
-        Hallowed,
-        Jungle,
-        Desert,
-        Ice,
-        Hell,
-        PreHardmode,
-        Hardmode,
-        PostMoonlord,
-        Modded,
-        NonOre,
-        MobDrop,
-        BossDrop
+        None = 0,
+        MundaneOre  =   1 << 0,
+        Gem =           1 << 1,
+        Evil =          1 << 2,
+        Hallowed =      1 << 3,
+        Jungle =        1 << 4,
+        Desert =        1 << 5,
+        Ice =           1 << 6,
+        Hell =          1 << 7,
+        Water =         1 << 8,
+        PreHardmode =   1 << 9,
+        Hardmode =      1 << 10,
+        PostMoonlord =  1 << 11,
+        Modded =        1 << 12,
+        NonOre =        1 << 13,
+        MobDrop =       1 << 14,
+        BossDrop =      1 << 15,
+        Night =         1 << 16,
+        Day =           1 << 17
     }
+
 
     #region info classes
     //todo: possible name/function change to reflect functionallity of these classes...
@@ -133,19 +138,29 @@ namespace OreSeeds
         }
 
         public override string Name => TypeInfo.ItemInternalName;
-        public override string Texture => "OreSeeds/Items/Seeds/" + Name;
+        public override string Texture => Mod.Name + "/Items/Seeds/" + Name;
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault(TypeInfo.ItemName ?? "Unnamed");
-            Tooltip.SetDefault(Description);
+            string tooltip = Description;
+            if (Tags.HasFlag(Tags.Water))
+                tooltip += "\nMust be grown in water";
+            if (Tags.HasFlag(Tags.Night))
+                    tooltip += "\nGrows best at night";
+            if (Tags.HasFlag(Tags.Day))
+                tooltip += "\nGrows best during the day";
+            if (Tags.HasFlag(Tags.Hell))
+                tooltip += "\nMust be grown near hell";
+
+            Tooltip.SetDefault(tooltip);
         }
 
         public override void SetDefaults()
         {
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.maxStack = 99;
@@ -156,27 +171,43 @@ namespace OreSeeds
             //todo find the source item price
             Item.value = Item.sellPrice(0,
 
-                (Tags == Tags.PostMoonlord ? 2 : 0),
+                (Tags.HasFlag(Tags.PostMoonlord) ? 2 : 0),
 
                 Math.Max(
-                (Tags == Tags.Jungle ? 5 : 0) +
-                (Tags == Tags.Evil ? 10 : 0) +
-                (Tags == Tags.Hallowed ? 20 : 0) +
-                (Tags == Tags.MundaneOre ? 2 : 0) +
-                (Tags == Tags.Hardmode ? 75 : 0) -
-                (Tags == Tags.NonOre ? 10 : 0), 
-                Tags == Tags.PostMoonlord ? 0 : 1),
+                (Tags.HasFlag(Tags.Jungle) ? 5 : 0) +
+                (Tags.HasFlag(Tags.Evil) ? 10 : 0) +
+                (Tags.HasFlag(Tags.Hallowed) ? 20 : 0) +
+                (Tags.HasFlag(Tags.MundaneOre) ? 2 : 0) +
+                (Tags.HasFlag(Tags.Hardmode) ? 75 : 0) -
+                (Tags.HasFlag(Tags.NonOre) ? 10 : 0),
+                (Tags.HasFlag(Tags.PostMoonlord) ? 0 : 1)),
                 0);
             Item.createTile = Mod.Find<ModTile>(TypeInfo.TileInternalName).Type;
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.LeftShift))
+            {
+                var line = new TooltipLine(Mod, "Tags", Tags.ToString())
+                {
+                    OverrideColor = new Color(137, 154, 203)
+                };
+                tooltips.Add(line);//tooltip += "\n[c/576899:" + Tags.ToString() + "]";
+
+            }
+            else
+                tooltips.Add(new TooltipLine(Mod, "ShiftInfo", "[Hold shift for tags]"));
         }
 
         public override void AddRecipes()
         {
             #region mod compat
-            if (ModLoader.TryGetMod("Luiafk", out Mod luiafk))//no clue if luiafk still has this, but its here just in case
-            {
-                ModLoader.GetMod("Luiafk").Call("plantharvest", Mod.Find<ModTile>(TypeInfo.TileInternalName).Type, 18 * 2, OreItem, () => Main.rand.Next(OreDropRange.min, OreDropRange.max + 1));
-            }
+            //luiafk is no longer active and will likely not be ported
+            //if (ModLoader.TryGetMod("Luiafk", out Mod luiafk))//no clue if luiafk still has this, but its here just in case
+            //{
+            //    ModLoader.GetMod("Luiafk").Call("plantharvest", Mod.Find<ModTile>(TypeInfo.TileInternalName).Type, 18 * 2, OreItem, () => Main.rand.Next(OreDropRange.min, OreDropRange.max + 1));
+            //}
             #endregion
 
             Recipe recipe = CreateRecipe();
@@ -235,16 +266,24 @@ namespace OreSeeds
         {
             float chance = 1;
             //if(AreaGrowthRules) (here or when growth rules is called)
-            if (tags == Tags.PostMoonlord)
-                chance *= 0.3f;
-            else if (tags == Tags.Hardmode)
-                chance *= Main.hardMode ? 0.5f : 0;
+            if (tags.HasFlag(Tags.Water) && !(Main.tile[i, j].LiquidType == LiquidID.Water && Main.tile[i, j].LiquidAmount > 20))
+                return 0f;
+            if (tags.HasFlag(Tags.Hell) && j < Main.maxTilesY - 400)
+                return 0f;
+
+            if ((tags.HasFlag(Tags.Night) && Main.dayTime) || (tags.HasFlag(Tags.Day) && !Main.dayTime))
+                chance *= 0.1f;
+
+            if (tags.HasFlag(Tags.PostMoonlord))
+                chance *= NPC.downedMoonlord ? 0.33f : 0;
+            else if (tags.HasFlag(Tags.Hardmode))
+                chance *= Main.hardMode ? 0.66f : 0;
 
             return chance;
         }
 
         public override string Name => TypeInfo.TileInternalName;
-        public override string Texture => "OreSeeds/Tiles/Plants/" + Name;
+        public override string Texture => Mod.Name + "/Tiles/Plants/" + Name;
         public bool IsLastFrame(int i, int j)
         {
             int stage = Main.tile[i, j].TileFrameX / 18;
@@ -269,27 +308,28 @@ namespace OreSeeds
             };
 
             #region special cases
-            if (Tags == Tags.Jungle)
+            //A bit yikes
+            if (Tags.HasFlag(Tags.Jungle))
             {
                 validTiles.Add(TileID.JungleGrass);
                 validTiles.Add(TileID.Mud);
             }
-            if (Tags == Tags.MundaneOre)
+            if (Tags.HasFlag(Tags.MundaneOre) || Tags.HasFlag(Tags.Gem))
                 validTiles.Add(TileID.Stone);
-            if (Tags == Tags.Evil)
+            if (Tags.HasFlag(Tags.Evil))
             {
                 validTiles.Add(TileID.CorruptGrass);
                 validTiles.Add(TileID.Ebonstone);
                 validTiles.Add(TileID.CrimsonGrass);
                 validTiles.Add(TileID.Crimstone);
             }
-            if (Tags == Tags.Hallowed)
+            if (Tags.HasFlag(Tags.Hallowed))
             {
                 validTiles.Add(TileID.GolfGrassHallowed);
                 validTiles.Add(TileID.HallowedGrass);
                 validTiles.Add(TileID.Pearlstone);
             }
-            if (Tags == Tags.Desert)
+            if (Tags.HasFlag(Tags.Desert))
             {
                 validTiles.Add(TileID.Sand);
                 validTiles.Add(TileID.Sandstone);
@@ -304,13 +344,16 @@ namespace OreSeeds
                 validTiles.Add(TileID.CrimsonHardenedSand);
                 validTiles.Add(TileID.HallowHardenedSand);
             }
-            if (Tags == Tags.Ice)
+            if (Tags.HasFlag(Tags.Ice))
             {
+                validTiles.Add(TileID.IceBlock);
+                validTiles.Add(TileID.BreakableIce);
+                validTiles.Add(TileID.SnowBlock);
                 validTiles.Add(TileID.FleshIce);
                 validTiles.Add(TileID.CorruptIce);
                 validTiles.Add(TileID.HallowedIce);
             }
-            if (Tags == Tags.PostMoonlord)
+            if (Tags.HasFlag(Tags.PostMoonlord))
             {
                 validTiles.Add(TileID.LunarOre);
                 validTiles.Add(TileID.LunarBlockStardust);
@@ -318,10 +361,19 @@ namespace OreSeeds
                 validTiles.Add(TileID.LunarBlockSolar);
                 validTiles.Add(TileID.LunarBlockNebula);
             }
-            if (Tags == Tags.Hell)
+            if (Tags.HasFlag(Tags.Hell))
             {
                 validTiles.Add(TileID.Ash);
                 Main.tileLavaDeath[Type] = false;
+                Main.tileWaterDeath[Type] = true;
+            }
+            if (Tags.HasFlag(Tags.Water))
+            {
+                validTiles.Add(TileID.Sand);
+                validTiles.Add(TileID.Ebonsand);
+                validTiles.Add(TileID.Crimsand);
+                validTiles.Add(TileID.Pearlsand);
+                validTiles.Add(TileID.Coralstone);
             }
             #endregion
 
@@ -371,7 +423,7 @@ namespace OreSeeds
             //if(AreaGrowthRules) (here or inside the tag growth method)
             chance *= ExtraInfo.TagGrowthModifier(i, j, Tags);
 
-            if (!IsLastFrame(i, j) && Main.rand.NextFloat(0.000001f, 0.999999f) < ExtraInfo.GrowthChance(i, j))
+            if (!IsLastFrame(i, j) && Main.rand.NextFloat(0.000001f, 0.999999f) < chance)
             {
                 Main.tile[i, j].TileFrameX += 18; WorldGen.SquareTileFrame(i, j, true);
                 NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
@@ -400,8 +452,8 @@ namespace OreSeeds
         {
             if (IsLastFrame(i, j) && ExtraInfo.ShowHarvestIcon(i, j))
             {
-                Texture2D tex = ModContent.Request<Texture2D>("OreSeeds/Tiles/MarkBack").Value;
-                Texture2D tex2 = ModContent.Request<Texture2D>("OreSeeds/Tiles/Mark").Value;
+                Texture2D tex = ModContent.Request<Texture2D>(Mod.Name + "/Tiles/MarkBack").Value;
+                Texture2D tex2 = ModContent.Request<Texture2D>(Mod.Name + "/Tiles/Mark").Value;
                 Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);//lighting mode correction
                 if (Main.drawToScreen)
                     zero = Vector2.Zero;

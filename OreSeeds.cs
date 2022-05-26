@@ -14,5 +14,11 @@ namespace OreSeeds
         {
             SeedLoader.AddRecipeGroups();
         }
+        public override void Unload()
+        {
+            SeedLoader.Unload();
+            Instance = null;
+        }
+        //https://ore-seeds-mod.fandom.com/wiki/Ore_Seeds_Mod_Wiki old wiki link
     }
 }

@@ -53,7 +53,6 @@ namespace OreSeeds
             RecipeGroup.RegisterGroup("OreSeeds:AdamantiteSeeds", AdamantiteSeedGroup);
         }
 
-        //Todo: Add support for consolarria's soul of blight
         public static void Load()
         {
             #region ores
@@ -114,21 +113,21 @@ namespace OreSeeds
 
             AddPlant("Cobalt",
                () => ItemID.CobaltOre, 16,
-               Tags.Hardmode,
+               Tags.Hardmode | Tags.MundaneOre,
                description: $"Crafted at [i:{ItemID.IronAnvil}]\nDoes not drop seeds",
                recipe: new SeedRecipe(TileID.Anvils),
                extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
 
             AddPlant("Palladium",
                () => ItemID.PalladiumOre, 16,
-               Tags.Hardmode,
+               Tags.Hardmode | Tags.MundaneOre,
                description: $"Crafted at [i:{ItemID.LeadAnvil}]\nDoes not drop seeds",
                recipe: new SeedRecipe(TileID.Anvils),
                extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
 
             AddPlant("Mythril",
                () => ItemID.MythrilOre, 24,
-               Tags.Hardmode,
+               Tags.Hardmode | Tags.MundaneOre,
                description: $"Crafted at [i:{ItemID.MythrilAnvil}]\nDoes not drop seeds",
                recipe: new SeedRecipe(TileID.MythrilAnvil,
                BaseSeedGroup: ("OreSeeds:CobaltSeeds", 2)),
@@ -210,7 +209,7 @@ namespace OreSeeds
             AddPlant("Amber",
                () => ItemID.Amber, 15,
                Tags.PreHardmode | Tags.Gem | Tags.Desert);
-
+                
             AddPlant("Fossil",
                () => ItemID.FossilOre, 25,
                Tags.PreHardmode | Tags.Desert);
@@ -231,9 +230,8 @@ namespace OreSeeds
 
             AddPlant("Star",
                () => ItemID.FallenStar, 25,
-               Tags.PreHardmode | Tags.NonOre,
+               Tags.PreHardmode | Tags.NonOre | Tags.Night,
                (1, 4),
-               description: "Grows best at night",
                extra: new ExtraInfo(
                    GrowthChance: (int i, int j) => Main.dayTime ? 0.1f : 1f,
                    ShowHarvestIcon: (int i, int j) => !Main.dayTime));
@@ -294,6 +292,7 @@ namespace OreSeeds
 
             #region modded
 
+            //ores out of date
             #region thorium
             if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod))
             {
@@ -303,15 +302,18 @@ namespace OreSeeds
 
                 AddPlantRange(new (string, Func<int>, int)[]{
                 ("Smooth Coal", () => thoriumMod.Find<ModItem>("SmoothCoal").Type,  16),
-                ("Pearl", () => thoriumMod.Find<ModItem>("Pearl").Type,             24),
-                ("Aquaite", () => thoriumMod.Find<ModItem>("Aquaite").Type,         20),
                 ("Opal", () => thoriumMod.Find<ModItem>("Opal").Type,               20),
-                ("Life Quartz", () => thoriumMod.Find<ModItem>("LifeQuartz").Type,  24),},
+                ("Life Quartz", () => thoriumMod.Find<ModItem>("LifeQuartz").Type,  24)},
                 Tags.PreHardmode | Tags.Modded | Tags.Gem);
+
+                AddPlantRange(new (string, Func<int>, int)[]{
+                ("Pearl", () => thoriumMod.Find<ModItem>("Pearl").Type,             24),
+                ("Aquaite", () => thoriumMod.Find<ModItem>("Aquaite").Type,         20)},
+                Tags.PreHardmode | Tags.Water | Tags.Modded | Tags.Gem);
 
                 AddPlant("Magma",
                 () => thoriumMod.Find<ModItem>("MagmaOre").Type, 20,
-                Tags.PreHardmode | Tags.Modded | Tags.Hardmode);//unknown if correct
+                Tags.PreHardmode | Tags.Modded | Tags.Hardmode | Tags.Hell);//unknown if correct
 
                 AddPlant("Lodestone",
                 () => thoriumMod.Find<ModItem>("LodeStoneChunk").Type, 25,
@@ -327,6 +329,7 @@ namespace OreSeeds
             }
             #endregion
 
+            //ores out of date
             #region calamity
             if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
             {
@@ -372,6 +375,7 @@ namespace OreSeeds
             }
             #endregion
 
+            //this mod is no longer active and will likely not be updated
             #region btfa
             if (ModLoader.TryGetMod("ForgottenMemories", out Mod btfa))//unsure if this mod even exists anymore
             {
@@ -398,6 +402,7 @@ namespace OreSeeds
             }
             #endregion
 
+            //ores out of date and mod has been renamed
             #region sacred tools
             //old name
             if (ModLoader.TryGetMod("SacredTools", out Mod sacredTools))
@@ -420,6 +425,7 @@ namespace OreSeeds
             }
             #endregion
 
+            //ores are out of date
             #region spirit
             if (ModLoader.TryGetMod("SpiritMod", out Mod spiritMod))
             {
@@ -453,6 +459,7 @@ namespace OreSeeds
             }
             #endregion
 
+            //this mod is no longer active
             #region blue magic
             if (ModLoader.TryGetMod("Bluemagic", out Mod blueMagic))//unsure if this mod even exists anymore
             {
@@ -462,7 +469,66 @@ namespace OreSeeds
             }
             #endregion
 
-            //todo starlight river
+            #region EEMod
+            if (ModLoader.TryGetMod("EEMod", out Mod eeMod))//unsure if this mod even exists anymore
+            {
+                AddPlant("Dalantinium",
+                () => eeMod.Find<ModItem>("DalantiniumOre").Type, 24,
+                Tags.PreHardmode | Tags.Water | Tags.Modded);
+
+                AddPlant("Lythen",
+                () => eeMod.Find<ModItem>("LythenOre").Type, 24,
+                Tags.PreHardmode | Tags.Water | Tags.Modded);
+
+                AddPlant("Aquamarine",
+                () => eeMod.Find<ModItem>("Aquamarine").Type, 20,
+                Tags.PreHardmode | Tags.Water | Tags.Gem | Tags.Modded);
+            }
+            #endregion
+
+            #region Starlight River
+            if (ModLoader.TryGetMod("StarlightRiver", out Mod slr))//unsure if this mod even exists anymore
+            {
+                AddPlant("Palestone",
+                () => slr.Find<ModItem>("PalestoneItem").Type, 20,
+                Tags.PreHardmode | Tags.MundaneOre | Tags.Modded);
+
+                AddPlant("Ebony",
+                () => slr.Find<ModItem>("OreEbony").Type, 25,
+                Tags.PreHardmode | Tags.MundaneOre | Tags.Modded);
+
+                AddPlant("Ivory",
+                () => slr.Find<ModItem>("OreIvory").Type, 25,
+                Tags.PreHardmode | Tags.Modded);
+
+                AddPlant("Moonstone",
+                () => slr.Find<ModItem>("MoonstoneOreItem").Type, 30,
+                Tags.PreHardmode | Tags.Modded);
+
+                AddPlant("Vitric",
+                () => slr.Find<ModItem>("VitricOre").Type, 22,
+                Tags.PreHardmode | Tags.Desert | Tags.Modded);
+
+                AddPlant("Astroscrap",
+                () => slr.Find<ModItem>("Astroscrap").Type, 24,
+                Tags.PreHardmode | Tags.MobDrop | Tags.NonOre | Tags.Modded);
+
+                AddPlant("Salt",
+                () => slr.Find<ModItem>("TableSalt").Type, 16,
+                Tags.PreHardmode | Tags.NonOre | Tags.Modded);
+
+                AddPlant("Pepper",
+                () => slr.Find<ModItem>("BlackPepper").Type, 16,
+                Tags.PreHardmode | Tags.NonOre | Tags.Modded);
+
+                AddPlant("Sea Salt",
+                () => slr.Find<ModItem>("SeaSalt").Type, 20,
+                Tags.PreHardmode | Tags.Water | Tags.NonOre | Tags.Modded);
+            }
+            #endregion
+
+            //consolarria
+
 
             #endregion
         }
@@ -470,13 +536,17 @@ namespace OreSeeds
         public static void Unload()
         {
             SeedRecipeGroup = null;
+
+            CobaltSeedGroup = null;
+            MythrilSeedGroup = null;
+            AdamantiteSeedGroup = null;
         }
 
         #region add plant methods
         private static void AddPlant(string oreName,
             Func<int> oreItem,
             int oreCraftAmount,
-            Tags tags = Tags.None,
+            Tags tags = 0,
             (int, int)? oreDropRange = null,
             string description = null,
             SeedRecipe recipe = null,
@@ -506,7 +576,7 @@ namespace OreSeeds
 
         private static void AddPlantRange((string name, Func<int> item)[] ores, 
             int oreCraftAmount,
-            Tags tags = Tags.None,
+            Tags tags = 0,
             (int, int)? oreDropRange = null,
             string description = null,
             SeedRecipe recipe = null,
@@ -518,7 +588,7 @@ namespace OreSeeds
         }
 
         private static void AddPlantRange((string name, Func<int> item, int count)[] ores, 
-            Tags tags = Tags.None,
+            Tags tags = 0,
             (int, int)? oreDropRange = null,
             string description = null,
             SeedRecipe recipe = null,
