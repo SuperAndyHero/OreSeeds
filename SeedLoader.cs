@@ -493,13 +493,13 @@ namespace OreSeeds
                 () => slr.Find<ModItem>("PalestoneItem").Type, 20,
                 Tags.PreHardmode | Tags.MundaneOre | Tags.Modded);
 
-                AddPlant("Ebony",
-                () => slr.Find<ModItem>("OreEbony").Type, 25,
-                Tags.PreHardmode | Tags.MundaneOre | Tags.Modded);
+                //AddPlant("Ebony",
+                //() => slr.Find<ModItem>("OreEbony").Type, 25,
+                //Tags.PreHardmode | Tags.MundaneOre | Tags.Modded);
 
-                AddPlant("Ivory",
-                () => slr.Find<ModItem>("OreIvory").Type, 25,
-                Tags.PreHardmode | Tags.Modded);
+                //AddPlant("Ivory",
+                //() => slr.Find<ModItem>("OreIvory").Type, 25,
+                //Tags.PreHardmode | Tags.Modded);
 
                 AddPlant("Moonstone",
                 () => slr.Find<ModItem>("MoonstoneOreItem").Type, 30,

@@ -14,6 +14,8 @@ This mod also has cross-mod support for luiafk's auto harvester.
 Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
 Most plants will give back extra seeds
 
+Some types of plants can be planted on other types of blocks.
+
 (Coming soon) Recipes can be made easier or harder via the config if need-be.
 
 Coming soon in a future version:

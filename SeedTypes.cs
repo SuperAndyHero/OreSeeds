@@ -113,7 +113,7 @@ namespace OreSeeds
     }
     #endregion
 
-
+    [Autoload(false)]
     public class BasePlantItem : ModItem
     {
         public readonly Func<int> OreItem;//todo: use value for a seed recylcler
@@ -136,7 +136,8 @@ namespace OreSeeds
             TypeInfo = typeInfo;
             //ExtraInfo = extraInfo;
         }
-
+        
+        protected override bool CloneNewInstances => true;
         public override string Name => TypeInfo.ItemInternalName;
         public override string Texture => Mod.Name + "/Items/Seeds/" + Name;
 
@@ -244,6 +245,7 @@ namespace OreSeeds
         }
     }
 
+    [Autoload(false)]
     public class BasePlantTile : ModTile
     {
         private readonly Func<int> OreItem;

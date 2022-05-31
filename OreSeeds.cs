@@ -4,6 +4,9 @@ namespace OreSeeds
 {
 	public class OreSeeds : Mod
 	{
+        //Make sure the workshop page is updated and has colors removed
+        //REMOVE REF OF LUIAFK FROM DESC
+        //Add planter boxes
         public static OreSeeds Instance { get; set; }
         public override void Load()
         {
