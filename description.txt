@@ -1,15 +1,14 @@
 This mod adds growable plants which produce ores (and more) and can be planted with craftable seeds.
 
 Plus supports ores from:
-+Thorium
-+Calamity
-+Shadows of Abbadon
-+Spirit
++Thorium (Port In Progress)
++Calamity (Port In Progress)
++Spirit (Port In Progress)
++Shadows of Abbadon (Port Planned)
 +Starlight River (Unreleased)
 +Endless Escapade (Unreleased)
 
 It is suggested you have recipe browser too.
-This mod also has cross-mod support for luiafk's auto harvester.
 
 Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
 Most plants will give back extra seeds
