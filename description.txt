@@ -1,9 +1,9 @@
 This mod adds growable plants which produce ores (and more) and can be planted with craftable seeds.
 
 Plus supports ores from:
++Calamity
++Spirit (Port Coming Soon)
 +Thorium (Port In Progress)
-+Calamity (Port In Progress)
-+Spirit (Port In Progress)
 +Shadows of Abbadon (Port Planned)
 +Starlight River (Unreleased)
 +Endless Escapade (Unreleased)

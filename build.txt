@@ -1,5 +1,5 @@
 author = SuperAndyHero
-version = 2.01
+version = 2.02
 displayName = Ore Seeds Beta
 homepage = https://discord.gg/upFBjZS
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*
