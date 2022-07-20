@@ -269,17 +269,17 @@ namespace OreSeeds
             float chance = 1;
             //if(AreaGrowthRules) (here or when growth rules is called)
             if (tags.HasFlag(Tags.Water) && !(Main.tile[i, j].LiquidType == LiquidID.Water && Main.tile[i, j].LiquidAmount > 20))
-                return 0f;
+                return 0.1f;
             if (tags.HasFlag(Tags.Hell) && j < Main.maxTilesY - 400)
-                return 0f;
+                return 0.1f;
 
             if ((tags.HasFlag(Tags.Night) && Main.dayTime) || (tags.HasFlag(Tags.Day) && !Main.dayTime))
                 chance *= 0.1f;
 
             if (tags.HasFlag(Tags.PostMoonlord))
-                chance *= NPC.downedMoonlord ? 0.33f : 0;
+                chance *= NPC.downedMoonlord ? 0.50f : 0.1f;
             else if (tags.HasFlag(Tags.Hardmode))
-                chance *= Main.hardMode ? 0.66f : 0;
+                chance *= Main.hardMode ? 0.75f : 0.2f;
 
             return chance;
         }
@@ -306,7 +306,15 @@ namespace OreSeeds
                 TileID.PlanterBox,
                 TileID.ClayPot,
                 TileID.PotsSuspended,
-                TileID.GolfGrass
+                TileID.GolfGrass,
+                3215,
+                3216,
+                3217,
+                3218,
+                3219,
+                3220,
+                3221,
+                3222
             };
 
             #region special cases

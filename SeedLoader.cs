@@ -163,24 +163,7 @@ namespace OreSeeds
                (2, 5),
                extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.75f));//default is 0.5
 
-            AddPlant("Hallowed",
-               () => ItemID.HallowedBar, 16,
-               Tags.Hardmode | Tags.Hallowed,
-               (1, 2),
-               description: $"Crafted at [i:{ItemID.TitaniumForge}]\nDoes not drop seeds",
-               recipe: new SeedRecipe(TileID.AdamantiteForge, null,
-               ("OreSeeds:AdamantiteSeeds", 1), 
-               new (Func<int>, int count)[]
-               {
-                   (() => ItemID.SoulofMight, 3),
-                   (() => ItemID.SoulofSight, 3),
-                   (() => ItemID.SoulofFright, 3)
-               }, 
-               new (string group, int count)[] {
-                   ("OreSeeds:MythrilSeeds", 1),
-                   ("OreSeeds:CobaltSeeds", 1)
-               }),
-               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
+            //hallowed moved to calamity mod else
 
             AddPlant("Luminite",
                () => ItemID.LunarOre, 35,
@@ -333,45 +316,93 @@ namespace OreSeeds
             #region calamity
             if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
             {
+                //prehardmode
+                AddPlant("Sea Prism",
+                () => calamityMod.Find<ModItem>("SeaPrism").Type, 14,
+                Tags.PreHardmode | Tags.Modded | Tags.Water);
+
                 AddPlant("Aerialite",
                 () => calamityMod.Find<ModItem>("AerialiteOre").Type, 16,
                 Tags.PreHardmode | Tags.Modded);
 
+                //materials
+                AddPlant("Victory Shard",
+                () => calamityMod.Find<ModItem>("VictoryShard").Type, 14,
+                Tags.Hardmode | Tags.Modded | Tags.NonOre | Tags.BossDrop);
+
+
+                //hardmode
+                AddPlant("Charred",
+                () => calamityMod.Find<ModItem>("CharredOre").Type, 24,
+                Tags.Hardmode | Tags.Modded | Tags.Hell);
+
                 AddPlant("Cryonic",
                 () => calamityMod.Find<ModItem>("CryonicOre").Type, 20,
-                Tags.PreHardmode | Tags.Modded | Tags.Ice);//unknown if correct
+                Tags.Hardmode | Tags.Modded | Tags.Ice);
+
+                AddPlant("Hallowed",
+                () => calamityMod.Find<ModItem>("HallowedOre").Type, 20,
+                Tags.Hardmode | Tags.Modded | Tags.Hallowed);
 
                 AddPlant("Perennial",
-                () => calamityMod.Find<ModItem>("PerennialOre").Type, 25,
-                Tags.PreHardmode | Tags.Modded | Tags.Jungle);//unknown if correct
+                () => calamityMod.Find<ModItem>("PerennialOre").Type, 24,
+                Tags.Hardmode | Tags.Modded);//removed jungle tag since this does not generate in jungle
 
-                AddPlant("Charred",
-                () => calamityMod.Find<ModItem>("CharredOre").Type, 28,
-                Tags.Hardmode | Tags.Modded | Tags.Hell);//unknown if correct
+                AddPlant("Scoria",
+                () => calamityMod.Find<ModItem>("ScoriaOre").Type, 28,//might be ChaoticOre internally
+                Tags.Hardmode | Tags.Modded | Tags.Water);
 
                 AddPlant("Astral",
-                () => calamityMod.Find<ModItem>("AstralOre").Type, 30,
-                Tags.Hardmode | Tags.Modded);//unknown if correct
+                () => calamityMod.Find<ModItem>("AstralOre").Type, 24,
+                Tags.Hardmode | Tags.Modded);
 
-                AddPlant("Chaotic",
-                () => calamityMod.Find<ModItem>("ChaoticOre").Type, 32,
-                Tags.PostMoonlord | Tags.Modded | Tags.Hell);//unknown if correct
-
-                AddPlant("Uelibloom",
-                () => calamityMod.Find<ModItem>("UelibloomOre").Type, 35,
-                Tags.PostMoonlord | Tags.Modded | Tags.Jungle);//unknown if correct
-
+                //materials
                 AddPlant("Chaos Essence",
-                () => calamityMod.Find<ModItem>("EssenceofChaos").Type, 30,
-                Tags.PostMoonlord | Tags.Modded | Tags.NonOre | Tags.MobDrop);//unknown if correct
+                () => calamityMod.Find<ModItem>("EssenceofChaos").Type, 24,
+                Tags.Hardmode | Tags.Modded | Tags.NonOre | Tags.MobDrop);
 
                 AddPlant("Eleum Essence",
-                () => calamityMod.Find<ModItem>("EssenceofEleum").Type, 30,
-                Tags.PostMoonlord | Tags.Modded | Tags.NonOre | Tags.MobDrop);//unknown if correct
+                () => calamityMod.Find<ModItem>("EssenceofEleum").Type, 24,
+                Tags.Hardmode | Tags.Modded | Tags.NonOre | Tags.MobDrop);
 
                 AddPlant("Sunlight Essence",
-                () => calamityMod.Find<ModItem>("EssenceofCinder").Type, 30,
-                Tags.PostMoonlord | Tags.Modded | Tags.NonOre | Tags.MobDrop);//unknown if correct
+                () => calamityMod.Find<ModItem>("EssenceofCinder").Type, 24,
+                Tags.Hardmode | Tags.Modded | Tags.NonOre | Tags.MobDrop);
+
+
+                //post moonlord
+                AddPlant("ExodiumCluster",
+                () => calamityMod.Find<ModItem>("ExodiumCluster").Type, 24,
+                Tags.PostMoonlord | Tags.Modded);
+
+                AddPlant("Uelibloom",
+                () => calamityMod.Find<ModItem>("UelibloomOre").Type, 32,
+                Tags.PostMoonlord | Tags.Modded | Tags.Jungle);
+
+                AddPlant("Auric",
+                () => calamityMod.Find<ModItem>("AuricOre").Type, 36,
+                Tags.PostMoonlord | Tags.Modded);
+            }
+            else
+            {
+               AddPlant("Hallowed",
+               () => ItemID.HallowedBar, 16,
+               Tags.Hardmode | Tags.Hallowed,
+               (1, 2),
+               description: $"Crafted at [i:{ItemID.TitaniumForge}]\nDoes not drop seeds",
+               recipe: new SeedRecipe(TileID.AdamantiteForge, null,
+               ("OreSeeds:AdamantiteSeeds", 1),
+               new (Func<int>, int count)[]
+               {
+                   (() => ItemID.SoulofMight, 3),
+                   (() => ItemID.SoulofSight, 3),
+                   (() => ItemID.SoulofFright, 3)
+               },
+               new (string group, int count)[] {
+                   ("OreSeeds:MythrilSeeds", 1),
+                   ("OreSeeds:CobaltSeeds", 1)
+               }),
+               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
             }
             #endregion
 
