@@ -1,0 +1,43 @@
+This mod adds growable plants which produce ores (and more) and can be planted with craftable seeds.
+
+Plus supports ores from:
++Calamity
++Spirit (Port Coming Soon)
++Thorium (Port In Progress)
++Shadows of Abbadon (Port Planned)
++Starlight River (Unreleased)
++Endless Escapade (Unreleased)
+
+It is suggested you have recipe browser too.
+
+Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
+Most plants will give back extra seeds
+
+Some types of plants can be planted on other types of blocks.
+
+(Coming soon) Recipes can be made easier or harder via the config if need-be.
+
+Coming soon in a future version:
+Auto harvesters
+Growth accelerators
+
+Also works in multiplayer!
+
+If you find any bugs, have have some feedback, or want to help with sprites then contact me on discord: SuperAndyHero#1185, or via my discord for all of my mods: https://discord.gg/upFBjZS
+Or click the homepage button at the bottom
+
+Tell me if ive missed any ores from a supported mod, what mods I should add support for, or what other things I should add a plant for!
+
+Credits:
+
+Developer: SuperAndyHero#1185 <@317900589830897675>
+
+Any sprites not listed below: SuperAndyHero#1185
+
+Demonite, Crimtane, Enchanted Granite,
+Enchanted Marble, Cryolite, Thermite, Star Piece,
+Spirit Ore, & Floran Ore Sprites: Darkpuppey#9233
+
+Copper, Tin, Iron, Lead, Silver, Tungsten, & Soul Plants Sprites: beberhard22#8066
+
+Chaotic Sprite: Stuckinahol3#9719

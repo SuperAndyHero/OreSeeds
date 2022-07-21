@@ -421,6 +421,8 @@ namespace OreSeeds
                 DropSeed(i, j, true, false);
                 DropOre(i, j, Main.rand.Next(OreAmount.min, OreAmount.max + 1), true);
                 Main.tile[i, j].TileFrameX = 0;
+                WorldGen.SquareTileFrame(i, j, true);
+                NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
                 return true;
             }
             else
@@ -435,7 +437,8 @@ namespace OreSeeds
 
             if (!IsLastFrame(i, j) && Main.rand.NextFloat(0.000001f, 0.999999f) < chance)
             {
-                Main.tile[i, j].TileFrameX += 18; WorldGen.SquareTileFrame(i, j, true);
+                Main.tile[i, j].TileFrameX += 18; 
+                WorldGen.SquareTileFrame(i, j, true);
                 NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
             }
         }
@@ -445,17 +448,25 @@ namespace OreSeeds
             int count = broken ? 1 : 0;
             if (grown && Main.rand.NextFloat(0.000001f, 0.999999f) < ExtraInfo.SeedDropChance(i, j))
                 count++;
-            if(count != 0)
-                Item.NewItem(broken ? new Terraria.DataStructures.EntitySource_TileBreak(i, j, "OrePlantBreak") : 
+            if (count != 0)
+            {
+                int itemIndex = Item.NewItem(broken ? new Terraria.DataStructures.EntitySource_TileBreak(i, j, "OrePlantBreak") :
                     new Terraria.DataStructures.EntitySource_TileInteraction(Main.LocalPlayer, i, j, "OrePlantHarvest"),
                     i * 16, j * 16, 0, 0, Mod.Find<ModItem>(TypeInfo.ItemInternalName).Type, count);
+
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                    NetMessage.SendData(MessageID.SyncItem, number: itemIndex, number2: 1f);
+            }
         }
 
         public void DropOre(int i, int j, int count, bool rightClick = false)
         {
-            Item.NewItem(rightClick ? new Terraria.DataStructures.EntitySource_TileInteraction(Main.LocalPlayer, i, j, "OrePlantHarvest") :
+            int itemIndex = Item.NewItem(rightClick ? new Terraria.DataStructures.EntitySource_TileInteraction(Main.LocalPlayer, i, j, "OrePlantHarvest") :
                 new Terraria.DataStructures.EntitySource_TileBreak(i, j, "OrePlantBreak"),
                 i * 16, j * 16, 0, 0, OreItem.Invoke(), count);
+
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                NetMessage.SendData(MessageID.SyncItem, number: itemIndex, number2: 1f);
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
