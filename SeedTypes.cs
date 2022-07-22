@@ -364,16 +364,21 @@ namespace OreSeeds
             Main.tileNoFail[Type] = true;
             Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
-            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop, 1, 0);
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.AlternateTile, 1, 0);
             TileObjectData.newTile.DrawYOffset = -4;
             Main.tileLavaDeath[Type] = true;
+
+            //these are either SolidWithTop or NonSolid, so they need a special case to be placed on.
+            //They are still included in the normal valid tile list so that they appear in the tooltip.
+            TileObjectData.newTile.AnchorAlternateTiles = new int[] { TileID.ClayPot, TileID.PlanterBox };
+
             List<int> validTiles = new List<int>
             {
                 TileID.Dirt,
                 TileID.Grass,
+                TileID.GolfGrass,
                 TileID.PlanterBox,
-                TileID.ClayPot,
-                TileID.GolfGrass
+                TileID.ClayPot
             };
 
             #region special cases

@@ -36,10 +36,10 @@ Developer: [c/40fff8:SuperAndyHero#1185] [c/2F3C70:<@317900589830897675>]
 
 Any sprites not listed below: [c/40fff8:SuperAndyHero#1185]
 
+Cryonic, Perrenial, Scoria, Aerialite, and Victory Shard Sprites: 32Polaris#2721
+
 Demonite, Crimtane, Enchanted Granite,
 Enchanted Marble, Cryolite, Thermite, Star Piece,
 Spirit Ore, & Floran Ore Sprites: [c/FFee51:Darkpuppey#9233]
 
 Copper, Tin, Iron, Lead, Silver, Tungsten, & Soul Plants Sprites: [c/FFee51:beberhard22#8066]
-
-Chaotic Sprite: [c/FFee51:Stuckinahol3#9719]
