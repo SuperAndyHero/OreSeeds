@@ -3,7 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -125,6 +129,7 @@ namespace OreSeeds
         private readonly TypeInfo TypeInfo;
         //private readonly ExtraInfo ExtraInfo;
         //todo cache every seed in a list
+
         public BasePlantItem(Func<int> oreItem, int oreAmount, Tags tags, (int, int) oreDropRange, string description, SeedRecipe recipeInfo, TypeInfo typeInfo)
         {
             OreItem = oreItem;
@@ -152,7 +157,7 @@ namespace OreSeeds
             if (Tags.HasFlag(Tags.Day))
                 tooltip += "\nGrows best during the day";
             if (Tags.HasFlag(Tags.Hell))
-                tooltip += "\nMust be grown near hell";
+                tooltip += "\nWill only grow in or near hell";
 
             Tooltip.SetDefault(tooltip);
         }
@@ -186,8 +191,35 @@ namespace OreSeeds
             Item.createTile = Mod.Find<ModTile>(TypeInfo.TileInternalName).Type;
         }
 
+        public static Rectangle GetFrame(int tileID)
+        {
+            if(tileID == 78)
+                return new Rectangle(0, 0, 16, 16);
+            if (tileID == 380)
+                return new Rectangle(54, 0, 16, 16);
+            else
+                return new Rectangle(162, 54, 16, 16);
+        }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
+            if (Tags.HasFlag(Tags.Hardmode) && !Main.hardMode)
+            {
+                var line = new TooltipLine(Mod, "HardmodeWarning", "Will only grow in hardmode!")
+                {
+                    OverrideColor = new Color(255, 150, 150)
+                };
+                tooltips.Add(line);
+            }
+            else if(Tags.HasFlag(Tags.PostMoonlord) && !NPC.downedMoonlord)
+            {
+                var line = new TooltipLine(Mod, "MoonlordWarning", "Will only grow once moonlord has been defeated!")
+                {
+                    OverrideColor = new Color(255, 150, 150)
+                };
+                tooltips.Add(line);
+            }
+
             if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.LeftShift))
             {
                 var line = new TooltipLine(Mod, "Tags", Tags.ToString())
@@ -197,8 +229,42 @@ namespace OreSeeds
                 tooltips.Add(line);//tooltip += "\n[c/576899:" + Tags.ToString() + "]";
 
             }
+            else if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.LeftControl))
+            {
+                TooltipLine line;
+                //if (cachedDescription == null)
+                //{
+                //    StringBuilder sb = new StringBuilder();
+                //    for (int i = 0; i < 5; i++)
+                //        sb.Append("[i:" + SeedLoader.ValidTiles[Item.createTile][i] + "]");
+                //    cachedDescription = sb.ToString();
+                //}
+
+                for (int i = 0; i < SeedLoader.ValidTiles[Item.createTile].Length; i++)
+                {
+                    Main.instance.LoadTiles(SeedLoader.ValidTiles[Item.createTile][i]);
+                }
+
+                line = new TooltipLine(Mod, "ValidTiles", new string('M', SeedLoader.ValidTiles[Item.createTile].Length));
+                tooltips.Add(line);
+
+            }
             else
-                tooltips.Add(new TooltipLine(Mod, "ShiftInfo", "[Hold shift for tags]"));
+                tooltips.Add(new TooltipLine(Mod, "ItemInfo", "[c/858585:{Hold ]shift[c/858585: for tags or ]ctrl[c/858585: for valid tiles}]"));
+        }
+
+        public override bool PreDrawTooltipLine(DrawableTooltipLine line, ref int yOffset)
+        {
+            if(line.Name == "ValidTiles")
+            {
+                for (int i = 0; i < SeedLoader.ValidTiles[Item.createTile].Length; i++)
+                {
+                    int tileID = SeedLoader.ValidTiles[Item.createTile][i];
+                    Main.spriteBatch.Draw(TextureAssets.Tile[tileID].Value, new Vector2(line.X + (i * 16), line.Y), GetFrame(tileID),  Color.White);
+                }
+                return false;
+            }
+            return true;
         }
 
         public override void AddRecipes()
@@ -277,9 +343,9 @@ namespace OreSeeds
                 chance *= 0.1f;
 
             if (tags.HasFlag(Tags.PostMoonlord))
-                chance *= NPC.downedMoonlord ? 0.50f : 0.1f;
+                chance *= NPC.downedMoonlord ? 0.7f : 0.075f;
             else if (tags.HasFlag(Tags.Hardmode))
-                chance *= Main.hardMode ? 0.75f : 0.2f;
+                chance *= Main.hardMode ? 0.85f : 0.15f;
 
             return chance;
         }
@@ -296,7 +362,9 @@ namespace OreSeeds
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoFail[Type] = true;
+            Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop, 1, 0);
             TileObjectData.newTile.DrawYOffset = -4;
             Main.tileLavaDeath[Type] = true;
             List<int> validTiles = new List<int>
@@ -305,16 +373,7 @@ namespace OreSeeds
                 TileID.Grass,
                 TileID.PlanterBox,
                 TileID.ClayPot,
-                TileID.PotsSuspended,
-                TileID.GolfGrass,
-                3215,
-                3216,
-                3217,
-                3218,
-                3219,
-                3220,
-                3221,
-                3222
+                TileID.GolfGrass
             };
 
             #region special cases
@@ -346,6 +405,7 @@ namespace OreSeeds
                 validTiles.Add(TileID.Ebonsand);
                 validTiles.Add(TileID.Crimsand);
                 validTiles.Add(TileID.Pearlsand);
+
                 validTiles.Add(TileID.HardenedSand);
                 validTiles.Add(TileID.CorruptSandstone);
                 validTiles.Add(TileID.CrimsonSandstone);
@@ -379,6 +439,7 @@ namespace OreSeeds
             }
             if (Tags.HasFlag(Tags.Water))
             {
+                TileObjectData.newTile.WaterPlacement = LiquidPlacement.OnlyInLiquid;
                 validTiles.Add(TileID.Sand);
                 validTiles.Add(TileID.Ebonsand);
                 validTiles.Add(TileID.Crimsand);
@@ -387,7 +448,9 @@ namespace OreSeeds
             }
             #endregion
 
-            TileObjectData.newTile.AnchorValidTiles = validTiles.ToArray();
+            int[] validTileArray = validTiles.ToArray();
+            TileObjectData.newTile.AnchorValidTiles = validTileArray;
+            SeedLoader.ValidTiles.Add(Type, validTileArray);
             TileObjectData.addTile(Type);
 
             ModTranslation name = CreateMapEntryName();

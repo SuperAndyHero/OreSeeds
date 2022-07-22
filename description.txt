@@ -10,10 +10,13 @@ Plus supports ores from:
 
 It is suggested you have recipe browser too.
 
-Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
-Most plants will give back extra seeds
+Check the description of a seed for any special growth requirements.
+Hold left ctrl while hovering over a seed to see what tiles it can be planted on
 
-Some types of plants can be planted on other types of blocks.
+Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
+Most plants will give back extra seeds unless stated otherwise in the desciption.
+
+Also works in multiplayer!
 
 (Coming soon) Recipes can be made easier or harder via the config if need-be.
 
@@ -21,7 +24,6 @@ Coming soon in a future version:
 Auto harvesters
 Growth accelerators
 
-Also works in multiplayer!
 
 If you find any bugs, have have some feedback, or want to help with sprites then contact me on discord: [c/40fff8:SuperAndyHero#1185], or via my discord for all of my mods: [c/4040ff:https://discord.gg/upFBjZS] 
 [c/576899:Or click the homepage button at the bottom]

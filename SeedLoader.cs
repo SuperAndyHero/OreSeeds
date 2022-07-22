@@ -15,11 +15,13 @@ namespace OreSeeds
 	public static class SeedLoader
     {
         public static Mod Mod => OreSeeds.Instance;
+        public static Dictionary<int, int[]> ValidTiles;
 
         private static RecipeGroup SeedRecipeGroup;
         private static RecipeGroup CobaltSeedGroup;
         private static RecipeGroup MythrilSeedGroup;
         private static RecipeGroup AdamantiteSeedGroup;
+
         public static void AddRecipeGroups()
         {
             //todo: Add translation for this
@@ -55,6 +57,8 @@ namespace OreSeeds
 
         public static void Load()
         {
+            ValidTiles = new Dictionary<int, int[]>();
+
             #region ores
             AddPlant("Copper",
                 () => ItemID.CopperOre, 15,
@@ -75,31 +79,31 @@ namespace OreSeeds
                 Tags.PreHardmode | Tags.MundaneOre);
 
             AddPlant("Gold",
-               () => ItemID.GoldOre, 30,
+               () => ItemID.GoldOre, 28,
                Tags.PreHardmode | Tags.MundaneOre);
 
             AddPlant("Platinum",
-               () => ItemID.PlatinumOre, 30,
+               () => ItemID.PlatinumOre, 28,
                Tags.PreHardmode | Tags.MundaneOre);
 
             AddPlant("Meteorite",
-               () => ItemID.Meteorite, 30,
+               () => ItemID.Meteorite, 26,
                Tags.PreHardmode);
 
             AddPlant("Demonite",
-               () => ItemID.DemoniteOre, 20,
+               () => ItemID.DemoniteOre, 24,
                Tags.PreHardmode | Tags.Evil, 
                description: "Crafted at a demon altar",
                recipe: new SeedRecipe(TileID.DemonAltar)); 
 
             AddPlant("Crimtane",
-               () => ItemID.CrimtaneOre, 20,
+               () => ItemID.CrimtaneOre, 24,
                Tags.PreHardmode | Tags.Evil,
                description: "Crafted at a crimson altar",
                recipe: new SeedRecipe(TileID.DemonAltar));
 
             AddPlant("Obsidian",
-               () => ItemID.Obsidian, 12,
+               () => ItemID.Obsidian, 20,
                Tags.PreHardmode | Tags.Hell,
                (2, 4));
                //description: "Crafted near lava",
@@ -112,50 +116,48 @@ namespace OreSeeds
                recipe: new SeedRecipe(TileID.Hellforge));
 
             AddPlant("Cobalt",
-               () => ItemID.CobaltOre, 16,
+               () => ItemID.CobaltOre, 12,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.IronAnvil}]\nDoes not drop seeds",
-               recipe: new SeedRecipe(TileID.Anvils),
-               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
+               description: $"Crafted at [i:{ItemID.IronAnvil}]",
+               recipe: new SeedRecipe(TileID.Anvils));
 
             AddPlant("Palladium",
-               () => ItemID.PalladiumOre, 16,
+               () => ItemID.PalladiumOre, 12,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.LeadAnvil}]\nDoes not drop seeds",
-               recipe: new SeedRecipe(TileID.Anvils),
-               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
+               description: $"Crafted at [i:{ItemID.LeadAnvil}]",
+               recipe: new SeedRecipe(TileID.Anvils));
 
             AddPlant("Mythril",
-               () => ItemID.MythrilOre, 24,
+               () => ItemID.MythrilOre, 16,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.MythrilAnvil}]\nDoes not drop seeds",
+               description: $"Crafted at [i:{ItemID.MythrilAnvil}]\nLower chance to drop seeds",
                recipe: new SeedRecipe(TileID.MythrilAnvil,
-               BaseSeedGroup: ("OreSeeds:CobaltSeeds", 2)),
-               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
+               BaseSeedGroup: ("OreSeeds:CobaltSeeds", 1)),
+               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.35f));
 
             AddPlant("Orichalcum",
-               () => ItemID.OrichalcumOre, 24,
+               () => ItemID.OrichalcumOre, 16,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.OrichalcumAnvil}]\nDoes not drop seeds",
+               description: $"Crafted at [i:{ItemID.OrichalcumAnvil}]\nLower chance to drop seeds",
                recipe: new SeedRecipe(TileID.MythrilAnvil,
-               BaseSeedGroup: ("OreSeeds:CobaltSeeds", 2)),
-               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
+               BaseSeedGroup: ("OreSeeds:CobaltSeeds", 1)),
+               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.35f));
 
             AddPlant("Adamantite",
-               () => ItemID.AdamantiteOre, 32,
+               () => ItemID.AdamantiteOre, 20,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.AdamantiteForge}]\nDoes not drop seeds",
+               description: $"Crafted at [i:{ItemID.AdamantiteForge}]\nRarely drops seeds",
                recipe: new SeedRecipe(TileID.AdamantiteForge,
-               BaseSeedGroup: ("OreSeeds:MythrilSeeds", 2)),
-               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
+               BaseSeedGroup: ("OreSeeds:MythrilSeeds", 1)),
+               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.2f));
 
             AddPlant("Titanium",
-               () => ItemID.TitaniumOre, 32,
+               () => ItemID.TitaniumOre, 20,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.TitaniumForge}]\nDoes not drop seeds",
+               description: $"Crafted at [i:{ItemID.TitaniumForge}]\nRarely drops seeds",
                recipe: new SeedRecipe(TileID.AdamantiteForge,
-               BaseSeedGroup: ("OreSeeds:MythrilSeeds", 2)),
-               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0f));
+               BaseSeedGroup: ("OreSeeds:MythrilSeeds", 1)),
+               extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.2f));
 
             AddPlant("Chlorophyte",
                () => ItemID.ChlorophyteOre, 28,
@@ -163,10 +165,10 @@ namespace OreSeeds
                (2, 5),
                extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.75f));//default is 0.5
 
-            //hallowed moved to calamity mod else
+            //hallowed moved to calamity mod else statement
 
             AddPlant("Luminite",
-               () => ItemID.LunarOre, 35,
+               () => ItemID.LunarOre, 30,
                Tags.PostMoonlord,
                description: $"Crafted at [i:{ItemID.LunarCraftingStation}]\nRarely drops seeds",
                recipe: new SeedRecipe(TileID.LunarCraftingStation,
@@ -178,23 +180,23 @@ namespace OreSeeds
                    (() => ItemID.FragmentStardust, 1),
                }),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.01f));
+                   SeedDropChance: (int i, int j) => 0.075f));//7.5% chance
 
             AddPlantRange(new (string, Func<int>, int)[]{
-                ("Amethyst", () => ItemID.Amethyst, 12),
-                ("Topaz", () => ItemID.Topaz, 12),
-                ("Sapphire", () => ItemID.Sapphire, 16),
-                ("Emerald", () => ItemID.Emerald, 16),
-                ("Ruby", () => ItemID.Ruby, 20),
-                ("Diamond", () => ItemID.Diamond, 20)}, 
+                ("Amethyst", () => ItemID.Amethyst, 8),
+                ("Topaz", () => ItemID.Topaz, 8),
+                ("Sapphire", () => ItemID.Sapphire, 12),
+                ("Emerald", () => ItemID.Emerald, 12),
+                ("Ruby", () => ItemID.Ruby, 16),
+                ("Diamond", () => ItemID.Diamond, 16)}, 
                 Tags.PreHardmode | Tags.Gem);
 
             AddPlant("Amber",
-               () => ItemID.Amber, 15,
+               () => ItemID.Amber, 14,
                Tags.PreHardmode | Tags.Gem | Tags.Desert);
                 
             AddPlant("Fossil",
-               () => ItemID.FossilOre, 25,
+               () => ItemID.FossilOre, 24,
                Tags.PreHardmode | Tags.Desert);
             #endregion
             
@@ -243,34 +245,34 @@ namespace OreSeeds
                (1, 2));
 
             AddPlant("Soul of Might",
-               () => ItemID.SoulofMight, 12,
+               () => ItemID.SoulofMight, 8,
                Tags.Hardmode | Tags.NonOre | Tags.BossDrop,
                (1, 1),
-               description: "Low seed rate",
+               description: "Rarely drops seeds",
                recipe: new SeedRecipe(
-                   ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 4) }),
+                   ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.15f));
+                   SeedDropChance: (int i, int j) => 0.2f));
 
             AddPlant("Soul of Sight",
-               () => ItemID.SoulofSight, 12,
+               () => ItemID.SoulofSight, 8,
                Tags.Hardmode | Tags.NonOre | Tags.BossDrop,
                (1, 1),
-               description: "Low seed rate",
+               description: "Rarely drops seeds",
                recipe: new SeedRecipe(
-                   ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 4) }),
+                   ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.15f));
+                   SeedDropChance: (int i, int j) => 0.2f));
 
             AddPlant("Soul of Fright",
-               () => ItemID.SoulofFright, 12,
+               () => ItemID.SoulofFright, 8,
                Tags.Hardmode | Tags.NonOre | Tags.BossDrop,
                (1, 1),
-               description: "Low seed rate",
+               description: "Rarely drops seeds",
                recipe: new SeedRecipe(
-                   ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 4) }),
+                   ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.15f));
+                   SeedDropChance: (int i, int j) => 0.2f));
             #endregion
 
             #region modded
@@ -371,7 +373,7 @@ namespace OreSeeds
 
 
                 //post moonlord
-                AddPlant("ExodiumCluster",
+                AddPlant("Exodium Cluster",
                 () => calamityMod.Find<ModItem>("ExodiumCluster").Type, 24,
                 Tags.PostMoonlord | Tags.Modded);
 
@@ -394,9 +396,9 @@ namespace OreSeeds
                ("OreSeeds:AdamantiteSeeds", 1),
                new (Func<int>, int count)[]
                {
-                   (() => ItemID.SoulofMight, 3),
-                   (() => ItemID.SoulofSight, 3),
-                   (() => ItemID.SoulofFright, 3)
+                   (() => ItemID.SoulofMight, 1),
+                   (() => ItemID.SoulofSight, 1),
+                   (() => ItemID.SoulofFright, 1)
                },
                new (string group, int count)[] {
                    ("OreSeeds:MythrilSeeds", 1),
@@ -566,6 +568,7 @@ namespace OreSeeds
 
         public static void Unload()
         {
+            ValidTiles = null;
             SeedRecipeGroup = null;
 
             CobaltSeedGroup = null;
