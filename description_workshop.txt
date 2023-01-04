@@ -43,3 +43,5 @@ Enchanted Marble, Cryolite, Thermite, Star Piece,
 Spirit Ore, & Floran Ore Sprites: Darkpuppey#9233
 
 Copper, Tin, Iron, Lead, Silver, Tungsten, & Soul Plants Sprites: beberhard22#8066
+
+Source code: https://github.com/SuperAndyHero/OreSeeds

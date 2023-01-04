@@ -599,7 +599,8 @@ namespace OreSeeds
                 thisDropRange,
                 description,
                 thisRecipe,
-                thisInfo));
+                thisInfo,
+                thisExtra));
             Mod.AddContent(new BasePlantTile(
                 oreItem,
                 thisDropRange,

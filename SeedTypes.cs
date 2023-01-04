@@ -98,7 +98,7 @@ namespace OreSeeds
         }
     }
 
-    //tile only (at the moment)
+    //shared between both, only the seeds only need it for mod compat
     public class ExtraInfo
     {
         public readonly Func<int, int, float> SeedDropChance;
@@ -127,10 +127,10 @@ namespace OreSeeds
         public readonly Tags Tags;
         private readonly SeedRecipe RecipeInfo;
         private readonly TypeInfo TypeInfo;
-        //private readonly ExtraInfo ExtraInfo;
+        private readonly ExtraInfo ExtraInfo;
         //todo cache every seed in a list
 
-        public BasePlantItem(Func<int> oreItem, int oreAmount, Tags tags, (int, int) oreDropRange, string description, SeedRecipe recipeInfo, TypeInfo typeInfo)
+        public BasePlantItem(Func<int> oreItem, int oreAmount, Tags tags, (int, int) oreDropRange, string description, SeedRecipe recipeInfo, TypeInfo typeInfo, ExtraInfo extraInfo)
         {
             OreItem = oreItem;
             OreAmount = oreAmount;
@@ -139,9 +139,9 @@ namespace OreSeeds
             Description = description;
             RecipeInfo = recipeInfo;
             TypeInfo = typeInfo;
-            //ExtraInfo = extraInfo;
+            ExtraInfo = extraInfo;
         }
-        
+
         protected override bool CloneNewInstances => true;
         public override string Name => TypeInfo.ItemInternalName;
         public override string Texture => Mod.Name + "/Items/Seeds/" + Name;
@@ -270,6 +270,13 @@ namespace OreSeeds
         public override void AddRecipes()
         {
             #region mod compat
+            ModLoader.TryGetMod("miningcracks_take_on_luiafk", out var result);
+            Mod LuiMod = result;
+            if (LuiMod != null)
+            {
+                Func<int> func = () => { return Main.rand.Next(OreDropRange.min, OreDropRange.max + 1); };
+                LuiMod.Call("plantharvest", TileID.TinkerersWorkbench, 18, ItemID.TinkerersWorkshop, func);
+            }
             //luiafk is no longer active and will likely not be ported
             //if (ModLoader.TryGetMod("Luiafk", out Mod luiafk))//no clue if luiafk still has this, but its here just in case
             //{
@@ -327,7 +334,6 @@ namespace OreSeeds
             TypeInfo = typeInfo;
             ExtraInfo = extraInfo;
         }
-
         //TODO
         //location could be changed
         public static float TagGrowthModifier(int i, int j, Tags tags) 
@@ -462,6 +468,7 @@ namespace OreSeeds
             name.SetDefault(TypeInfo.TileMapName);
             AddMapEntry(TypeInfo.MapColor, name);
         }
+
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {
             if (i % 2 == 1)
