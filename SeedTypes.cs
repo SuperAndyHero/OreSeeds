@@ -121,8 +121,8 @@ namespace OreSeeds
     public class BasePlantItem : ModItem
     {
         public readonly Func<int> OreItem;//todo: use value for a seed recylcler
-        private readonly int OreAmount;
-        private readonly (int min, int max) OreDropRange;
+        private readonly int OreAmount;//crafting amount
+        public readonly (int min, int max) OreDropRange;//drop amount
         private readonly string Description;
         public readonly Tags Tags;
         private readonly SeedRecipe RecipeInfo;
@@ -322,7 +322,7 @@ namespace OreSeeds
     public class BasePlantTile : ModTile
     {
         private readonly Func<int> OreItem;
-        private readonly (int min, int max) OreAmount;
+        private readonly (int min, int max) OreAmount;//drop amount
         public readonly Tags Tags;
         private readonly TypeInfo TypeInfo;
         private readonly ExtraInfo ExtraInfo;

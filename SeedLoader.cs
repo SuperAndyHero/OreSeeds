@@ -230,14 +230,14 @@ namespace OreSeeds
                Tags.Hardmode | Tags.NonOre | Tags.MobDrop | Tags.Hallowed,
                (1, 2),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.33f));
+                   SeedDropChance: (int i, int j) => 0.55f));
 
             AddPlant("Soul of Night",
                () => ItemID.SoulofNight, 16,
                Tags.Hardmode | Tags.NonOre | Tags.MobDrop | Tags.Evil,
                (1, 2),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.33f));
+                   SeedDropChance: (int i, int j) => 0.55f));
 
             AddPlant("Soul of Flight",
                () => ItemID.SoulofFlight, 14,
@@ -252,7 +252,7 @@ namespace OreSeeds
                recipe: new SeedRecipe(
                    ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.2f));
+                   SeedDropChance: (int i, int j) => 0.3f));
 
             AddPlant("Soul of Sight",
                () => ItemID.SoulofSight, 8,
@@ -262,7 +262,7 @@ namespace OreSeeds
                recipe: new SeedRecipe(
                    ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.2f));
+                   SeedDropChance: (int i, int j) => 0.3f));
 
             AddPlant("Soul of Fright",
                () => ItemID.SoulofFright, 8,
@@ -272,7 +272,7 @@ namespace OreSeeds
                recipe: new SeedRecipe(
                    ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
-                   SeedDropChance: (int i, int j) => 0.2f));
+                   SeedDropChance: (int i, int j) => 0.3f));
             #endregion
 
             #region modded
