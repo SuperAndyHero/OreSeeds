@@ -275,9 +275,13 @@ namespace OreSeeds
             if (LuiMod != null)
             {
                 Func<int> func = () => { return Main.rand.Next(OreDropRange.min, OreDropRange.max + 1); };
-                LuiMod.Call("plantharvest", TileID.TinkerersWorkbench, 18, ItemID.TinkerersWorkshop, func);
+                LuiMod.Call("plantharvest", Mod.Find<ModTile>(TypeInfo.TileInternalName).Type, 18 * 2, OreItem(), func);
             }
-            //luiafk is no longer active and will likely not be ported
+            if (LuiMod != null)
+            {
+                Func<int> func = () => { return Main.rand.Next(OreDropRange.min, OreDropRange.max + 1); };
+                LuiMod.Call("plantharvest", Mod.Find<ModTile>(TypeInfo.TileInternalName).Type, 18 * 2, OreItem, func);
+            }
             //if (ModLoader.TryGetMod("Luiafk", out Mod luiafk))//no clue if luiafk still has this, but its here just in case
             //{
             //    ModLoader.GetMod("Luiafk").Call("plantharvest", Mod.Find<ModTile>(TypeInfo.TileInternalName).Type, 18 * 2, OreItem, () => Main.rand.Next(OreDropRange.min, OreDropRange.max + 1));

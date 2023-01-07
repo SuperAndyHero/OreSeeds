@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using OreSeeds.Items;
+using OreSeeds.UI;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -33,7 +34,7 @@ namespace OreSeeds.Tiles
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<ExampleBar>());
+            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<RecyclerItem>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

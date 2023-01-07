@@ -16,7 +16,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 
-namespace OreSeeds.Tiles
+namespace OreSeeds.UI
 {
     class RecyclerUISystem : ModSystem
     {
@@ -25,17 +25,21 @@ namespace OreSeeds.Tiles
 
         public void ShowUI(Vector2 origin)
         {
-            RecyclerUIPanel.OnInitialize();//debug
-            RecyclerUIPanel.TilePosition = origin;
-            Main.playerInventory = true;
-            RecyclerUserInterface?.SetState(RecyclerUIPanel);
+            if (RecyclerUserInterface != null && RecyclerUserInterface.CurrentState != RecyclerUIPanel)
+            {
+                SoundEngine.PlaySound(SoundID.MenuOpen);
+                RecyclerUIPanel.OnInitialize();//builds window and initalizes item arrays
+                RecyclerUIPanel.TilePosition = origin;
+                Main.playerInventory = true;
+                RecyclerUserInterface?.SetState(RecyclerUIPanel);
+            }
         }
 
         public void HideUI()
         {
             RecyclerUserInterface?.SetState(null);
-            RecyclerUIPanel.ReturnItems();
-            RecyclerUIPanel.RemoveAllChildren();//debug
+            RecyclerUIPanel.ReturnItems();//returns items and sets the item arrays to null
+            RecyclerUIPanel.RemoveAllChildren();//removes all elements, prevents instances of the window from building up
         }
 
         public override void Load()
@@ -73,6 +77,8 @@ namespace OreSeeds.Tiles
 
     internal class RecyclerUI : UIState
     {
+        const int RecycleRate = 40;
+
         // For this bar we'll be using a frame texture and then a gradient inside bar, as it's one of the more simpler approaches while still looking decent.
         // Once this is all set up make sure to go and do the required stuff for most UI's in the ModSystem class.
         private UIPanel panel;
@@ -98,7 +104,7 @@ namespace OreSeeds.Tiles
 
             panel.Top.Set(-panel.Height.Pixels / Main.UIScale, 0.5f);
 
-            panel.BackgroundColor = new Color(30, 45, 100, 150);
+            panel.BackgroundColor = new Color(25, 45, 80, 150);
 
 
             //var text = new UIText("0/0", 0.8f); // text to show stat
@@ -107,6 +113,13 @@ namespace OreSeeds.Tiles
             //text.Top.Set(0, 0.5f);
             //text.Left.Set(0, 0.5f);
             //panel.Append(text);
+
+            var c = new UIHoverImage(ModContent.Request<Texture2D>("OreSeeds/UI/Info"), $"Receive drops at a {RecycleRate}% rate\nRight-click to recycle all", new Color(150, 150, 150, 150));
+            c.Width.Pixels = 20;
+            c.Height.Pixels = 28;
+            c.Left.Set(-10, 0.83f);
+            c.Top.Set(-14, 0.5f);
+            panel.Append(c);
 
             //30 is invisible
             //default size is 48
@@ -121,11 +134,11 @@ namespace OreSeeds.Tiles
             }
 
             //var tex = ModContent.Request<Texture2D>("OreSeeds/Tiles/DownArrow");
-            var b = new CustomButton(Language.GetText("recycle seeds"), Color.White, ModContent.Request<Texture2D>("OreSeeds/Tiles/DownArrow"), OnClick, "debug");
+            var b = new CustomButton(Language.GetText("Recycle Seeds"), Color.White, ModContent.Request<Texture2D>("OreSeeds/UI/DownArrow"), OnClick, "debug");
             b.SetColor(panel.BackgroundColor, 0.8f);
-            b.Width.Pixels = 120;
+            b.Width.Pixels = 128;
             b.Height.Pixels = 40;
-            b.Left.Set(-60, 0.5f);
+            b.Left.Set(-64, 0.5f);
             b.Top.Set(-20, 0.5f);
             panel.Append(b);
 
@@ -158,11 +171,11 @@ namespace OreSeeds.Tiles
                         int amount = (int)(Main.rand.Next(moditem.OreDropRange.min, moditem.OreDropRange.max + 1));
                         if(amount == 1)
                         {
-                            if (Main.rand.NextFloat() > 0.6f)//60% chance to get the item if its only 1 drop
+                            if (Main.rand.NextFloat() > (RecycleRate * 0.01f))//RecycleRate% chance to get the item if its only 1 drop
                                 amount = 0;
                         }
                         else
-                            amount = (int)(amount * 0.6f);//else drop 60% less
+                            amount = (int)(amount * (RecycleRate * 0.01f));//else drop RecycleRate% less
 
                         bool foundSlot = false;
                         for (int i = 0; i < OutputArray.Length; i++)
@@ -197,15 +210,6 @@ namespace OreSeeds.Tiles
             }
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            // This prevents drawing unless we are using an ExampleCustomResourceWeapon
-            //if (Main.LocalPlayer.HeldItem.ModItem is not ExampleCustomResourceWeapon)
-            //    return;
-
-            base.Draw(spriteBatch);
-        }
-
         public override void Update(GameTime gameTime)
         {
             if (panel.ContainsPoint(Main.MouseScreen))
@@ -229,13 +233,17 @@ namespace OreSeeds.Tiles
         {
             foreach(var item in InputArray)
             {
-                Main.LocalPlayer.QuickSpawnItem(Item.GetSource_None(), item, item.stack);
+                if(!item.IsAir)
+                    Main.LocalPlayer.QuickSpawnItem(Item.GetSource_None(), item, item.stack);
             }
             foreach (var item in OutputArray)
             {
-                Main.LocalPlayer.QuickSpawnItem(Item.GetSource_None(), item, item.stack);
+                if (!item.IsAir)
+                    Main.LocalPlayer.QuickSpawnItem(Item.GetSource_None(), item, item.stack);
             }
-            Main.NewText("items returned");
+            InputArray = null;
+            OutputArray = null;
+            //Main.NewText("items returned");
         }
     }
 
@@ -388,6 +396,100 @@ namespace OreSeeds.Tiles
         public new void SetHoverColor(Color color)
         {
             _hoverColor = color;
+        }
+    }
+
+    public class UIHoverImage : UIElement
+    {
+        private Asset<Texture2D> _texture;
+
+        public float ImageScale = 1f;
+
+        public float Rotation;
+
+        public bool ScaleToFit;
+
+        public bool AllowResizingDimensions = true;
+
+        public Color Color = Color.White;
+
+        public Vector2 NormalizedOrigin = Vector2.Zero;
+
+        public bool RemoveFloatingPointsFromDrawPosition;
+
+        private Texture2D _nonReloadingTexture;
+
+        public string HoverText;
+
+        public UIHoverImage(Asset<Texture2D> texture, string hoverText, Color color)
+        {
+            HoverText = hoverText;
+            Color = color;
+            SetImage(texture);
+        }
+
+        public UIHoverImage(Texture2D nonReloadingTexture, string hoverText, Color color)
+        {
+            HoverText = hoverText;
+            Color = color;
+            SetImage(nonReloadingTexture);
+        }
+
+        public void SetImage(Asset<Texture2D> texture)
+        {
+            _texture = texture;
+            _nonReloadingTexture = null;
+            if (AllowResizingDimensions)
+            {
+                this.Width.Set(_texture.Width(), 0f);
+                Height.Set(_texture.Height(), 0f);
+            }
+        }
+
+        public void SetImage(Texture2D nonReloadingTexture)
+        {
+            _texture = null;
+            _nonReloadingTexture = nonReloadingTexture;
+            if (AllowResizingDimensions)
+            {
+                Width.Set(_nonReloadingTexture.Width, 0f);
+                Height.Set(_nonReloadingTexture.Height, 0f);
+            }
+        }
+
+        protected override void DrawSelf(SpriteBatch spriteBatch)
+        {
+            CalculatedStyle dimensions = GetDimensions();
+            Texture2D texture2D = null;
+            if (_texture != null)
+            {
+                texture2D = _texture.Value;
+            }
+
+            if (_nonReloadingTexture != null)
+            {
+                texture2D = _nonReloadingTexture;
+            }
+
+            if (ScaleToFit)
+            {
+                spriteBatch.Draw(texture2D, dimensions.ToRectangle(), Color);
+                return;
+            }
+
+            Vector2 vector = texture2D.Size();
+            Vector2 vector2 = dimensions.Position() + vector * (1f - ImageScale) / 2f + vector * NormalizedOrigin;
+            if (RemoveFloatingPointsFromDrawPosition)
+            {
+                vector2 = vector2.Floor();
+            }
+
+            spriteBatch.Draw(texture2D, vector2, null, Color, Rotation, vector * NormalizedOrigin, ImageScale, SpriteEffects.None, 0f);
+
+            if (IsMouseHovering)
+            {
+                Main.instance.MouseTextHackZoom(HoverText, ItemRarityID.White, 0);
+            }
         }
     }
 }
