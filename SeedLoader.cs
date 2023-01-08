@@ -291,14 +291,17 @@ namespace OreSeeds
                 ("Life Quartz", () => thoriumMod.Find<ModItem>("LifeQuartz").Type,  24)},
                 Tags.PreHardmode | Tags.Modded | Tags.Gem);
 
-                AddPlantRange(new (string, Func<int>, int)[]{
-                ("Pearl", () => thoriumMod.Find<ModItem>("Pearl").Type,             24),
-                ("Aquaite", () => thoriumMod.Find<ModItem>("Aquaite").Type,         20)},
+                AddPlant("Aquaite", 
+                () => thoriumMod.Find<ModItem>("Aquaite").Type, 20,
                 Tags.PreHardmode | Tags.Water | Tags.Modded | Tags.Gem);
+                
+                //AddPlant("Pearl", 
+                //() => thoriumMod.Find<ModItem>("Pearl").Type, 24,
+                //Tags.PreHardmode | Tags.Water | Tags.Modded | Tags.Gem);
 
-                AddPlant("Magma",
-                () => thoriumMod.Find<ModItem>("MagmaOre").Type, 20,
-                Tags.PreHardmode | Tags.Modded | Tags.Hardmode | Tags.Hell);//unknown if correct
+                //AddPlant("Magma",
+                //() => thoriumMod.Find<ModItem>("MagmaOre").Type, 20,
+                //Tags.PreHardmode | Tags.Modded | Tags.Hardmode | Tags.Hell);//unknown if correct
 
                 AddPlant("Lodestone",
                 () => thoriumMod.Find<ModItem>("LodeStoneChunk").Type, 25,

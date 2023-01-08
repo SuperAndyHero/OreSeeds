@@ -2,11 +2,10 @@ This mod adds growable plants which produce ores (and more) and can be planted w
 
 Plus supports ores from:
 +Calamity
-+Spirit (Port Coming Soon)
++Spirit (Port Planned)
 +Thorium (Port In Progress)
 +Shadows of Abbadon (Port Planned)
 +Starlight River (Unreleased)
-+Endless Escapade (Unreleased)
 
 It is suggested you have recipe browser too.
 
@@ -14,7 +13,7 @@ Check the description of a seed for any special growth requirements.
 Hold left ctrl while hovering over a seed to see what tiles it can be planted on
 
 Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
-Most plants will give back extra seeds
+Most plants will give back extra seeds unless stated otherwise in the desciption.
 
 Also works in multiplayer!
 
