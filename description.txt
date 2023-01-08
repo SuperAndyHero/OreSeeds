@@ -15,7 +15,7 @@ Hold left ctrl while hovering over a seed to see what tiles it can be planted on
 Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
 Plants will often give back extra seeds unless stated otherwise in the desciption.
 
-A seed recycler can be crafted at the workbench to allow you to turn leftover seeds back into oreat a 40% rate.
+A seed recycler can be crafted at the workbench to allow you to turn leftover seeds back into ore at a 40% rate.
 It costs: 1 sawmill, 25 copper bars, 20 iron bars and 50 stone blocks.
 
 Also works in multiplayer!
