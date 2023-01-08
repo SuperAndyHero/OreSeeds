@@ -2,8 +2,8 @@ This mod adds growable plants which produce ores (and more) and can be planted w
 
 Plus supports ores from:
 +Calamity
++Thorium
 +Spirit (Port Planned)
-+Thorium (Port In Progress)
 +Shadows of Abbadon (Port Planned)
 +Starlight River (Unreleased)
 
@@ -13,15 +13,17 @@ Check the description of a seed for any special growth requirements.
 Hold left ctrl while hovering over a seed to see what tiles it can be planted on
 
 Most seeds can be crafted with mushroom grass seeds (or the seeds from any vanilla potion plant) and some amount of the said ore.
-Most plants will give back extra seeds unless stated otherwise in the desciption.
+Plants will often give back extra seeds unless stated otherwise in the desciption.
+
+A seed recycler can be crafted at the workbench to allow you to turn leftover seeds back into ore at a 40% rate.
+It costs: 1 sawmill, 25 copper bars, 20 iron bars and 50 stone blocks.
 
 Also works in multiplayer!
-
-(Coming soon) Recipes can be made easier or harder via the config if need-be.
 
 Coming soon in a future version:
 Auto harvesters
 Growth accelerators
+Config to make seed recipes easier or harder.
 
 
 If you find any bugs, have have some feedback, or want to help with sprites then contact me on discord: SuperAndyHero#1185, or via my discord for all of my mods: https://discord.gg/upFBjZS
