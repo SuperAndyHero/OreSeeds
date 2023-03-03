@@ -13,6 +13,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static OreSeeds.SeedLoader;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace OreSeeds
 {
@@ -38,6 +39,16 @@ namespace OreSeeds
         BossDrop =      1 << 15,
         Night =         1 << 16,
         Day =           1 << 17
+    }
+
+    public enum DescriptionTag
+    {
+        CraftedAt,
+        NoSeeds,
+        RareSeeds,
+        LessSeeds,
+        CraftedDemonAltar,
+        CraftedCrimsonAltar
     }
 
 
@@ -72,21 +83,19 @@ namespace OreSeeds
     public class TypeInfo
     {
         public Color MapColor;
-        [Obsolete]
-        public string TileMapName;
-        [Obsolete]
-        public string ItemName;//depreciated
+        //[Obsolete]
+        //public string TileMapName;
+        //[Obsolete]
+        //public string ItemName;//depreciated
         public string ItemInternalName;
         public string TileInternalName;
         public TypeInfo(Color? MapColor = null,
-            string TileMapName = null,
-            string ItemName = null,
             string ItemInternalName = null,
             string TileInternalName = null)
         {
             this.MapColor = MapColor ?? Color.ForestGreen;
-            this.TileMapName = TileMapName;
-            this.ItemName = ItemName;
+            //this.TileMapName = TileMapName;
+            //this.ItemName = ItemName;
             this.ItemInternalName = ItemInternalName;
             this.TileInternalName = TileInternalName;
         }
@@ -95,8 +104,7 @@ namespace OreSeeds
         {
             ItemInternalName ??= (OreName + "Seeds").Replace(" ", "");
             TileInternalName ??= (OreName + "Plant").Replace(" ", "");
-            TileMapName ??= (OreName + " plant");
-            ItemName ??= OreName + " seeds"; //Language.Exists("Mods.OreSeeds.ItemName." + ItemInternalName) ? Language.GetTextValue("Mods.OreSeeds.ItemName." + ItemInternalName) : OreName + " seeds";
+            //ItemName ??= OreName + " Seeds"; //Language.Exists("Mods.OreSeeds.ItemName." + ItemInternalName) ? Language.GetTextValue("Mods.OreSeeds.ItemName." + ItemInternalName) : OreName + " seeds";
         }
     }
 
@@ -125,20 +133,20 @@ namespace OreSeeds
         public readonly Func<int> OreItem;//todo: use value for a seed recylcler
         private readonly int OreAmount;//crafting amount
         public readonly (int min, int max) OreDropRange;//drop amount
-        private readonly string Description;
+        private readonly (DescriptionTag, int)[] DescriptionTags;//could be object instead of int if other values needed
         public readonly Tags Tags;
         private readonly SeedRecipe RecipeInfo;
         private readonly TypeInfo TypeInfo;
         private readonly ExtraInfo ExtraInfo;
         //todo cache every seed in a list
 
-        public BasePlantItem(Func<int> oreItem, int oreAmount, Tags tags, (int, int) oreDropRange, string description, SeedRecipe recipeInfo, TypeInfo typeInfo, ExtraInfo extraInfo)
+        public BasePlantItem(Func<int> oreItem, int oreAmount, Tags tags, (int, int) oreDropRange, (DescriptionTag, int)[] descriptionTags, SeedRecipe recipeInfo, TypeInfo typeInfo, ExtraInfo extraInfo)
         {
             OreItem = oreItem;
             OreAmount = oreAmount;
             Tags = tags;
             OreDropRange = oreDropRange;
-            Description = description;
+            DescriptionTags = descriptionTags;
             RecipeInfo = recipeInfo;
             TypeInfo = typeInfo;
             ExtraInfo = extraInfo;
@@ -148,21 +156,21 @@ namespace OreSeeds
         public override string Name => TypeInfo.ItemInternalName;
         public override string Texture => Mod.Name + "/Items/Seeds/" + Name;
 
-        public override void SetStaticDefaults()
-        {
-            //DisplayName.SetDefault(TypeInfo.ItemName ?? "Unnamed");
-            string tooltip = Description;
-            if (Tags.HasFlag(Tags.Water))
-                tooltip += "\nMust be grown in water";
-            if (Tags.HasFlag(Tags.Night))
-                    tooltip += "\nGrows best at night";
-            if (Tags.HasFlag(Tags.Day))
-                tooltip += "\nGrows best during the day";
-            if (Tags.HasFlag(Tags.Hell))
-                tooltip += "\nWill only grow in or near hell";
+        //public override void SetStaticDefaults()
+        //{
+        //    //DisplayName.SetDefault(TypeInfo.ItemName ?? "Unnamed");//done by tml
+        //    string tooltip = Description;
+        //    if (Tags.HasFlag(Tags.Water))
+        //        tooltip += "\nMust be grown in water";
+        //    if (Tags.HasFlag(Tags.Night))
+        //            tooltip += "\nGrows best at night";
+        //    if (Tags.HasFlag(Tags.Day))
+        //        tooltip += "\nGrows best during the day";
+        //    if (Tags.HasFlag(Tags.Hell))
+        //        tooltip += "\nWill only grow in or near hell";
 
-            Tooltip.SetDefault(tooltip);
-        }
+        //    Tooltip.SetDefault(tooltip);
+        //}
 
         public override void SetDefaults()
         {
@@ -203,11 +211,37 @@ namespace OreSeeds
                 return new Rectangle(162, 54, 16, 16);
         }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        public override void ModifyTooltips(List<TooltipLine> tooltips)//a
         {
+            if(DescriptionTags != null)
+                foreach ((DescriptionTag tag, int data) pair in DescriptionTags)
+                {
+                    if(pair.tag == DescriptionTag.CraftedAt)
+                    {
+                        StringBuilder text = new StringBuilder();
+                        text.Append(Language.GetTextValue("Mods.OreSeeds.DescriptionTag.CraftedAt"));
+                        text.Append($" [i:{pair.data}]");
+                        tooltips.Add(new TooltipLine(Mod, pair.tag.ToString(), text.ToString()));
+                    }
+                    else
+                    {
+                        string tagname = pair.tag.ToString();
+                        tooltips.Add(new TooltipLine(Mod, tagname, Language.GetTextValue("Mods.OreSeeds.DescriptionTag." + tagname)));
+                    }
+                }
+
+            if (Tags.HasFlag(Tags.Water))
+                tooltips.Add(new TooltipLine(Mod, "WaterWarning", Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.WaterWarning")));
+            if (Tags.HasFlag(Tags.Night))
+                tooltips.Add(new TooltipLine(Mod, "NightWarning", Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.NightWarning")));
+            if (Tags.HasFlag(Tags.Day))
+                tooltips.Add(new TooltipLine(Mod, "DayWarning", Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.DayWarning")));
+            if (Tags.HasFlag(Tags.Hell))
+                tooltips.Add(new TooltipLine(Mod, "HellWarning", Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.HellWarning")));
+
             if (Tags.HasFlag(Tags.Hardmode) && !Main.hardMode)
             {
-                var line = new TooltipLine(Mod, "HardmodeWarning", "Will only grow in hardmode!")
+                var line = new TooltipLine(Mod, "HardmodeWarning", Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.HardmodeWarning"))
                 {
                     OverrideColor = new Color(255, 150, 150)
                 };
@@ -215,7 +249,7 @@ namespace OreSeeds
             }
             else if(Tags.HasFlag(Tags.PostMoonlord) && !NPC.downedMoonlord)
             {
-                var line = new TooltipLine(Mod, "MoonlordWarning", "Will only grow once moonlord has been defeated!")
+                var line = new TooltipLine(Mod, "MoonlordWarning", Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.MoonlordWarning"))
                 {
                     OverrideColor = new Color(255, 150, 150)
                 };
@@ -252,7 +286,7 @@ namespace OreSeeds
 
             }
             else
-                tooltips.Add(new TooltipLine(Mod, "ItemInfo", "[c/858585:{Hold ]shift[c/858585: for tags or ]ctrl[c/858585: for valid tiles}]"));
+                tooltips.Add(new TooltipLine(Mod, "ItemInfo", Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.ItemInfo")));
         }
 
         public override bool PreDrawTooltipLine(DrawableTooltipLine line, ref int yOffset)
@@ -462,7 +496,7 @@ namespace OreSeeds
             TileObjectData.addTile(Type);
 
             ModTranslation name = CreateMapEntryName();
-            //name.SetDefault(TypeInfo.TileMapName);
+            //name.SetDefault(TypeInfo.TileMapName);//done by tml
             AddMapEntry(TypeInfo.MapColor, name);
         }
 

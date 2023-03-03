@@ -92,14 +92,14 @@ namespace OreSeeds
 
             AddPlant("Demonite",
                () => ItemID.DemoniteOre, 24,
-               Tags.PreHardmode | Tags.Evil, 
-               description: "Crafted at a demon altar",
+               Tags.PreHardmode | Tags.Evil,
+               descriptionTags: new [] { (DescriptionTag.CraftedDemonAltar, 0) },
                recipe: new SeedRecipe(TileID.DemonAltar)); 
 
             AddPlant("Crimtane",
                () => ItemID.CrimtaneOre, 24,
                Tags.PreHardmode | Tags.Evil,
-               description: "Crafted at a crimson altar",
+               descriptionTags: new[] { (DescriptionTag.CraftedCrimsonAltar, 0) },
                recipe: new SeedRecipe(TileID.DemonAltar));
 
             AddPlant("Obsidian",
@@ -112,25 +112,25 @@ namespace OreSeeds
             AddPlant("Hellstone",
                () => ItemID.Hellstone, 20,
                Tags.PreHardmode | Tags.Hell,
-               description: $"Crafted at [i:{ItemID.Hellforge}]",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.Hellforge) },
                recipe: new SeedRecipe(TileID.Hellforge));
 
             AddPlant("Cobalt",
                () => ItemID.CobaltOre, 12,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.IronAnvil}]",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.IronAnvil) },
                recipe: new SeedRecipe(TileID.Anvils));
 
             AddPlant("Palladium",
                () => ItemID.PalladiumOre, 12,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.LeadAnvil}]",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.LeadAnvil) },
                recipe: new SeedRecipe(TileID.Anvils));
 
             AddPlant("Mythril",
                () => ItemID.MythrilOre, 16,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.MythrilAnvil}]\nLower chance to drop seeds",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.MythrilAnvil), (DescriptionTag.LessSeeds, 0) },
                recipe: new SeedRecipe(TileID.MythrilAnvil,
                BaseSeedGroup: ("OreSeeds:CobaltSeeds", 1)),
                extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.35f));
@@ -138,7 +138,7 @@ namespace OreSeeds
             AddPlant("Orichalcum",
                () => ItemID.OrichalcumOre, 16,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.OrichalcumAnvil}]\nLower chance to drop seeds",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.OrichalcumAnvil), (DescriptionTag.LessSeeds, 0) },
                recipe: new SeedRecipe(TileID.MythrilAnvil,
                BaseSeedGroup: ("OreSeeds:CobaltSeeds", 1)),
                extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.35f));
@@ -146,7 +146,7 @@ namespace OreSeeds
             AddPlant("Adamantite",
                () => ItemID.AdamantiteOre, 20,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.AdamantiteForge}]\nRarely drops seeds",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.AdamantiteForge), (DescriptionTag.RareSeeds, 0) },
                recipe: new SeedRecipe(TileID.AdamantiteForge,
                BaseSeedGroup: ("OreSeeds:MythrilSeeds", 1)),
                extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.2f));
@@ -154,7 +154,7 @@ namespace OreSeeds
             AddPlant("Titanium",
                () => ItemID.TitaniumOre, 20,
                Tags.Hardmode | Tags.MundaneOre,
-               description: $"Crafted at [i:{ItemID.TitaniumForge}]\nRarely drops seeds",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.TitaniumForge), (DescriptionTag.RareSeeds, 0) },
                recipe: new SeedRecipe(TileID.AdamantiteForge,
                BaseSeedGroup: ("OreSeeds:MythrilSeeds", 1)),
                extra: new ExtraInfo(SeedDropChance: (int i, int j) => 0.2f));
@@ -170,7 +170,7 @@ namespace OreSeeds
             AddPlant("Luminite",
                () => ItemID.LunarOre, 30,
                Tags.PostMoonlord,
-               description: $"Crafted at [i:{ItemID.LunarCraftingStation}]\nRarely drops seeds",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.LunarCraftingStation), (DescriptionTag.RareSeeds, 0) },
                recipe: new SeedRecipe(TileID.LunarCraftingStation,
                ExtraCraftItems: new (Func<int>, int count)[]
                {
@@ -248,7 +248,7 @@ namespace OreSeeds
                () => ItemID.SoulofMight, 8,
                Tags.Hardmode | Tags.NonOre | Tags.BossDrop,
                (1, 1),
-               description: "Rarely drops seeds",
+               descriptionTags: new[] { (DescriptionTag.RareSeeds, 0) },
                recipe: new SeedRecipe(
                    ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
@@ -258,7 +258,7 @@ namespace OreSeeds
                () => ItemID.SoulofSight, 8,
                Tags.Hardmode | Tags.NonOre | Tags.BossDrop,
                (1, 1),
-               description: "Rarely drops seeds",
+               descriptionTags: new[] { (DescriptionTag.RareSeeds, 0) },
                recipe: new SeedRecipe(
                    ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
@@ -268,7 +268,7 @@ namespace OreSeeds
                () => ItemID.SoulofFright, 8,
                Tags.Hardmode | Tags.NonOre | Tags.BossDrop,
                (1, 1),
-               description: "Rarely drops seeds",
+               descriptionTags: new[] { (DescriptionTag.RareSeeds, 0) },
                recipe: new SeedRecipe(
                    ExtraCraftItems: new (Func<int>, int count)[] { (() => ItemID.HallowedBar, 3) }),
                extra: new ExtraInfo(
@@ -279,7 +279,7 @@ namespace OreSeeds
 
             //ores out of date
             #region thorium
-            if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod) || true)
+            if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod))
             {
                 AddPlant("Thorium",
                 () => thoriumMod.Find<ModItem>("ThoriumOre").Type, 20,
@@ -319,7 +319,7 @@ namespace OreSeeds
 
             //ores out of date
             #region calamity
-            if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod) || true)
+            if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
             {
                 //prehardmode
                 AddPlant("Sea Prism",
@@ -394,7 +394,7 @@ namespace OreSeeds
                () => ItemID.HallowedBar, 16,
                Tags.Hardmode | Tags.Hallowed,
                (1, 2),
-               description: $"Crafted at [i:{ItemID.TitaniumForge}]\nDoes not drop seeds",
+               descriptionTags: new[] { (DescriptionTag.CraftedAt, (int)ItemID.TitaniumForge), (DescriptionTag.NoSeeds, 0) },
                recipe: new SeedRecipe(TileID.AdamantiteForge, null,
                ("OreSeeds:AdamantiteSeeds", 1),
                new (Func<int>, int count)[]
@@ -413,7 +413,7 @@ namespace OreSeeds
 
             //this mod is no longer active and will likely not be updated
             #region btfa
-            if (ModLoader.TryGetMod("ForgottenMemories", out Mod btfa) || true)//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("ForgottenMemories", out Mod btfa))//unsure if this mod even exists anymore
             {
                 AddPlant("Blight",
                 () => btfa.Find<ModItem>("BlightOreItem").Type, 25,
@@ -441,7 +441,7 @@ namespace OreSeeds
             //ores out of date and mod has been renamed
             #region sacred tools
             //old name
-            if (ModLoader.TryGetMod("SacredTools", out Mod sacredTools) || true)
+            if (ModLoader.TryGetMod("SacredTools", out Mod sacredTools))
             {
                 AddPlant("Cernium",
                 () => sacredTools.Find<ModItem>("CerniumItem").Type, 20,
@@ -463,7 +463,7 @@ namespace OreSeeds
 
             //ores are out of date
             #region spirit
-            if (ModLoader.TryGetMod("SpiritMod", out Mod spiritMod) || true)
+            if (ModLoader.TryGetMod("SpiritMod", out Mod spiritMod))
             {
                 AddPlant("Enchanted Granite",
                 () => spiritMod.Find<ModItem>("GraniteChunk").Type, 16,
@@ -497,7 +497,7 @@ namespace OreSeeds
 
             //this mod is no longer active
             #region blue magic
-            if (ModLoader.TryGetMod("Bluemagic", out Mod blueMagic) || true)//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("Bluemagic", out Mod blueMagic))//unsure if this mod even exists anymore
             {
                 AddPlant("Purium",
                 () => blueMagic.Find<ModItem>("PuriumOre").Type, 24,
@@ -506,7 +506,7 @@ namespace OreSeeds
             #endregion
 
             #region EEMod
-            if (ModLoader.TryGetMod("EEMod", out Mod eeMod) || true)//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("EEMod", out Mod eeMod))//unsure if this mod even exists anymore
             {
                 AddPlant("Dalantinium",
                 () => eeMod.Find<ModItem>("DalantiniumOre").Type, 24,
@@ -523,7 +523,7 @@ namespace OreSeeds
             #endregion
 
             #region Starlight River
-            if (ModLoader.TryGetMod("StarlightRiver", out Mod slr) || true)//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("StarlightRiver", out Mod slr))//unsure if this mod even exists anymore
             {
                 AddPlant("Palestone",
                 () => slr.Find<ModItem>("PalestoneItem").Type, 20,
@@ -585,7 +585,7 @@ namespace OreSeeds
             int oreCraftAmount,
             Tags tags = 0,
             (int, int)? oreDropRange = null,
-            string description = null,
+            (DescriptionTag, int)[] descriptionTags = null,
             SeedRecipe recipe = null,
             TypeInfo info = null,
             ExtraInfo extra = null)
@@ -600,7 +600,7 @@ namespace OreSeeds
                 oreItem, oreCraftAmount, 
                 tags,
                 thisDropRange,
-                description,
+                descriptionTags,
                 thisRecipe,
                 thisInfo,
                 thisExtra));
@@ -610,8 +610,6 @@ namespace OreSeeds
                 tags,
                 thisInfo,
                 thisExtra));
-            OreSeeds.ItemNames.Add(thisInfo.ItemInternalName, thisInfo.ItemName);
-            OreSeeds.TileNames.Add(thisInfo.TileInternalName, thisInfo.TileMapName);
         }
 
 
@@ -620,24 +618,24 @@ namespace OreSeeds
             int oreCraftAmount,
             Tags tags = 0,
             (int, int)? oreDropRange = null,
-            string description = null,
+            (DescriptionTag, int)[] descriptionTags = null,
             SeedRecipe recipe = null,
             TypeInfo info = null,
             ExtraInfo extra = null)
         {
             foreach ((string name, Func<int> item) in ores)
-                AddPlant(name, item, oreCraftAmount, tags, oreDropRange, description, recipe, info, extra);
+                AddPlant(name, item, oreCraftAmount, tags, oreDropRange, descriptionTags, recipe, info, extra);
         }
 
         private static void AddPlantRange((string name, Func<int> item, int count)[] ores, 
             Tags tags = 0,
             (int, int)? oreDropRange = null,
-            string description = null,
+            (DescriptionTag, int)[] descriptionTags = null,
             SeedRecipe recipe = null,
             TypeInfo info = null)
         {
             foreach ((string name, Func<int> item, int count) in ores)
-                AddPlant(name, item, count, tags, oreDropRange, description, recipe, info);
+                AddPlant(name, item, count, tags, oreDropRange, descriptionTags, recipe, info);
         }
         #endregion
     }

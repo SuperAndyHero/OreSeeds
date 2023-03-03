@@ -1,8 +1,211 @@
 
 Mods: {
 	OreSeeds: {
+		DescriptionTag: {
+			CraftedAt: Crafted At
+			NoSeeds: Does not drop seeds
+			RareSeeds: Rarely drops seeds
+			LessSeeds: Lower chance to drop seeds
+			CraftedDemonAltar: Crafted at a demon altar
+			CraftedCrimsonAltar: Crafted at a crimson altar
+		}
+		
+		DescriptionInfo: {
+			WaterWarning: Must be grown in water
+			NightWarning: Grows best at night
+			DayWarning: Grows best during the day
+			HellWarning: Will only grow in or near hell
+			HardmodeWarning: Will only grow in hardmode
+			MoonlordWarning: Will only grow once moonlord has been defeated
+			ItemInfo: "[c/858585:{Hold ]shift[c/858585: for tags or ]ctrl[c/858585: for valid tiles}]"
+		}
+		
 		ItemName: {
-			CopperSeeds: "TEST NAME"
+			CopperSeeds: Copper Seeds
+			TinSeeds: Tin Seeds
+			IronSeeds: Iron Seeds
+			LeadSeeds: Lead Seeds
+			SilverSeeds: Silver Seeds
+			TungstenSeeds: Tungsten Seeds
+			GoldSeeds: Gold Seeds
+			PlatinumSeeds: Platinum Seeds
+			MeteoriteSeeds: Meteorite Seeds
+			DemoniteSeeds: Demonite Seeds
+			CrimtaneSeeds: Crimtane Seeds
+			ObsidianSeeds: Obsidian Seeds
+			HellstoneSeeds: Hellstone Seeds
+			CobaltSeeds: Cobalt Seeds
+			PalladiumSeeds: Palladium Seeds
+			MythrilSeeds: Mythril Seeds
+			OrichalcumSeeds: Orichalcum Seeds
+			AdamantiteSeeds: Adamantite Seeds
+			TitaniumSeeds: Titanium Seeds
+			ChlorophyteSeeds: Chlorophyte Seeds
+			LuminiteSeeds: Luminite Seeds
+			AmethystSeeds: Amethyst Seeds
+			TopazSeeds: Topaz Seeds
+			SapphireSeeds: Sapphire Seeds
+			EmeraldSeeds: Emerald Seeds
+			RubySeeds: Ruby Seeds
+			DiamondSeeds: Diamond Seeds
+			AmberSeeds: Amber Seeds
+			FossilSeeds: Fossil Seeds
+			CrystalSeeds: Crystal Seeds
+			CursedFlameSeeds: Cursed Flame Seeds
+			StarSeeds: Star Seeds
+			BoneSeeds: Bone Seeds
+			SoulofLightSeeds: Soul of Light Seeds
+			SoulofNightSeeds: Soul of Night Seeds
+			SoulofFlightSeeds: Soul of Flight Seeds
+			SoulofMightSeeds: Soul of Might Seeds
+			SoulofSightSeeds: Soul of Sight Seeds
+			SoulofFrightSeeds: Soul of Fright Seeds
+			ThoriumSeeds: Thorium Seeds
+			SmoothCoalSeeds: Smooth Coal Seeds
+			OpalSeeds: Opal Seeds
+			LifeQuartzSeeds: Life Quartz Seeds
+			AquaiteSeeds: Aquaite Seeds
+			PearlSeeds: Pearl Seeds
+			MagmaSeeds: Magma Seeds
+			LodestoneSeeds: Lodestone Seeds
+			ValadiumSeeds: Valadium Seeds
+			IllumiteSeeds: Illumite Seeds
+			SeaPrismSeeds: Sea Prism Seeds
+			AerialiteSeeds: Aerialite Seeds
+			VictoryShardSeeds: Victory Shard Seeds
+			CharredSeeds: Charred Seeds
+			CryonicSeeds: Cryonic Seeds
+			HallowedSeeds: Hallowed Seeds
+			PerennialSeeds: Perennial Seeds
+			ScoriaSeeds: Scoria Seeds
+			AstralSeeds: Astral Seeds
+			ChaosEssenceSeeds: Chaos Essence Seeds
+			EleumEssenceSeeds: Eleum Essence Seeds
+			SunlightEssenceSeeds: Sunlight Essence Seeds
+			ExodiumClusterSeeds: Exodium Cluster Seeds
+			UelibloomSeeds: Uelibloom Seeds
+			AuricSeeds: Auric Seeds
+			BlightSeeds: Blight Seeds
+			CosmodiumSeeds: Cosmodium Seeds
+			CryotineSeeds: Cryotine Seeds
+			GelatineSeeds: Gelatine Seeds
+			CosmorockSeeds: Cosmorock Seeds
+			CerniumSeeds: Cernium Seeds
+			FlariumSeeds: Flarium Seeds
+			OblivionSeeds: Oblivion Seeds
+			LapisSeeds: Lapis Seeds
+			EnchantedGraniteSeeds: Enchanted Granite Seeds
+			AncientMarbleSeeds: Ancient Marble Seeds
+			CryoliteSeeds: Cryolite Seeds
+			SpiritSeeds: Spirit Seeds
+			StarPieceSeeds: Star Piece Seeds
+			ThermiteSeeds: Thermite Seeds
+			FloranSeeds: Floran Seeds
+			PuriumSeeds: Purium Seeds
+			DalantiniumSeeds: Dalantinium Seeds
+			LythenSeeds: Lythen Seeds
+			AquamarineSeeds: Aquamarine Seeds
+			PalestoneSeeds: Palestone Seeds
+			MoonstoneSeeds: Moonstone Seeds
+			VitricSeeds: Vitric Seeds
+			AstroscrapSeeds: Astroscrap Seeds
+			SaltSeeds: Salt Seeds
+			PepperSeeds: Pepper Seeds
+			SeaSaltSeeds: Sea Salt Seeds
+		}
+		
+		MapObject: {
+			CopperPlant: Copper Plant
+			TinPlant: Tin Plant
+			IronPlant: Iron Plant
+			LeadPlant: Lead Plant
+			SilverPlant: Silver Plant
+			TungstenPlant: Tungsten Plant
+			GoldPlant: Gold Plant
+			PlatinumPlant: Platinum Plant
+			MeteoritePlant: Meteorite Plant
+			DemonitePlant: Demonite Plant
+			CrimtanePlant: Crimtane Plant
+			ObsidianPlant: Obsidian Plant
+			HellstonePlant: Hellstone Plant
+			CobaltPlant: Cobalt Plant
+			PalladiumPlant: Palladium Plant
+			MythrilPlant: Mythril Plant
+			OrichalcumPlant: Orichalcum Plant
+			AdamantitePlant: Adamantite Plant
+			TitaniumPlant: Titanium Plant
+			ChlorophytePlant: Chlorophyte Plant
+			LuminitePlant: Luminite Plant
+			AmethystPlant: Amethyst Plant
+			TopazPlant: Topaz Plant
+			SapphirePlant: Sapphire Plant
+			EmeraldPlant: Emerald Plant
+			RubyPlant: Ruby Plant
+			DiamondPlant: Diamond Plant
+			AmberPlant: Amber Plant
+			FossilPlant: Fossil Plant
+			CrystalPlant: Crystal Plant
+			CursedFlamePlant: Cursed Flame Plant
+			StarPlant: Star Plant
+			BonePlant: Bone Plant
+			SoulofLightPlant: Soul of Light Plant
+			SoulofNightPlant: Soul of Night Plant
+			SoulofFlightPlant: Soul of Flight Plant
+			SoulofMightPlant: Soul of Might Plant
+			SoulofSightPlant: Soul of Sight Plant
+			SoulofFrightPlant: Soul of Fright Plant
+			ThoriumPlant: Thorium Plant
+			SmoothCoalPlant: Smooth Coal Plant
+			OpalPlant: Opal Plant
+			LifeQuartzPlant: Life Quartz Plant
+			AquaitePlant: Aquaite Plant
+			PearlPlant: Pearl Plant
+			MagmaPlant: Magma Plant
+			LodestonePlant: Lodestone Plant
+			ValadiumPlant: Valadium Plant
+			IllumitePlant: Illumite Plant
+			SeaPrismPlant: Sea Prism Plant
+			AerialitePlant: Aerialite Plant
+			VictoryShardPlant: Victory Shard Plant
+			CharredPlant: Charred Plant
+			CryonicPlant: Cryonic Plant
+			HallowedPlant: Hallowed Plant
+			PerennialPlant: Perennial Plant
+			ScoriaPlant: Scoria Plant
+			AstralPlant: Astral Plant
+			ChaosEssencePlant: Chaos Essence Plant
+			EleumEssencePlant: Eleum Essence Plant
+			SunlightEssencePlant: Sunlight Essence Plant
+			ExodiumClusterPlant: Exodium Cluster Plant
+			UelibloomPlant: Uelibloom Plant
+			AuricPlant: Auric Plant
+			BlightPlant: Blight Plant
+			CosmodiumPlant: Cosmodium Plant
+			CryotinePlant: Cryotine Plant
+			GelatinePlant: Gelatine Plant
+			CosmorockPlant: Cosmorock Plant
+			CerniumPlant: Cernium Plant
+			FlariumPlant: Flarium Plant
+			OblivionPlant: Oblivion Plant
+			LapisPlant: Lapis Plant
+			EnchantedGranitePlant: Enchanted Granite Plant
+			AncientMarblePlant: Ancient Marble Plant
+			CryolitePlant: Cryolite Plant
+			SpiritPlant: Spirit Plant
+			StarPiecePlant: Star Piece Plant
+			ThermitePlant: Thermite Plant
+			FloranPlant: Floran Plant
+			PuriumPlant: Purium Plant
+			DalantiniumPlant: Dalantinium Plant
+			LythenPlant: Lythen Plant
+			AquamarinePlant: Aquamarine Plant
+			PalestonePlant: Palestone Plant
+			MoonstonePlant: Moonstone Plant
+			VitricPlant: Vitric Plant
+			AstroscrapPlant: Astroscrap Plant
+			SaltPlant: Salt Plant
+			PepperPlant: Pepper Plant
+			SeaSaltPlant: Sea Salt Plant
 		}
 	}
 }
