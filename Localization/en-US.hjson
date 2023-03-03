@@ -1,0 +1,8 @@
+
+Mods: {
+	OreSeeds: {
+		ItemName: {
+			CopperSeeds: "TEST NAME"
+		}
+	}
+}

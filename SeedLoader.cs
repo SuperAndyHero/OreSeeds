@@ -279,7 +279,7 @@ namespace OreSeeds
 
             //ores out of date
             #region thorium
-            if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod))
+            if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod) || true)
             {
                 AddPlant("Thorium",
                 () => thoriumMod.Find<ModItem>("ThoriumOre").Type, 20,
@@ -319,7 +319,7 @@ namespace OreSeeds
 
             //ores out of date
             #region calamity
-            if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
+            if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod) || true)
             {
                 //prehardmode
                 AddPlant("Sea Prism",
@@ -413,7 +413,7 @@ namespace OreSeeds
 
             //this mod is no longer active and will likely not be updated
             #region btfa
-            if (ModLoader.TryGetMod("ForgottenMemories", out Mod btfa))//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("ForgottenMemories", out Mod btfa) || true)//unsure if this mod even exists anymore
             {
                 AddPlant("Blight",
                 () => btfa.Find<ModItem>("BlightOreItem").Type, 25,
@@ -441,7 +441,7 @@ namespace OreSeeds
             //ores out of date and mod has been renamed
             #region sacred tools
             //old name
-            if (ModLoader.TryGetMod("SacredTools", out Mod sacredTools))
+            if (ModLoader.TryGetMod("SacredTools", out Mod sacredTools) || true)
             {
                 AddPlant("Cernium",
                 () => sacredTools.Find<ModItem>("CerniumItem").Type, 20,
@@ -463,7 +463,7 @@ namespace OreSeeds
 
             //ores are out of date
             #region spirit
-            if (ModLoader.TryGetMod("SpiritMod", out Mod spiritMod))
+            if (ModLoader.TryGetMod("SpiritMod", out Mod spiritMod) || true)
             {
                 AddPlant("Enchanted Granite",
                 () => spiritMod.Find<ModItem>("GraniteChunk").Type, 16,
@@ -497,7 +497,7 @@ namespace OreSeeds
 
             //this mod is no longer active
             #region blue magic
-            if (ModLoader.TryGetMod("Bluemagic", out Mod blueMagic))//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("Bluemagic", out Mod blueMagic) || true)//unsure if this mod even exists anymore
             {
                 AddPlant("Purium",
                 () => blueMagic.Find<ModItem>("PuriumOre").Type, 24,
@@ -506,7 +506,7 @@ namespace OreSeeds
             #endregion
 
             #region EEMod
-            if (ModLoader.TryGetMod("EEMod", out Mod eeMod))//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("EEMod", out Mod eeMod) || true)//unsure if this mod even exists anymore
             {
                 AddPlant("Dalantinium",
                 () => eeMod.Find<ModItem>("DalantiniumOre").Type, 24,
@@ -523,7 +523,7 @@ namespace OreSeeds
             #endregion
 
             #region Starlight River
-            if (ModLoader.TryGetMod("StarlightRiver", out Mod slr))//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("StarlightRiver", out Mod slr) || true)//unsure if this mod even exists anymore
             {
                 AddPlant("Palestone",
                 () => slr.Find<ModItem>("PalestoneItem").Type, 20,
@@ -610,7 +610,11 @@ namespace OreSeeds
                 tags,
                 thisInfo,
                 thisExtra));
+            OreSeeds.ItemNames.Add(thisInfo.ItemInternalName, thisInfo.ItemName);
+            OreSeeds.TileNames.Add(thisInfo.TileInternalName, thisInfo.TileMapName);
         }
+
+
 
         private static void AddPlantRange((string name, Func<int> item)[] ores, 
             int oreCraftAmount,

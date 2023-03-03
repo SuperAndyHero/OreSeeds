@@ -72,8 +72,10 @@ namespace OreSeeds
     public class TypeInfo
     {
         public Color MapColor;
+        [Obsolete]
         public string TileMapName;
-        public string ItemName;
+        [Obsolete]
+        public string ItemName;//depreciated
         public string ItemInternalName;
         public string TileInternalName;
         public TypeInfo(Color? MapColor = null,
@@ -91,10 +93,10 @@ namespace OreSeeds
 
         public void SetName(string OreName)
         {
-            TileMapName ??= (OreName + " plant");
-            ItemName ??= (OreName + " seeds");
             ItemInternalName ??= (OreName + "Seeds").Replace(" ", "");
             TileInternalName ??= (OreName + "Plant").Replace(" ", "");
+            TileMapName ??= (OreName + " plant");
+            ItemName ??= OreName + " seeds"; //Language.Exists("Mods.OreSeeds.ItemName." + ItemInternalName) ? Language.GetTextValue("Mods.OreSeeds.ItemName." + ItemInternalName) : OreName + " seeds";
         }
     }
 
@@ -148,7 +150,7 @@ namespace OreSeeds
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault(TypeInfo.ItemName ?? "Unnamed");
+            //DisplayName.SetDefault(TypeInfo.ItemName ?? "Unnamed");
             string tooltip = Description;
             if (Tags.HasFlag(Tags.Water))
                 tooltip += "\nMust be grown in water";
@@ -460,7 +462,7 @@ namespace OreSeeds
             TileObjectData.addTile(Type);
 
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault(TypeInfo.TileMapName);
+            //name.SetDefault(TypeInfo.TileMapName);
             AddMapEntry(TypeInfo.MapColor, name);
         }
 
