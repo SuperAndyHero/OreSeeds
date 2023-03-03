@@ -114,7 +114,10 @@ namespace OreSeeds.UI
             //text.Left.Set(0, 0.5f);
             //panel.Append(text);
 
-            var c = new UIHoverImage(ModContent.Request<Texture2D>("OreSeeds/UI/Info"), $"Receive drops at a {RecycleRate}% rate\nRight-click to recycle all", new Color(150, 150, 150, 150));
+            var c = new UIHoverImage(ModContent.Request<Texture2D>("OreSeeds/UI/Info"), 
+                Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.RecycleInfo").Replace("*", RecycleRate.ToString()) + 
+                '\n' + 
+                Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.RecycleInfo2"), new Color(150, 150, 150, 150));
             c.Width.Pixels = 20;
             c.Height.Pixels = 28;
             c.Left.Set(-10, 0.83f);
@@ -134,7 +137,7 @@ namespace OreSeeds.UI
             }
 
             //var tex = ModContent.Request<Texture2D>("OreSeeds/Tiles/DownArrow");
-            var b = new CustomButton(Language.GetText("Recycle Seeds"), Color.White, ModContent.Request<Texture2D>("OreSeeds/UI/DownArrow"), OnClick, "debug");
+            var b = new CustomButton(Language.GetText(Language.GetTextValue("Mods.OreSeeds.DescriptionInfo.RecycleButton")), Color.White, ModContent.Request<Texture2D>("OreSeeds/UI/DownArrow"), OnClick, "");
             b.SetColor(panel.BackgroundColor, 0.8f);
             b.Width.Pixels = 128;
             b.Height.Pixels = 40;

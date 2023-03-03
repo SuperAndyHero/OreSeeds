@@ -18,9 +18,19 @@ Mods: {
 			HardmodeWarning: Will only grow in hardmode
 			MoonlordWarning: Will only grow once moonlord has been defeated
 			ItemInfo: "[c/858585:{Hold ]shift[c/858585: for tags or ]ctrl[c/858585: for valid tiles}]"
+			#recycle ui
+			RecycleInfo: Receive drops at a *% rate
+			RecycleInfo2: Right-click to recycle all
+			RecycleButton: Recycle Seeds
+		}
+		
+		ItemTooltip: {
+			RecyclerItem: Converts seeds into resources
 		}
 		
 		ItemName: {
+			RecyclerItem: Seed Recycler
+			#seeds
 			CopperSeeds: Copper Seeds
 			TinSeeds: Tin Seeds
 			IronSeeds: Iron Seeds

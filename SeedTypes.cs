@@ -211,7 +211,7 @@ namespace OreSeeds
                 return new Rectangle(162, 54, 16, 16);
         }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)//a
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             if(DescriptionTags != null)
                 foreach ((DescriptionTag tag, int data) pair in DescriptionTags)
