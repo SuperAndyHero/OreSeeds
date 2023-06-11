@@ -1,0 +1,221 @@
+
+Mods: {
+	OreSeeds: {
+		DescriptionTag: {
+			CraftedAt: Создается на
+			NoSeeds: Семена не выпадают
+			RareSeeds: Семена выпадают редко
+			LessSeeds: Маленький шанс выпадения вещей
+			CraftedDemonAltar: Создается на демоническом алтаре
+			CraftedCrimsonAltar: Создается на багровом алтаре
+		}
+		
+		DescriptionInfo: {
+			WaterWarning: Будет расти только в воде
+			NightWarning: Растет лучше во время ночи
+			DayWarning: Растет лучше во время дня
+			HellWarning: Будет расти только в аду или рядом с ним
+			HardmodeWarning: Будет расти только в хардмоде
+			MoonlordWarning: Будет расти только после убийства лунного лорда
+			ItemInfo: "[c/858585:{Удерживайте ]SHIFT[c/858585: для тэгов или ]CTRL[c/858585: для доп.инфо}]"
+			#recycle ui
+			RecycleInfo: Шанс *% получить предметы с семян
+			RecycleInfo2: ПКМ, чтобы переработать все
+			RecycleButton: Переработать
+		}
+		
+		ItemTooltip: {
+			RecyclerItem: Перерабатывает семена в ресурсы
+		}
+		
+		ItemName: {
+			RecyclerItem: Устройство для переработки семян
+			#seeds
+			CopperSeeds: Медные семена
+			TinSeeds: Оловянные семена
+			IronSeeds: Железные семена
+			LeadSeeds: Свинцовые семена
+			SilverSeeds: Серебряные семена
+			TungstenSeeds: Вольфрамовые семена
+			GoldSeeds: Золотые семена
+			PlatinumSeeds: Платиновые семена
+			MeteoriteSeeds: Семена метеорита
+			DemoniteSeeds: Демонитовые семена
+			CrimtaneSeeds: Кримтанитовые семена
+			ObsidianSeeds: Семена обсидиана
+			HellstoneSeeds: Семена адского камня
+			CobaltSeeds: Кобальтовые семена
+			PalladiumSeeds: Палладиевые семена
+			MythrilSeeds: Мифриловые семена
+			OrichalcumSeeds: Орихалковые семена
+			AdamantiteSeeds: Адамантитовые семена
+			TitaniumSeeds: Семена титана
+			ChlorophyteSeeds: Семена хлорофита
+			LuminiteSeeds: Люминитовые семена
+			AmethystSeeds: Семена аметиста
+			TopazSeeds: Семена топаза
+			SapphireSeeds: Семена сапфира
+			EmeraldSeeds: Семена изумруда
+			RubySeeds: Семена рубина
+			DiamondSeeds: Семена алмаза
+			AmberSeeds: Семена янтаря
+			FossilSeeds: Семена окаменелости
+			CrystalSeeds: Семена кристалла
+			CursedFlameSeeds: Семена проклятого пламени
+			StarSeeds: Семена звезд
+			BoneSeeds: Семена костей
+			SoulofLightSeeds: Семена эссенции света
+			SoulofNightSeeds: Семена эссенции ночи
+			SoulofFlightSeeds: Семена эссенции воздуха
+			SoulofMightSeeds: Семена эссенции могущества
+			SoulofSightSeeds: Семена эссенции прозрения
+			SoulofFrightSeeds: Семена эссенции ужаса
+			ThoriumSeeds: Семена ториума
+			SmoothCoalSeeds: Семена гладкого угля
+			OpalSeeds: Семена опала
+			LifeQuartzSeeds: Семена осколка кристалла жизни
+			AquaiteSeeds: Акваитовые семена
+			PearlSeeds: Семена жемчужины
+			MagmaSeeds: Магмовые семена
+			LodestoneSeeds: Семена магнетита
+			ValadiumSeeds: Валадивые семена
+			IllumiteSeeds: Иллюмитовые семена
+			SeaPrismSeeds: Семена морской призмы
+			AerialiteSeeds: Аэриалитовые семена
+			VictoryShardSeeds: Семена осколков победы
+			CharredSeeds: Зювитовые семена
+			CryonicSeeds: Семена крионита
+			HallowedSeeds: Освященные семена 
+			PerennialSeeds: Многолетнии семена
+			ScoriaSeeds: Магматитовые семена
+			AstralSeeds: Астральные семена
+			ChaosEssenceSeeds: Семена эссенции хаоса
+			EleumEssenceSeeds: Семена эссенции элеума
+			SunlightEssenceSeeds: Семена эссенции солнечного света
+			ExodiumClusterSeeds: Семена кластеров экзодиума
+			UelibloomSeeds: Буйные семена
+			AuricSeeds: Златые семена
+			BlightSeeds: Семена фитофтороза
+			CosmodiumSeeds: Семена космодиума
+			CryotineSeeds: Криотиновые семена
+			GelatineSeeds: Желатиновые семена
+			CosmorockSeeds: Семена косморока
+			CerniumSeeds: Семена церниума
+			FlariumSeeds: Флариумовые семена
+			OblivionSeeds: Семена забвения
+			LapisSeeds: Семена лазурита
+			EnchantedGraniteSeeds: Семена зачарованного гранита
+			AncientMarbleSeeds: Семена древнего мрамора
+			CryoliteSeeds: Криолитовые семена
+			SpiritSeeds: Семена духа
+			StarPieceSeeds: Семена осколка звезды
+			ThermiteSeeds: Термитные семена
+			FloranSeeds: Флорановые семена
+			PuriumSeeds: Семена пуриума
+			DalantiniumSeeds: Далантиновые семена
+			LythenSeeds: Семена литена
+			AquamarineSeeds: Семена аквамарина
+			PalestoneSeeds: Семена фундука
+			MoonstoneSeeds: Семена лунного камня
+			VitricSeeds: Стекловидные семена
+			AstroscrapSeeds: Астроскраповые семена
+			SaltSeeds: Соленные семена
+			PepperSeeds: Семена перца
+			SeaSaltSeeds: Семена морской соли
+		}
+		
+		MapObject: {
+			CopperPlant: Медное растение
+			TinPlant: Оловянное растение
+			IronPlant: Железное растение
+			LeadPlant: Свинцовое растение
+			SilverPlant: Серебряное растение
+			TungstenPlant: Вольфрамовое растение
+			GoldPlant: Золотое растение
+			PlatinumPlant: Платиновое растение
+			MeteoritePlant: Метеоритовое растение
+			DemonitePlant: Демонитовое растение
+			CrimtanePlant: Кримтанитовое растение
+			ObsidianPlant: Обсидиановое растение
+			HellstonePlant: Растение адского камня
+			CobaltPlant: Кобальтовое Растение
+			PalladiumPlant: Палладиевое растение
+			MythrilPlant: Мифриловое растение
+			OrichalcumPlant: Орихалковое растение
+			AdamantitePlant: Адамантитовое растение
+			TitaniumPlant: Титановое растение
+			ChlorophytePlant: Хлорофитовое растение
+			LuminitePlant: Люминитовое растение
+			AmethystPlant: Аметистовое растение
+			TopazPlant: Топазное растение
+			SapphirePlant: Сапфировое растение
+			EmeraldPlant: Изумрудное растение
+			RubyPlant: Рубиновое растение
+			DiamondPlant: Алмазное растение
+			AmberPlant: Янтарное растение
+			FossilPlant: Окаменеллое растение
+			CrystalPlant: Кристалльное растение
+			CursedFlamePlant: Растение проклятого пламени
+			StarPlant: Звездное растение
+			BonePlant: Костяное растение
+			SoulofLightPlant: Растение эссенции света
+			SoulofNightPlant: Растение эссенции ночи
+			SoulofFlightPlant: Растение эссенции воздуха
+			SoulofMightPlant: Растение эссенции могущества
+			SoulofSightPlant: Растение эссенции прозрения
+			SoulofFrightPlant: Растение эссенции ужаса
+			ThoriumPlant: Ториумовое растение
+			SmoothCoalPlant: Растение гладкого угля
+			OpalPlant: Опаловое растение
+			LifeQuartzPlant: Растение осколка кристалла жизн
+			AquaitePlant: Акваитовое растение
+			PearlPlant: Жемчужное растение
+			MagmaPlant: Магмовое растение
+			LodestonePlant: Магнетитовое растение
+			ValadiumPlant: Валадивое растение
+			IllumitePlant: Иллюмитовое растение
+			SeaPrismPlant: Растение морской призмы
+			AerialitePlant: Аэриалитовое растение
+			VictoryShardPlant: Растение осколков победы
+			CharredPlant: Зювитовое растение
+			CryonicPlant: Растение крионита
+			HallowedPlant: Освященное растение
+			PerennialPlant: Многолетнее растение
+			ScoriaPlant: Магматитовое растение
+			AstralPlant: Астральное растение
+			ChaosEssencePlant: Растение эссенции хаоса
+			EleumEssencePlant: Растение эссенции элеума
+			SunlightEssencePlant: Растение эссенции солнечного света
+			ExodiumClusterPlant: Растение кластеров экзодиума
+			UelibloomPlant: Буйное растение
+			AuricPlant: Златое растение
+			BlightPlant: Растение фитофтороза
+			CosmodiumPlant: Космодивое растение
+			CryotinePlant: Криотиновое растение
+			GelatinePlant: Желатиновые растение
+			CosmorockPlant: Растение косморока
+			CerniumPlant: Цернивое растение
+			FlariumPlant: Флариумовое растение
+			OblivionPlant: Растение забвения
+			LapisPlant: Лазуритовое растение
+			EnchantedGranitePlant: Растение зачарованного гранита
+			AncientMarblePlant: Растение древнего мрамора
+			CryolitePlant: Криолитовое растение
+			SpiritPlant: Растение духа
+			StarPiecePlant: Растение осколка звезды
+			ThermitePlant: Термитное растение
+			FloranPlant: Флорановое растение
+			PuriumPlant: Растение пуриума
+			DalantiniumPlant: Далантиновое растение
+			LythenPlant: Растение литена
+			AquamarinePlant: Аквамариновое растение
+			PalestonePlant: Растение фундука
+			MoonstonePlant: Растение лунного камня
+			VitricPlant: Стекловидное растение
+			AstroscrapPlant: Астроскраповое растение 
+			SaltPlant: Растение соли
+			PepperPlant: Растение перца
+			SeaSaltPlant: Растение морской соли
+		}
+	}
+}
