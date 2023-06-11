@@ -481,13 +481,13 @@ namespace OreSeeds
                 () => spiritMod.Find<ModItem>("SpiritOre").Type, 24,
                 Tags.PreHardmode | Tags.Modded);//unknown if correct
 
-                AddPlant("Star Piece",
-                () => spiritMod.Find<ModItem>("StarPiece").Type, 20,
-                Tags.Hardmode | Tags.Modded);//unknown if correct
+                //AddPlant("Star Piece",
+                //() => spiritMod.Find<ModItem>("StarPiece").Type, 20,
+                //Tags.Hardmode | Tags.Modded);//unknown if correct
 
-                AddPlant("Thermite",
-                () => spiritMod.Find<ModItem>("ThermiteOre").Type, 24,
-                Tags.Hardmode | Tags.Modded);//unknown if correct
+                //AddPlant("Thermite",
+                //() => spiritMod.Find<ModItem>("ThermiteOre").Type, 24,
+                //Tags.Hardmode | Tags.Modded);//unknown if correct
 
                 AddPlant("Floran",
                 () => spiritMod.Find<ModItem>("FloranOre").Type, 24,
