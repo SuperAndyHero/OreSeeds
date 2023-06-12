@@ -19,7 +19,7 @@ namespace OreSeeds
         }
         public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
         {
-            //SeedLoader.AddRecipeGroups();
+            SeedLoader.AddRecipeGroups();
         }
         public override void Unload()
         {

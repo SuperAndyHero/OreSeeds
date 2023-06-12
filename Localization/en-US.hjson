@@ -1,4 +1,3 @@
-
 Mods: {
 	OreSeeds: {
 		DescriptionTag: {
@@ -9,7 +8,8 @@ Mods: {
 			CraftedDemonAltar: Crafted at a demon altar
 			CraftedCrimsonAltar: Crafted at a crimson altar
 		}
-		
+
+		#stuff that gets manually added to item descriptions or is used in UI
 		DescriptionInfo: {
 			WaterWarning: Must be grown in water
 			NightWarning: Grows best at night
@@ -23,199 +23,554 @@ Mods: {
 			RecycleInfo2: Right-click to recycle all
 			RecycleButton: Recycle Seeds
 		}
-		
-		ItemTooltip: {
-			RecyclerItem: Converts seeds into resources
+
+		Tiles: {
+			Recycler.MapEntry: Recycler
+			CopperPlant.MapEntry: Copper Plant
+			TinPlant.MapEntry: Tin Plant
+			IronPlant.MapEntry: Iron Plant
+			LeadPlant.MapEntry: Lead Plant
+			SilverPlant.MapEntry: Silver Plant
+			TungstenPlant.MapEntry: Tungsten Plant
+			GoldPlant.MapEntry: Gold Plant
+			PlatinumPlant.MapEntry: Platinum Plant
+			MeteoritePlant.MapEntry: Meteorite Plant
+			DemonitePlant.MapEntry: Demonite Plant
+			CrimtanePlant.MapEntry: Crimtane Plant
+			ObsidianPlant.MapEntry: Obsidian Plant
+			HellstonePlant.MapEntry: Hellstone Plant
+			CobaltPlant.MapEntry: Cobalt Plant
+			PalladiumPlant.MapEntry: Palladium Plant
+			MythrilPlant.MapEntry: Mythril Plant
+			OrichalcumPlant.MapEntry: Orichalcum Plant
+			AdamantitePlant.MapEntry: Adamantite Plant
+			TitaniumPlant.MapEntry: Titanium Plant
+			ChlorophytePlant.MapEntry: Chlorophyte Plant
+			LuminitePlant.MapEntry: Luminite Plant
+			AmethystPlant.MapEntry: Amethyst Plant
+			TopazPlant.MapEntry: Topaz Plant
+			SapphirePlant.MapEntry: Sapphire Plant
+			EmeraldPlant.MapEntry: Emerald Plant
+			RubyPlant.MapEntry: Ruby Plant
+			DiamondPlant.MapEntry: Diamond Plant
+			AmberPlant.MapEntry: Amber Plant
+			FossilPlant.MapEntry: Fossil Plant
+			CrystalPlant.MapEntry: Crystal Plant
+			CursedFlamePlant.MapEntry: Cursed Flame Plant
+			StarPlant.MapEntry: Star Plant
+			BonePlant.MapEntry: Bone Plant
+			SoulofLightPlant.MapEntry: Soul of Light Plant
+			SoulofNightPlant.MapEntry: Soul of Night Plant
+			SoulofFlightPlant.MapEntry: Soul of Flight Plant
+			SoulofMightPlant.MapEntry: Soul of Might Plant
+			SoulofSightPlant.MapEntry: Soul of Sight Plant
+			SoulofFrightPlant.MapEntry: Soul of Fright Plant
+			ThoriumPlant.MapEntry: Thorium Plant
+			SmoothCoalPlant.MapEntry: Smooth Coal Plant
+			OpalPlant.MapEntry: Opal Plant
+			LifeQuartzPlant.MapEntry: Life Quartz Plant
+			AquaitePlant.MapEntry: Aquaite Plant
+			LodestonePlant.MapEntry: Lodestone Plant
+			ValadiumPlant.MapEntry: Valadium Plant
+			IllumitePlant.MapEntry: Illumite Plant
+			SeaPrismPlant.MapEntry: Sea Prism Plant
+			AerialitePlant.MapEntry: Aerialite Plant
+			VictoryShardPlant.MapEntry: Victory Shard Plant
+			CharredPlant.MapEntry: Charred Plant
+			CryonicPlant.MapEntry: Cryonic Plant
+			HallowedPlant.MapEntry: Hallowed Plant
+			PerennialPlant.MapEntry: Perennial Plant
+			ScoriaPlant.MapEntry: Scoria Plant
+			AstralPlant.MapEntry: Astral Plant
+			ChaosEssencePlant.MapEntry: Chaos Essence Plant
+			EleumEssencePlant.MapEntry: Eleum Essence Plant
+			SunlightEssencePlant.MapEntry: Sunlight Essence Plant
+			ExodiumClusterPlant.MapEntry: Exodium Cluster Plant
+			UelibloomPlant.MapEntry: Uelibloom Plant
+			AuricPlant.MapEntry: Auric Plant
+			BlightPlant.MapEntry: Blight Plant
+			CosmodiumPlant.MapEntry: Cosmodium Plant
+			CryotinePlant.MapEntry: Cryotine Plant
+			GelatinePlant.MapEntry: Gelatine Plant
+			CosmorockPlant.MapEntry: Cosmorock Plant
+			CerniumPlant.MapEntry: Cernium Plant
+			FlariumPlant.MapEntry: Flarium Plant
+			OblivionPlant.MapEntry: Oblivion Plant
+			LapisPlant.MapEntry: Lapis Plant
+			EnchantedGranitePlant.MapEntry: Enchanted Granite Plant
+			AncientMarblePlant.MapEntry: Ancient Marble Plant
+			CryolitePlant.MapEntry: Cryolite Plant
+			SpiritPlant.MapEntry: Spirit Plant
+			FloranPlant.MapEntry: Floran Plant
+			PuriumPlant.MapEntry: Purium Plant
+			DalantiniumPlant.MapEntry: Dalantinium Plant
+			LythenPlant.MapEntry: Lythen Plant
+			AquamarinePlant.MapEntry: Aquamarine Plant
+			PalestonePlant.MapEntry: Palestone Plant
+			MoonstonePlant.MapEntry: Moonstone Plant
+			VitricPlant.MapEntry: Vitric Plant
+			AstroscrapPlant.MapEntry: Astroscrap Plant
+			SaltPlant.MapEntry: Salt Plant
+			PepperPlant.MapEntry: Pepper Plant
+			SeaSaltPlant.MapEntry: Sea Salt Plant
 		}
-		
-		ItemName: {
-			RecyclerItem: Seed Recycler
-			#seeds
-			CopperSeeds: Copper Seeds
-			TinSeeds: Tin Seeds
-			IronSeeds: Iron Seeds
-			LeadSeeds: Lead Seeds
-			SilverSeeds: Silver Seeds
-			TungstenSeeds: Tungsten Seeds
-			GoldSeeds: Gold Seeds
-			PlatinumSeeds: Platinum Seeds
-			MeteoriteSeeds: Meteorite Seeds
-			DemoniteSeeds: Demonite Seeds
-			CrimtaneSeeds: Crimtane Seeds
-			ObsidianSeeds: Obsidian Seeds
-			HellstoneSeeds: Hellstone Seeds
-			CobaltSeeds: Cobalt Seeds
-			PalladiumSeeds: Palladium Seeds
-			MythrilSeeds: Mythril Seeds
-			OrichalcumSeeds: Orichalcum Seeds
-			AdamantiteSeeds: Adamantite Seeds
-			TitaniumSeeds: Titanium Seeds
-			ChlorophyteSeeds: Chlorophyte Seeds
-			LuminiteSeeds: Luminite Seeds
-			AmethystSeeds: Amethyst Seeds
-			TopazSeeds: Topaz Seeds
-			SapphireSeeds: Sapphire Seeds
-			EmeraldSeeds: Emerald Seeds
-			RubySeeds: Ruby Seeds
-			DiamondSeeds: Diamond Seeds
-			AmberSeeds: Amber Seeds
-			FossilSeeds: Fossil Seeds
-			CrystalSeeds: Crystal Seeds
-			CursedFlameSeeds: Cursed Flame Seeds
-			StarSeeds: Star Seeds
-			BoneSeeds: Bone Seeds
-			SoulofLightSeeds: Soul of Light Seeds
-			SoulofNightSeeds: Soul of Night Seeds
-			SoulofFlightSeeds: Soul of Flight Seeds
-			SoulofMightSeeds: Soul of Might Seeds
-			SoulofSightSeeds: Soul of Sight Seeds
-			SoulofFrightSeeds: Soul of Fright Seeds
-			ThoriumSeeds: Thorium Seeds
-			SmoothCoalSeeds: Smooth Coal Seeds
-			OpalSeeds: Opal Seeds
-			LifeQuartzSeeds: Life Quartz Seeds
-			AquaiteSeeds: Aquaite Seeds
-			PearlSeeds: Pearl Seeds
-			MagmaSeeds: Magma Seeds
-			LodestoneSeeds: Lodestone Seeds
-			ValadiumSeeds: Valadium Seeds
-			IllumiteSeeds: Illumite Seeds
-			SeaPrismSeeds: Sea Prism Seeds
-			AerialiteSeeds: Aerialite Seeds
-			VictoryShardSeeds: Victory Shard Seeds
-			CharredSeeds: Charred Seeds
-			CryonicSeeds: Cryonic Seeds
-			HallowedSeeds: Hallowed Seeds
-			PerennialSeeds: Perennial Seeds
-			ScoriaSeeds: Scoria Seeds
-			AstralSeeds: Astral Seeds
-			ChaosEssenceSeeds: Chaos Essence Seeds
-			EleumEssenceSeeds: Eleum Essence Seeds
-			SunlightEssenceSeeds: Sunlight Essence Seeds
-			ExodiumClusterSeeds: Exodium Cluster Seeds
-			UelibloomSeeds: Uelibloom Seeds
-			AuricSeeds: Auric Seeds
-			BlightSeeds: Blight Seeds
-			CosmodiumSeeds: Cosmodium Seeds
-			CryotineSeeds: Cryotine Seeds
-			GelatineSeeds: Gelatine Seeds
-			CosmorockSeeds: Cosmorock Seeds
-			CerniumSeeds: Cernium Seeds
-			FlariumSeeds: Flarium Seeds
-			OblivionSeeds: Oblivion Seeds
-			LapisSeeds: Lapis Seeds
-			EnchantedGraniteSeeds: Enchanted Granite Seeds
-			AncientMarbleSeeds: Ancient Marble Seeds
-			CryoliteSeeds: Cryolite Seeds
-			SpiritSeeds: Spirit Seeds
-			StarPieceSeeds: Star Piece Seeds
-			ThermiteSeeds: Thermite Seeds
-			FloranSeeds: Floran Seeds
-			PuriumSeeds: Purium Seeds
-			DalantiniumSeeds: Dalantinium Seeds
-			LythenSeeds: Lythen Seeds
-			AquamarineSeeds: Aquamarine Seeds
-			PalestoneSeeds: Palestone Seeds
-			MoonstoneSeeds: Moonstone Seeds
-			VitricSeeds: Vitric Seeds
-			AstroscrapSeeds: Astroscrap Seeds
-			SaltSeeds: Salt Seeds
-			PepperSeeds: Pepper Seeds
-			SeaSaltSeeds: Sea Salt Seeds
+
+		Items: {
+			RecyclerItem: {
+				DisplayName: Seed Recycler
+				Tooltip: Converts seeds into resources
+			}
+
+			CopperSeeds: {
+				DisplayName: Copper Seeds
+				Tooltip: ""
+			}
+
+			TinSeeds: {
+				DisplayName: Tin Seeds
+				Tooltip: ""
+			}
+
+			IronSeeds: {
+				DisplayName: Iron Seeds
+				Tooltip: ""
+			}
+
+			LeadSeeds: {
+				DisplayName: Lead Seeds
+				Tooltip: ""
+			}
+
+			SilverSeeds: {
+				DisplayName: Silver Seeds
+				Tooltip: ""
+			}
+
+			TungstenSeeds: {
+				DisplayName: Tungsten Seeds
+				Tooltip: ""
+			}
+
+			GoldSeeds: {
+				DisplayName: Gold Seeds
+				Tooltip: ""
+			}
+
+			PlatinumSeeds: {
+				DisplayName: Platinum Seeds
+				Tooltip: ""
+			}
+
+			MeteoriteSeeds: {
+				DisplayName: Meteorite Seeds
+				Tooltip: ""
+			}
+
+			DemoniteSeeds: {
+				DisplayName: Demonite Seeds
+				Tooltip: ""
+			}
+
+			CrimtaneSeeds: {
+				DisplayName: Crimtane Seeds
+				Tooltip: ""
+			}
+
+			ObsidianSeeds: {
+				DisplayName: Obsidian Seeds
+				Tooltip: ""
+			}
+
+			HellstoneSeeds: {
+				DisplayName: Hellstone Seeds
+				Tooltip: ""
+			}
+
+			CobaltSeeds: {
+				DisplayName: Cobalt Seeds
+				Tooltip: ""
+			}
+
+			PalladiumSeeds: {
+				DisplayName: Palladium Seeds
+				Tooltip: ""
+			}
+
+			MythrilSeeds: {
+				DisplayName: Mythril Seeds
+				Tooltip: ""
+			}
+
+			OrichalcumSeeds: {
+				DisplayName: Orichalcum Seeds
+				Tooltip: ""
+			}
+
+			AdamantiteSeeds: {
+				DisplayName: Adamantite Seeds
+				Tooltip: ""
+			}
+
+			TitaniumSeeds: {
+				DisplayName: Titanium Seeds
+				Tooltip: ""
+			}
+
+			ChlorophyteSeeds: {
+				DisplayName: Chlorophyte Seeds
+				Tooltip: ""
+			}
+
+			LuminiteSeeds: {
+				DisplayName: Luminite Seeds
+				Tooltip: ""
+			}
+
+			AmethystSeeds: {
+				DisplayName: Amethyst Seeds
+				Tooltip: ""
+			}
+
+			TopazSeeds: {
+				DisplayName: Topaz Seeds
+				Tooltip: ""
+			}
+
+			SapphireSeeds: {
+				DisplayName: Sapphire Seeds
+				Tooltip: ""
+			}
+
+			EmeraldSeeds: {
+				DisplayName: Emerald Seeds
+				Tooltip: ""
+			}
+
+			RubySeeds: {
+				DisplayName: Ruby Seeds
+				Tooltip: ""
+			}
+
+			DiamondSeeds: {
+				DisplayName: Diamond Seeds
+				Tooltip: ""
+			}
+
+			AmberSeeds: {
+				DisplayName: Amber Seeds
+				Tooltip: ""
+			}
+
+			FossilSeeds: {
+				DisplayName: Fossil Seeds
+				Tooltip: ""
+			}
+
+			CrystalSeeds: {
+				DisplayName: Crystal Seeds
+				Tooltip: ""
+			}
+
+			CursedFlameSeeds: {
+				DisplayName: Cursed Flame Seeds
+				Tooltip: ""
+			}
+
+			StarSeeds: {
+				DisplayName: Star Seeds
+				Tooltip: ""
+			}
+
+			BoneSeeds: {
+				DisplayName: Bone Seeds
+				Tooltip: ""
+			}
+
+			SoulofLightSeeds: {
+				DisplayName: Soul of Light Seeds
+				Tooltip: ""
+			}
+
+			SoulofNightSeeds: {
+				DisplayName: Soul of Night Seeds
+				Tooltip: ""
+			}
+
+			SoulofFlightSeeds: {
+				DisplayName: Soul of Flight Seeds
+				Tooltip: ""
+			}
+
+			SoulofMightSeeds: {
+				DisplayName: Soul of Might Seeds
+				Tooltip: ""
+			}
+
+			SoulofSightSeeds: {
+				DisplayName: Soul of Sight Seeds
+				Tooltip: ""
+			}
+
+			SoulofFrightSeeds: {
+				DisplayName: Soul of Fright Seeds
+				Tooltip: ""
+			}
+
+			ThoriumSeeds: {
+				DisplayName: Thorium Seeds
+				Tooltip: ""
+			}
+
+			SmoothCoalSeeds: {
+				DisplayName: Smooth Coal Seeds
+				Tooltip: ""
+			}
+
+			OpalSeeds: {
+				DisplayName: Opal Seeds
+				Tooltip: ""
+			}
+
+			LifeQuartzSeeds: {
+				DisplayName: Life Quartz Seeds
+				Tooltip: ""
+			}
+
+			AquaiteSeeds: {
+				DisplayName: Aquaite Seeds
+				Tooltip: ""
+			}
+
+			LodestoneSeeds: {
+				DisplayName: Lodestone Seeds
+				Tooltip: ""
+			}
+
+			ValadiumSeeds: {
+				DisplayName: Valadium Seeds
+				Tooltip: ""
+			}
+
+			IllumiteSeeds: {
+				DisplayName: Illumite Seeds
+				Tooltip: ""
+			}
+
+			SeaPrismSeeds: {
+				DisplayName: Sea Prism Seeds
+				Tooltip: ""
+			}
+
+			AerialiteSeeds: {
+				DisplayName: Aerialite Seeds
+				Tooltip: ""
+			}
+
+			VictoryShardSeeds: {
+				DisplayName: Victory Shard Seeds
+				Tooltip: ""
+			}
+
+			CharredSeeds: {
+				DisplayName: Charred Seeds
+				Tooltip: ""
+			}
+
+			CryonicSeeds: {
+				DisplayName: Cryonic Seeds
+				Tooltip: ""
+			}
+
+			HallowedSeeds: {
+				DisplayName: Hallowed Seeds
+				Tooltip: ""
+			}
+
+			PerennialSeeds: {
+				DisplayName: Perennial Seeds
+				Tooltip: ""
+			}
+
+			ScoriaSeeds: {
+				DisplayName: Scoria Seeds
+				Tooltip: ""
+			}
+
+			AstralSeeds: {
+				DisplayName: Astral Seeds
+				Tooltip: ""
+			}
+
+			ChaosEssenceSeeds: {
+				DisplayName: Chaos Essence Seeds
+				Tooltip: ""
+			}
+
+			EleumEssenceSeeds: {
+				DisplayName: Eleum Essence Seeds
+				Tooltip: ""
+			}
+
+			SunlightEssenceSeeds: {
+				DisplayName: Sunlight Essence Seeds
+				Tooltip: ""
+			}
+
+			ExodiumClusterSeeds: {
+				DisplayName: Exodium Cluster Seeds
+				Tooltip: ""
+			}
+
+			UelibloomSeeds: {
+				DisplayName: Uelibloom Seeds
+				Tooltip: ""
+			}
+
+			AuricSeeds: {
+				DisplayName: Auric Seeds
+				Tooltip: ""
+			}
+
+			BlightSeeds: {
+				DisplayName: Blight Seeds
+				Tooltip: ""
+			}
+
+			CosmodiumSeeds: {
+				DisplayName: Cosmodium Seeds
+				Tooltip: ""
+			}
+
+			CryotineSeeds: {
+				DisplayName: Cryotine Seeds
+				Tooltip: ""
+			}
+
+			GelatineSeeds: {
+				DisplayName: Gelatine Seeds
+				Tooltip: ""
+			}
+
+			CosmorockSeeds: {
+				DisplayName: Cosmorock Seeds
+				Tooltip: ""
+			}
+
+			CerniumSeeds: {
+				DisplayName: Cernium Seeds
+				Tooltip: ""
+			}
+
+			FlariumSeeds: {
+				DisplayName: Flarium Seeds
+				Tooltip: ""
+			}
+
+			OblivionSeeds: {
+				DisplayName: Oblivion Seeds
+				Tooltip: ""
+			}
+
+			LapisSeeds: {
+				DisplayName: Lapis Seeds
+				Tooltip: ""
+			}
+
+			EnchantedGraniteSeeds: {
+				DisplayName: Enchanted Granite Seeds
+				Tooltip: ""
+			}
+
+			AncientMarbleSeeds: {
+				DisplayName: Ancient Marble Seeds
+				Tooltip: ""
+			}
+
+			CryoliteSeeds: {
+				DisplayName: Cryolite Seeds
+				Tooltip: ""
+			}
+
+			SpiritSeeds: {
+				DisplayName: Spirit Seeds
+				Tooltip: ""
+			}
+
+			FloranSeeds: {
+				DisplayName: Floran Seeds
+				Tooltip: ""
+			}
+
+			PuriumSeeds: {
+				DisplayName: Purium Seeds
+				Tooltip: ""
+			}
+
+			DalantiniumSeeds: {
+				DisplayName: Dalantinium Seeds
+				Tooltip: ""
+			}
+
+			LythenSeeds: {
+				DisplayName: Lythen Seeds
+				Tooltip: ""
+			}
+
+			AquamarineSeeds: {
+				DisplayName: Aquamarine Seeds
+				Tooltip: ""
+			}
+
+			PalestoneSeeds: {
+				DisplayName: Palestone Seeds
+				Tooltip: ""
+			}
+
+			MoonstoneSeeds: {
+				DisplayName: Moonstone Seeds
+				Tooltip: ""
+			}
+
+			VitricSeeds: {
+				DisplayName: Vitric Seeds
+				Tooltip: ""
+			}
+
+			AstroscrapSeeds: {
+				DisplayName: Astroscrap Seeds
+				Tooltip: ""
+			}
+
+			SaltSeeds: {
+				DisplayName: Salt Seeds
+				Tooltip: ""
+			}
+
+			PepperSeeds: {
+				DisplayName: Pepper Seeds
+				Tooltip: ""
+			}
+
+			SeaSaltSeeds: {
+				DisplayName: Sea Salt Seeds
+				Tooltip: ""
+			}
 		}
-		
-		MapObject: {
-			CopperPlant: Copper Plant
-			TinPlant: Tin Plant
-			IronPlant: Iron Plant
-			LeadPlant: Lead Plant
-			SilverPlant: Silver Plant
-			TungstenPlant: Tungsten Plant
-			GoldPlant: Gold Plant
-			PlatinumPlant: Platinum Plant
-			MeteoritePlant: Meteorite Plant
-			DemonitePlant: Demonite Plant
-			CrimtanePlant: Crimtane Plant
-			ObsidianPlant: Obsidian Plant
-			HellstonePlant: Hellstone Plant
-			CobaltPlant: Cobalt Plant
-			PalladiumPlant: Palladium Plant
-			MythrilPlant: Mythril Plant
-			OrichalcumPlant: Orichalcum Plant
-			AdamantitePlant: Adamantite Plant
-			TitaniumPlant: Titanium Plant
-			ChlorophytePlant: Chlorophyte Plant
-			LuminitePlant: Luminite Plant
-			AmethystPlant: Amethyst Plant
-			TopazPlant: Topaz Plant
-			SapphirePlant: Sapphire Plant
-			EmeraldPlant: Emerald Plant
-			RubyPlant: Ruby Plant
-			DiamondPlant: Diamond Plant
-			AmberPlant: Amber Plant
-			FossilPlant: Fossil Plant
-			CrystalPlant: Crystal Plant
-			CursedFlamePlant: Cursed Flame Plant
-			StarPlant: Star Plant
-			BonePlant: Bone Plant
-			SoulofLightPlant: Soul of Light Plant
-			SoulofNightPlant: Soul of Night Plant
-			SoulofFlightPlant: Soul of Flight Plant
-			SoulofMightPlant: Soul of Might Plant
-			SoulofSightPlant: Soul of Sight Plant
-			SoulofFrightPlant: Soul of Fright Plant
-			ThoriumPlant: Thorium Plant
-			SmoothCoalPlant: Smooth Coal Plant
-			OpalPlant: Opal Plant
-			LifeQuartzPlant: Life Quartz Plant
-			AquaitePlant: Aquaite Plant
-			PearlPlant: Pearl Plant
-			MagmaPlant: Magma Plant
-			LodestonePlant: Lodestone Plant
-			ValadiumPlant: Valadium Plant
-			IllumitePlant: Illumite Plant
-			SeaPrismPlant: Sea Prism Plant
-			AerialitePlant: Aerialite Plant
-			VictoryShardPlant: Victory Shard Plant
-			CharredPlant: Charred Plant
-			CryonicPlant: Cryonic Plant
-			HallowedPlant: Hallowed Plant
-			PerennialPlant: Perennial Plant
-			ScoriaPlant: Scoria Plant
-			AstralPlant: Astral Plant
-			ChaosEssencePlant: Chaos Essence Plant
-			EleumEssencePlant: Eleum Essence Plant
-			SunlightEssencePlant: Sunlight Essence Plant
-			ExodiumClusterPlant: Exodium Cluster Plant
-			UelibloomPlant: Uelibloom Plant
-			AuricPlant: Auric Plant
-			BlightPlant: Blight Plant
-			CosmodiumPlant: Cosmodium Plant
-			CryotinePlant: Cryotine Plant
-			GelatinePlant: Gelatine Plant
-			CosmorockPlant: Cosmorock Plant
-			CerniumPlant: Cernium Plant
-			FlariumPlant: Flarium Plant
-			OblivionPlant: Oblivion Plant
-			LapisPlant: Lapis Plant
-			EnchantedGranitePlant: Enchanted Granite Plant
-			AncientMarblePlant: Ancient Marble Plant
-			CryolitePlant: Cryolite Plant
-			SpiritPlant: Spirit Plant
-			StarPiecePlant: Star Piece Plant
-			ThermitePlant: Thermite Plant
-			FloranPlant: Floran Plant
-			PuriumPlant: Purium Plant
-			DalantiniumPlant: Dalantinium Plant
-			LythenPlant: Lythen Plant
-			AquamarinePlant: Aquamarine Plant
-			PalestonePlant: Palestone Plant
-			MoonstonePlant: Moonstone Plant
-			VitricPlant: Vitric Plant
-			AstroscrapPlant: Astroscrap Plant
-			SaltPlant: Salt Plant
-			PepperPlant: Pepper Plant
-			SeaSaltPlant: Sea Salt Plant
+
+		Configs: {
+			GeneralConfig: {
+				DisplayName: General Config
+
+				GrowthSpeedMultiplier: {
+					Label: Growth Speed Multiplier
+					Tooltip: ""
+				}
+
+				TestValueLocal: {
+					Label: Test Value Local
+					Tooltip: ""
+				}
+			}
 		}
 	}
 }
