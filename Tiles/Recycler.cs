@@ -4,6 +4,7 @@ using OreSeeds.UI;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -25,8 +26,8 @@ namespace OreSeeds.Tiles
             TileObjectData.addTile(Type);
 
             // AddMapEntry is for setting the color and optional text associated with the Tile when viewed on the map
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Seed Recycler");
+            LocalizedText name = CreateMapEntryName();
+            //name.SetDefault("Seed Recycler");
             AddMapEntry(new Color(119, 56, 56), name);
 
             AnimationFrameHeight = 56;

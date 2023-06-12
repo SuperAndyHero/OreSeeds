@@ -523,11 +523,11 @@ namespace OreSeeds
             #endregion
 
             #region Starlight River
-            if (ModLoader.TryGetMod("StarlightRiver", out Mod slr))//unsure if this mod even exists anymore
+            if (ModLoader.TryGetMod("StarlightRiver", out Mod slr))
             {
                 AddPlant("Palestone",
-                () => slr.Find<ModItem>("PalestoneItem").Type, 20,
-                Tags.PreHardmode | Tags.MundaneOre | Tags.Modded);
+                () => slr.Find<ModItem>("PalestoneItem").Type, 32,
+                Tags.PreHardmode | Tags.MundaneOre | Tags.Modded, (1, 4));
 
                 //AddPlant("Ebony",
                 //() => slr.Find<ModItem>("OreEbony").Type, 25,
@@ -538,28 +538,28 @@ namespace OreSeeds
                 //Tags.PreHardmode | Tags.Modded);
 
                 AddPlant("Moonstone",
-                () => slr.Find<ModItem>("MoonstoneOreItem").Type, 30,
+                () => slr.Find<ModItem>("MoonstoneOreItem").Type, 24,
                 Tags.PreHardmode | Tags.Modded);
 
                 AddPlant("Vitric",
-                () => slr.Find<ModItem>("VitricOre").Type, 22,
+                () => slr.Find<ModItem>("VitricOre").Type, 20,
                 Tags.PreHardmode | Tags.Desert | Tags.Modded);
 
                 AddPlant("Astroscrap",
-                () => slr.Find<ModItem>("Astroscrap").Type, 24,
+                () => slr.Find<ModItem>("Astroscrap").Type, 16,
                 Tags.PreHardmode | Tags.MobDrop | Tags.NonOre | Tags.Modded);
 
                 AddPlant("Salt",
-                () => slr.Find<ModItem>("TableSalt").Type, 16,
-                Tags.PreHardmode | Tags.NonOre | Tags.Modded);
+                () => slr.Find<ModItem>("TableSalt").Type, 10,
+                Tags.PreHardmode | Tags.NonOre | Tags.Modded, (1, 2));
 
                 AddPlant("Pepper",
-                () => slr.Find<ModItem>("BlackPepper").Type, 16,
-                Tags.PreHardmode | Tags.NonOre | Tags.Modded);
+                () => slr.Find<ModItem>("BlackPepper").Type, 10,
+                Tags.PreHardmode | Tags.NonOre | Tags.Modded, (1, 2));
 
                 AddPlant("Sea Salt",
-                () => slr.Find<ModItem>("SeaSalt").Type, 20,
-                Tags.PreHardmode | Tags.Water | Tags.NonOre | Tags.Modded);
+                () => slr.Find<ModItem>("SeaSalt").Type, 16,
+                Tags.PreHardmode | Tags.Water | Tags.NonOre | Tags.Modded, (1, 2));
             }
             #endregion
 

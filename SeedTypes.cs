@@ -12,8 +12,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static OreSeeds.SeedLoader;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace OreSeeds
 {
@@ -116,10 +114,11 @@ namespace OreSeeds
         public readonly Func<int, int, bool> ShowHarvestIcon;
         public readonly Func<int, int, Tags, float> TagGrowthModifier;
         public readonly int FrameCount;
+
         public ExtraInfo(int FrameCount = 3, Func<int, int, float> SeedDropChance = null, Func<int, int, float> GrowthChance = null, Func<int, int, bool> ShowHarvestIcon = null, Func<int, int, Tags, float> TagGrowthModifier = null)
         {
-            this.SeedDropChance = SeedDropChance ?? ((int i, int j) => 0.5f);
-            this.GrowthChance = GrowthChance ?? ((int i, int j) => 1f);
+            this.SeedDropChance = SeedDropChance ?? ((int i, int j) => OreSeeds.DefaultSeedDropChance);
+            this.GrowthChance = GrowthChance ?? ((int i, int j) => OreSeeds.DefaultGrowthChance);
             this.ShowHarvestIcon = ShowHarvestIcon ?? ((int i, int j) => true);
             this.TagGrowthModifier = TagGrowthModifier ?? BasePlantTile.TagGrowthModifier;
             this.FrameCount = FrameCount;
@@ -365,9 +364,10 @@ namespace OreSeeds
             TypeInfo = typeInfo;
             ExtraInfo = extraInfo;
         }
+
         //TODO
-        //location could be changed
-        public static float TagGrowthModifier(int i, int j, Tags tags) 
+        //location of this default method could be changed
+        public static float TagGrowthModifier(int i, int j, Tags tags) //takes plant's tags and gives a chance multiplier based on where plant is
         {
             float chance = 1;
             //if(AreaGrowthRules) (here or when growth rules is called)
@@ -495,8 +495,7 @@ namespace OreSeeds
             SeedLoader.ValidTiles.Add(Type, validTileArray);
             TileObjectData.addTile(Type);
 
-            ModTranslation name = CreateMapEntryName();
-            //name.SetDefault(TypeInfo.TileMapName);//done by tml
+            LocalizedText name = CreateMapEntryName();
             AddMapEntry(TypeInfo.MapColor, name);
         }
 
@@ -506,7 +505,7 @@ namespace OreSeeds
                 spriteEffects = SpriteEffects.FlipHorizontally;
         }
 
-        public override bool Drop(int i, int j)
+        public override bool CanDrop(int i, int j)
         {
             if (IsLastFrame(i, j))
             {
@@ -537,15 +536,18 @@ namespace OreSeeds
 
         public override void RandomUpdate(int i, int j)
         {
-            float chance = ExtraInfo.GrowthChance(i, j);
-            //if(AreaGrowthRules) (here or inside the tag growth method)
-            chance *= ExtraInfo.TagGrowthModifier(i, j, Tags);
-
-            if (!IsLastFrame(i, j) && Main.rand.NextFloat(0.000001f, 0.999999f) < chance)
+            if (!IsLastFrame(i, j))
             {
-                Main.tile[i, j].TileFrameX += 18; 
-                WorldGen.SquareTileFrame(i, j, true);
-                NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
+                float chance = ExtraInfo.GrowthChance(i, j);//defaults to 0.33
+                chance *= ExtraInfo.TagGrowthModifier(i, j, Tags);
+                chance *= OreSeeds.GrowthSpeedMultiplier;//set by config
+
+                if (Main.rand.NextFloat(0.000001f, 0.999999f) < chance)
+                {
+                    Main.tile[i, j].TileFrameX += 18;
+                    WorldGen.SquareTileFrame(i, j, true);
+                    NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
+                }
             }
         }
 

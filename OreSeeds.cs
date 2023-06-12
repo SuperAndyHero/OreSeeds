@@ -5,17 +5,21 @@ namespace OreSeeds
 {
 	public class OreSeeds : Mod
 	{
-        //Make sure the workshop page is updated and has colors removed
         public static OreSeeds Instance { get; set; }
+
+        public const float DefaultSeedDropChance = 0.5f;
+        public const float DefaultGrowthChance = 0.33f;
+
+        public static float GrowthSpeedMultiplier = 1f;//server-sided value
 
         public override void Load()
         {
             Instance = this;
             SeedLoader.Load();
         }
-        public override void AddRecipeGroups()
+        public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
         {
-            SeedLoader.AddRecipeGroups();
+            //SeedLoader.AddRecipeGroups();
         }
         public override void Unload()
         {
