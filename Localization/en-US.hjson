@@ -113,6 +113,7 @@ Mods: {
 			SaltPlant.MapEntry: Salt Plant
 			PepperPlant.MapEntry: Pepper Plant
 			SeaSaltPlant.MapEntry: Sea Salt Plant
+			GrowCrystal.MapEntry: Grow Crystal
 		}
 
 		Items: {
@@ -553,6 +554,11 @@ Mods: {
 
 			SeaSaltSeeds: {
 				DisplayName: Sea Salt Seeds
+				Tooltip: ""
+			}
+
+			GrowCrystalItem: {
+				DisplayName: Grow Crystal Item
 				Tooltip: ""
 			}
 		}
