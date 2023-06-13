@@ -41,12 +41,27 @@ namespace OreSeeds.Tiles
 
         public override void RandomUpdate(int i, int j)
         {
+            bool IsStartingUpdate = OreSeeds.CanStartGrowLoop;
+
+            if (IsStartingUpdate)
+            {
+                OreSeeds.GrowLoopCount = 0;
+                OreSeeds.CanStartGrowLoop = !OreSeeds.CanStartGrowLoop;
+            }
+            else if (OreSeeds.GrowLoopCount > OreSeeds.MaxRecursiveLoopCount)
+                return;
+            else
+                OreSeeds.GrowLoopCount++;
+
+            Main.NewText("Current update count: " + OreSeeds.GrowLoopCount + " | IsStart: " + IsStartingUpdate, !IsStartingUpdate ? null : Color.GreenYellow);
+
             Tile tile = Main.tile[i, j];
+
             int offsetX = tile.TileFrameX / 18;
             int offsetY = tile.TileFrameY / 18;
 
             int blockRadius = 7;
-            int chance = 2;//needs tweaking
+            float chance = 9 * (((OreSeeds.GrowthSpeedMultiplier - 1) * 0.3f) + 1);//needs tweaking
 
             for (int r = -blockRadius; r < blockRadius + 2; r++)
             {
@@ -55,32 +70,46 @@ namespace OreSeeds.Tiles
                     if ((r == 0 || r == 1) && f >= 0 && f < 3)
                         continue;
 
-                    if(Main.rand.NextBool(chance, 100))
+                    if (Main.rand.NextFloat(0, 100) < chance)
                     {
                         int posX = i - offsetX + r;
                         int posY = j - offsetY + f;
 
-                        Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16, DustID.GreenFairy, Vector2.Zero);
-
-                        if (Main.tile[posX, posY].TileType == Type)//can often crash if too many are too close and the chances are too high
-                            continue;
-
-                        ModTile modtile = ModContent.GetModTile(Main.tile[posX, posY].TileType);
+                        ModTile modtile = ModContent.GetModTile(Main.tile[posX, posY].TileType);//works on any modded tile...
                         if (modtile is not null)
                         {
-                            //if (Main.rand.NextBool(2))//50% chance to effect modded plant
-                            //{
+
+                            for (int p = -2; p < 2 + 1; p++)//shows valid tiles (this should become a config option with better gfx)
+                            {
+                                for (int s = -2; s < 2 + 1; s++)
+                                {
+                                    Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.GreenFairy, Vector2.Zero);
+                                }
+                            }
+
                             ModContent.GetModTile(Main.tile[posX, posY].TileType)?.RandomUpdate(posX, posY);
-                            NetMessage.SendTileSquare(Main.myPlayer, posX, posY, 2, 2, TileChangeType.None);
-                            //}
+                            //NetMessage.SendTileSquare(Main.myPlayer, posX, posY, 2, 2, TileChangeType.None);//may be needed
                         }
-                        else//vanilla grow check has seperate changes
+                        else//vanilla grow check is seperate
                         {
+                            //for (int p = -2; p < 2 + 1; p++)//shows all selected tiles
+                            //{
+                            //    for (int s = -2; s < 2 + 1; s++)
+                            //    {
+                            //        Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.PinkFairy, Vector2.Zero);
+                            //    }
+                            //}
                             //GrowVanillaPlant(i, j + 1 + m);
                         }
 
                     }
                 }
+            }
+
+            if (IsStartingUpdate)
+            {
+                OreSeeds.CanStartGrowLoop = !OreSeeds.CanStartGrowLoop;
+                OreSeeds.GrowLoopCount = 0;
             }
         }
 

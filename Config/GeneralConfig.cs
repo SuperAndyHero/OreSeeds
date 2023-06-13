@@ -8,15 +8,13 @@ namespace OreSeeds.Configs
 	{
 		public override ConfigScope Mode => ConfigScope.ServerSide;
 
-		public bool TestValueLocal = false;
-
-        [Range(0.0f, 3f)]
+        [Range(0.25f, 3f)]
         [Increment(0.50f)]
         [DrawTicks]
         [Slider]
         [DefaultValue(1f)]
         public float GrowthSpeedMultiplier { get { return OreSeeds.GrowthSpeedMultiplier; } set { OreSeeds.GrowthSpeedMultiplier = value; } }
 
-		
+        public bool ShowAccelEffectedPlants = false;//todo make property
 	}
 }

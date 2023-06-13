@@ -178,7 +178,7 @@ namespace OreSeeds
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.placeStyle = 0;
             Item.width = 12;
@@ -304,7 +304,7 @@ namespace OreSeeds
 
         public override void AddRecipes()
         {
-            #region mod compat
+            #region luiafk mod compat
             ModLoader.TryGetMod("miningcracks_take_on_luiafk", out var result);
             Mod LuiMod = result;
             if (LuiMod != null)
@@ -418,7 +418,7 @@ namespace OreSeeds
                 TileID.ClayPot
             };
 
-            #region special cases
+            #region special tile cases
             //A bit yikes
             if (Tags.HasFlag(Tags.Jungle))
             {
@@ -542,7 +542,7 @@ namespace OreSeeds
                 chance *= ExtraInfo.TagGrowthModifier(i, j, Tags);
                 chance *= OreSeeds.GrowthSpeedMultiplier;//set by config
 
-                if (Main.rand.NextFloat(0.000001f, 0.999999f) < chance)
+                if (Main.rand.NextFloat(0, 1) < chance)
                 {
                     Main.tile[i, j].TileFrameX += 18;
                     WorldGen.SquareTileFrame(i, j, true);
@@ -554,13 +554,16 @@ namespace OreSeeds
         public void DropSeed(int i, int j, bool grown, bool broken = true)
         {
             int count = broken ? 1 : 0;
-            if (grown && Main.rand.NextFloat(0.000001f, 0.999999f) < ExtraInfo.SeedDropChance(i, j))
+            if (grown && Main.rand.NextFloat(0, 1) < ExtraInfo.SeedDropChance(i, j))
                 count++;
             if (count != 0)
             {
                 int itemIndex = Item.NewItem(broken ? new Terraria.DataStructures.EntitySource_TileBreak(i, j, "OrePlantBreak") :
-                    new Terraria.DataStructures.EntitySource_TileInteraction(Main.LocalPlayer, i, j, "OrePlantHarvest"),
+                    new Terraria.DataStructures.EntitySource_TileInteraction(OreSeeds.IsHarvesterCheckingTile ? Main.player[Main.maxPlayers] : Main.LocalPlayer, i, j, "OrePlantHarvest"),
                     i * 16, j * 16, 0, 0, Mod.Find<ModItem>(TypeInfo.ItemInternalName).Type, count);
+
+                if (OreSeeds.IsHarvesterCheckingTile)//if this is being checked by a harvester
+                    OreSeeds.ItemDropIndexList.Add(itemIndex);
 
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                     NetMessage.SendData(MessageID.SyncItem, number: itemIndex, number2: 1f);
@@ -569,9 +572,12 @@ namespace OreSeeds
 
         public void DropOre(int i, int j, int count, bool rightClick = false)
         {
-            int itemIndex = Item.NewItem(rightClick ? new Terraria.DataStructures.EntitySource_TileInteraction(Main.LocalPlayer, i, j, "OrePlantHarvest") :
+            int itemIndex = Item.NewItem(rightClick ? new Terraria.DataStructures.EntitySource_TileInteraction(OreSeeds.IsHarvesterCheckingTile ? Main.player[Main.maxPlayers] : Main.LocalPlayer, i, j, "OrePlantHarvest") :
                 new Terraria.DataStructures.EntitySource_TileBreak(i, j, "OrePlantBreak"),
                 i * 16, j * 16, 0, 0, OreItem.Invoke(), count);
+
+            if (OreSeeds.IsHarvesterCheckingTile)//if this is being checked by a harvester
+                OreSeeds.ItemDropIndexList.Add(itemIndex);
 
             if (Main.netMode == NetmodeID.MultiplayerClient)
                 NetMessage.SendData(MessageID.SyncItem, number: itemIndex, number2: 1f);
