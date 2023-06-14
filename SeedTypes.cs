@@ -136,7 +136,7 @@ namespace OreSeeds
         public readonly Tags Tags;
         private readonly SeedRecipe RecipeInfo;
         private readonly TypeInfo TypeInfo;
-        private readonly ExtraInfo ExtraInfo;
+        private readonly ExtraInfo ExtraInfo;//can be removed later if not needed
         //todo cache every seed in a list
 
         public BasePlantItem(Func<int> oreItem, int oreAmount, Tags tags, (int, int) oreDropRange, (DescriptionTag, int)[] descriptionTags, SeedRecipe recipeInfo, TypeInfo typeInfo, ExtraInfo extraInfo)

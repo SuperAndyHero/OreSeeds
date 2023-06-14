@@ -16,7 +16,7 @@ namespace OreSeeds.Items
         {
             Item.width = 30;
             Item.height = 32;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.value = Terraria.Item.sellPrice(silver: 5);
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;

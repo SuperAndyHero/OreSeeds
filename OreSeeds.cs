@@ -10,7 +10,7 @@ namespace OreSeeds
 	{
         public static OreSeeds Instance { get; set; }
 
-        public const int MaxRecursiveLoopCount = 2;
+        public const int MaxRecursiveLoopCount = 1;//total recusion count is 1 above this
 
         //these are used bye tiles that speed up growth to limit how many times they can activate eachother in a single tick
         public static int GrowLoopCount = 0;
@@ -24,7 +24,10 @@ namespace OreSeeds
         public const float DefaultSeedDropChance = 0.5f;
         public const float DefaultGrowthChance = 0.33f;
 
+        //config values
         public static float GrowthSpeedMultiplier = 1f;//server-sided value
+        public static bool ShowGrowthAcceledTiles = false;
+
         public override void Load()
         {
             Instance = this;

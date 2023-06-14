@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using OreSeeds.Items;
 using OreSeeds.UI;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -53,15 +55,15 @@ namespace OreSeeds.Tiles
             else
                 OreSeeds.GrowLoopCount++;
 
-            Main.NewText("Current update count: " + OreSeeds.GrowLoopCount + " | IsStart: " + IsStartingUpdate, !IsStartingUpdate ? null : Color.GreenYellow);
+            //Main.NewText("Current update count: " + OreSeeds.GrowLoopCount + " | IsStart: " + IsStartingUpdate, !IsStartingUpdate ? null : Color.GreenYellow);
 
             Tile tile = Main.tile[i, j];
 
             int offsetX = tile.TileFrameX / 18;
             int offsetY = tile.TileFrameY / 18;
 
-            int blockRadius = 7;
-            float chance = 9 * (((OreSeeds.GrowthSpeedMultiplier - 1) * 0.3f) + 1);//needs tweaking
+            const int blockRadius = 7;
+            float chance = 7 * (((OreSeeds.GrowthSpeedMultiplier - 1) * 0.3f) + 1);//needs tweaking
 
             for (int r = -blockRadius; r < blockRadius + 2; r++)
             {
@@ -79,11 +81,14 @@ namespace OreSeeds.Tiles
                         if (modtile is not null)
                         {
 
-                            for (int p = -2; p < 2 + 1; p++)//shows valid tiles (this should become a config option with better gfx)
+                            if (OreSeeds.ShowGrowthAcceledTiles)
                             {
-                                for (int s = -2; s < 2 + 1; s++)
+                                for (int p = -2; p < 2 + 1; p++)//shows valid tiles (this should become a config option with better gfx)
                                 {
-                                    Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.GreenFairy, Vector2.Zero);
+                                    for (int s = -2; s < 2 + 1; s++)
+                                    {
+                                        Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.GreenFairy, Vector2.Zero);
+                                    }
                                 }
                             }
 
@@ -115,9 +120,28 @@ namespace OreSeeds.Tiles
 
         public override bool RightClick(int i, int j)
         {
-            RandomUpdate(i, j);
+            //RandomUpdate(i, j);
 
             return base.RightClick(i, j);
+        }
+
+        public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            if (Main.tile[i, j].TileFrameX == 0 && Main.tile[i, j].TileFrameY == 0)
+            {
+                Texture2D tex = ModContent.Request<Texture2D>("OreSeeds/Tiles/GrowCrystalGlow2").Value;
+
+                Vector2 lightingOffset = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
+                Vector2 center = tex.Size() / 2;
+
+                spriteBatch.Draw(tex,
+                    new Vector2(i + 1f, j + 1.5f) * 16 + new Vector2(0, 0) - Main.screenPosition + lightingOffset,
+                    null, new Color(10, 10, 10, 0),//Lighting.GetColor(i, j),
+                    0f,
+                     center, ((float)Math.Sin(Main.GameUpdateCount / 30f + i * 0.3333f + j * 2.6666f) + 10) / 10.5f, SpriteEffects.None, 0f);
+            }
+
+            return base.PreDraw(i, j, spriteBatch);
         }
     }
 }

@@ -15,6 +15,6 @@ namespace OreSeeds.Configs
         [DefaultValue(1f)]
         public float GrowthSpeedMultiplier { get { return OreSeeds.GrowthSpeedMultiplier; } set { OreSeeds.GrowthSpeedMultiplier = value; } }
 
-        public bool ShowAccelEffectedPlants = false;//todo make property
-	}
+        public bool ShowGrowthAcceledTiles { get { return OreSeeds.ShowGrowthAcceledTiles; } set { OreSeeds.ShowGrowthAcceledTiles = value; } }
+    }
 }

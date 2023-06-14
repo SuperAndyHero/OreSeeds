@@ -572,9 +572,9 @@ Mods: {
 					Tooltip: ""
 				}
 
-				TestValueLocal: {
-					Label: Test Value Local
-					Tooltip: ""
+				ShowGrowthAcceledTiles: {
+					Label: Show Growth Accelerated Tiles
+					Tooltip: "Shows a dust effect at each tile effected by a growth accelerator"
 				}
 			}
 		}

@@ -16,8 +16,8 @@ namespace OreSeeds.Items
         {
             Item.width = 30;
             Item.height = 32;
-            Item.maxStack = 99;
-            Item.value = Terraria.Item.sellPrice(silver: 10);
+            Item.maxStack = 9999;
+            Item.value = Terraria.Item.sellPrice(gold: 1, silver: 25);
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
@@ -28,23 +28,23 @@ namespace OreSeeds.Items
             Item.placeStyle = 0;
         }
 
-        //public override void AddRecipes()
-        //{
-        //    CreateRecipe()
-        //        .AddIngredient(ItemID.Sawmill, 1)
-        //        .AddIngredient(ItemID.TinBar, 25)
-        //        .AddIngredient(ItemID.StoneBlock, 50)
-        //        .AddRecipeGroup(RecipeGroupID.IronBar, 20)
-        //        .AddTile(TileID.WorkBenches)
-        //        .Register();
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient(ItemID.ManaCrystal, 4)
+                .AddIngredient(ItemID.LifeCrystal, 1)
+                .AddIngredient(ItemID.Sunflower, 1)
+                .AddIngredient(ItemID.Amethyst, 20)
+                //.AddTile(TileID.WorkBenches)
+                .Register();
 
-        //    CreateRecipe()
-        //        .AddIngredient(ItemID.Sawmill, 1)
-        //        .AddIngredient(ItemID.CopperBar, 25)
-        //        .AddIngredient(ItemID.StoneBlock, 50)
-        //        .AddRecipeGroup(RecipeGroupID.IronBar, 20)
-        //        .AddTile(TileID.WorkBenches)
-        //        .Register();
-        //}
+            CreateRecipe()
+                .AddIngredient(ItemID.Sawmill, 1)
+                .AddIngredient(ItemID.CopperBar, 25)
+                .AddIngredient(ItemID.StoneBlock, 50)
+                .AddIngredient(ItemID.Topaz, 20)
+                //.AddTile(TileID.WorkBenches)
+                .Register();
+        }
     }
 }
