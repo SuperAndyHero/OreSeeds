@@ -78,61 +78,65 @@ namespace OreSeeds.Tiles
                         int posY = j - offsetY + f;
 
                         ModTile modtile = ModContent.GetModTile(Main.tile[posX, posY].TileType);//works on any modded tile...
-                        if (modtile is not null)
+                        bool isValidTile;
+
+                        if (modtile is not null)//does not check if is a ore plant, so that it works on modded plants
                         {
-
-                            if (OreSeeds.ShowGrowthAcceledTiles)
-                            {
-                                for (int p = -1; p <= 1; p++)
-                                {
-                                    Dust.NewDustPerfect(
-                                        new Vector2(posX + 0.5f, posY + 0.75f) * 16 + new Vector2(p * 4, 0),
-                                        DustID.ShimmerSpark,
-                                        new Vector2(p * 0.05f, Main.rand.NextFloat(-0.7f, -0.25f)),
-                                        0,
-                                        Color.White, 1.5f);
-                                }
-
-                                for (int p = -3; p <= 3; p++)
-                                {
-                                    Dust.NewDustPerfect(
-                                        new Vector2(posX + 0.5f, posY + 0.75f) * 16 + new Vector2(p * 2, 0), 
-                                        DustID.SteampunkSteam, 
-                                        new Vector2(p * 0.05f, Main.rand.NextFloat(-0.5f, 0.1f)),
-                                        0,
-                                        new Color(Main.rand.Next(0, 32), Main.rand.Next(228, 256), Main.rand.Next(100, 228)));
-                                }
-
-                                //workable dusts
-                                //DustID.ManaRegeneration
-                                //enchanted gold
-                                //shimmer spark
-                                //DustID.GreenFairy
-
-                                //for (int p = -2; p < 2 + 1; p++)//shows valid tiles (this should become a config option with better gfx)
-                                //{
-                                //    for (int s = -2; s < 2 + 1; s++)
-                                //    {
-                                //        Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.GreenFairy, Vector2.Zero);
-                                //    }
-                                //}
-                            }
+                            isValidTile = true;//may need a tile type check here so not every modded tile shows up
 
                             ModContent.GetModTile(Main.tile[posX, posY].TileType)?.RandomUpdate(posX, posY);
-                            //NetMessage.SendTileSquare(Main.myPlayer, posX, posY, 2, 2, TileChangeType.None);//may be needed
+                            //NetMessage.SendTileSquare(Main.myPlayer, posX, posY, 1, 1, TileChangeType.None);//may be needed
                         }
                         else//vanilla grow check is seperate
                         {
-                            //for (int p = -2; p < 2 + 1; p++)//shows all selected tiles
+                            isValidTile = OreSeeds.GrowVanillaPlant(posX, posY);//returns true if tile is correct
+                            //GrowVanillaPlant handles SendTileSquare
+                        }
+
+                        if (isValidTile && OreSeeds.ShowGrowthAcceledTiles)
+                        {
+                            for (int p = -1; p <= 1; p++)
+                            {
+                                Dust.NewDustPerfect(
+                                    new Vector2(posX + 0.5f, posY + 0.75f) * 16 + new Vector2(p * 4, 0),
+                                    DustID.ShimmerSpark,
+                                    new Vector2(p * 0.05f, Main.rand.NextFloat(-0.7f, -0.25f)),
+                                    0,
+                                    Color.White, 1.5f);
+                            }
+
+                            for (int p = -3; p <= 3; p++)
+                            {
+                                Dust.NewDustPerfect(
+                                    new Vector2(posX + 0.5f, posY + 0.75f) * 16 + new Vector2(p * 2, 0),
+                                    DustID.SteampunkSteam,
+                                    new Vector2(p * 0.05f, Main.rand.NextFloat(-0.5f, 0.1f)),
+                                    0,
+                                    new Color(Main.rand.Next(0, 32), Main.rand.Next(228, 256), Main.rand.Next(100, 228)));
+                            }
+
+                            //workable dusts
+                            //DustID.ManaRegeneration
+                            //enchanted gold
+                            //shimmer spark
+                            //DustID.GreenFairy
+
+                            //for (int p = -2; p < 2 + 1; p++)//old dust
+                            //{
+                            //    for (int s = -2; s < 2 + 1; s++)
+                            //    {
+                            //        Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.GreenFairy, Vector2.Zero);
+                            //    }
+                            //}
+
+                            //for (int p = -2; p < 2 + 1; p++)//old unscuccesful dust
                             //{
                             //    for (int s = -2; s < 2 + 1; s++)
                             //    {
                             //        Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.PinkFairy, Vector2.Zero);
                             //    }
                             //}
-                            //GrowVanillaPlant(i, j + 1 + m);
                         }
-
                     }
                 }
             }

@@ -558,7 +558,7 @@ Mods: {
 			}
 
 			GrowCrystalItem: {
-				DisplayName: Grow Crystal Item
+				DisplayName: Growth Crystal
 				Tooltip: ""
 			}
 		}
@@ -569,13 +569,37 @@ Mods: {
 
 				GrowthSpeedMultiplier: {
 					Label: Growth Speed Multiplier
-					Tooltip: ""
+					Tooltip:
+						'''
+						Real Time x0.1
+						Very Slow x0.25
+						Slow x0.5
+						Slowish x0.75
+						Normal x1
+						Quick x1.25
+						Fast x1.5
+						Faster x2
+						Rapid x3
+						'''
 				}
 
 				ShowGrowthAcceledTiles: {
 					Label: Show Growth Accelerated Tiles
 					Tooltip: Shows a dust effect at each tile effected by a growth accelerator
 				}
+			}
+
+			GrowthSpeed: {
+				Tooltip: ""
+				RealTime.Label: Real Time
+				VerySlow.Label: Very Slow
+				Slow.Label: Slow
+				Slowish.Label: Slowish
+				Normal.Label: Normal
+				Quick.Label: Quick
+				Fast.Label: Fast
+				Faster.Label: Faster
+				Rapid.Label: Rapid
 			}
 		}
 	}
