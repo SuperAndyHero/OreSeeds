@@ -63,7 +63,7 @@ namespace OreSeeds.Tiles
             int offsetY = tile.TileFrameY / 18;
 
             const int blockRadius = 7;
-            float chance = 7 * (((OreSeeds.GrowthSpeedMultiplier - 1) * 0.3f) + 1);//needs tweaking
+            float chance = 7 * (((OreSeeds.GrowthSpeedMultiplier - 1) * 0.1f) + 1);//needs tweaking
 
             for (int r = -blockRadius; r < blockRadius + 2; r++)
             {
@@ -83,13 +83,39 @@ namespace OreSeeds.Tiles
 
                             if (OreSeeds.ShowGrowthAcceledTiles)
                             {
-                                for (int p = -2; p < 2 + 1; p++)//shows valid tiles (this should become a config option with better gfx)
+                                for (int p = -1; p <= 1; p++)
                                 {
-                                    for (int s = -2; s < 2 + 1; s++)
-                                    {
-                                        Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.GreenFairy, Vector2.Zero);
-                                    }
+                                    Dust.NewDustPerfect(
+                                        new Vector2(posX + 0.5f, posY + 0.75f) * 16 + new Vector2(p * 4, 0),
+                                        DustID.ShimmerSpark,
+                                        new Vector2(p * 0.05f, Main.rand.NextFloat(-0.7f, -0.25f)),
+                                        0,
+                                        Color.White, 1.5f);
                                 }
+
+                                for (int p = -3; p <= 3; p++)
+                                {
+                                    Dust.NewDustPerfect(
+                                        new Vector2(posX + 0.5f, posY + 0.75f) * 16 + new Vector2(p * 2, 0), 
+                                        DustID.SteampunkSteam, 
+                                        new Vector2(p * 0.05f, Main.rand.NextFloat(-0.5f, 0.1f)),
+                                        0,
+                                        new Color(Main.rand.Next(0, 32), Main.rand.Next(228, 256), Main.rand.Next(100, 228)));
+                                }
+
+                                //workable dusts
+                                //DustID.ManaRegeneration
+                                //enchanted gold
+                                //shimmer spark
+                                //DustID.GreenFairy
+
+                                //for (int p = -2; p < 2 + 1; p++)//shows valid tiles (this should become a config option with better gfx)
+                                //{
+                                //    for (int s = -2; s < 2 + 1; s++)
+                                //    {
+                                //        Dust.NewDustPerfect(new Vector2(posX + 0.5f, posY + 0.5f) * 16 + new Vector2(p, s) * 3, DustID.GreenFairy, Vector2.Zero);
+                                //    }
+                                //}
                             }
 
                             ModContent.GetModTile(Main.tile[posX, posY].TileType)?.RandomUpdate(posX, posY);
@@ -120,7 +146,7 @@ namespace OreSeeds.Tiles
 
         public override bool RightClick(int i, int j)
         {
-            //RandomUpdate(i, j);
+            RandomUpdate(i, j);
 
             return base.RightClick(i, j);
         }
@@ -129,7 +155,7 @@ namespace OreSeeds.Tiles
         {
             if (Main.tile[i, j].TileFrameX == 0 && Main.tile[i, j].TileFrameY == 0)
             {
-                Texture2D tex = ModContent.Request<Texture2D>("OreSeeds/Tiles/GrowCrystalGlow2").Value;
+                Texture2D tex = ModContent.Request<Texture2D>("OreSeeds/Tiles/GrowCrystalGlow").Value;
 
                 Vector2 lightingOffset = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
                 Vector2 center = tex.Size() / 2;
