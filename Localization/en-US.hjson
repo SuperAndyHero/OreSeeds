@@ -559,7 +559,11 @@ Mods: {
 
 			GrowCrystalItem: {
 				DisplayName: Growth Crystal
-				Tooltip: ""
+				Tooltip:
+					'''
+					Slightly accelerates the growth of plants in a within 5 blocks
+					Can effect other growth accelerators
+					'''
 			}
 		}
 
@@ -569,18 +573,7 @@ Mods: {
 
 				GrowthSpeedMultiplier: {
 					Label: Growth Speed Multiplier
-					Tooltip:
-						'''
-						Real Time x0.1
-						Very Slow x0.25
-						Slow x0.5
-						Slowish x0.75
-						Normal x1
-						Quick x1.25
-						Fast x1.5
-						Faster x2
-						Rapid x3
-						'''
+					Tooltip: ""
 				}
 
 				ShowGrowthAcceledTiles: {
@@ -591,15 +584,15 @@ Mods: {
 
 			GrowthSpeed: {
 				Tooltip: ""
-				RealTime.Label: Real Time
-				VerySlow.Label: Very Slow
-				Slow.Label: Slow
-				Slowish.Label: Slowish
-				Normal.Label: Normal
-				Quick.Label: Quick
-				Fast.Label: Fast
-				Faster.Label: Faster
-				Rapid.Label: Rapid
+				RealTime.Label: x0.1
+				VerySlow.Label: x0.25
+				Slow.Label: x0.5
+				Slowish.Label: x0.75
+				Normal.Label: x1
+				Quick.Label: x1.25
+				Fast.Label: x1.5
+				Faster.Label: x2
+				Rapid.Label: x3
 			}
 		}
 	}

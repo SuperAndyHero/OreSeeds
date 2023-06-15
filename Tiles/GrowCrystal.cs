@@ -41,6 +41,8 @@ namespace OreSeeds.Tiles
                 frame = ++frame % 4;
         }
 
+        //public const int 
+
         public override void RandomUpdate(int i, int j)
         {
             bool IsStartingUpdate = OreSeeds.CanStartGrowLoop;
@@ -58,16 +60,15 @@ namespace OreSeeds.Tiles
             //Main.NewText("Current update count: " + OreSeeds.GrowLoopCount + " | IsStart: " + IsStartingUpdate, !IsStartingUpdate ? null : Color.GreenYellow);
 
             Tile tile = Main.tile[i, j];
-
             int offsetX = tile.TileFrameX / 18;
             int offsetY = tile.TileFrameY / 18;
 
-            const int blockRadius = 7;
+            const int blockRadius = 5;
             float chance = 7 * (((OreSeeds.GrowthSpeedMultiplier - 1) * 0.1f) + 1);//needs tweaking
 
-            for (int r = -blockRadius; r < blockRadius + 2; r++)
+            for (int r = -blockRadius; r <= blockRadius + 1; r++)
             {
-                for (int f = -blockRadius; f < blockRadius + 3; f++)
+                for (int f = -blockRadius; f <= blockRadius + 2; f++)
                 {
                     if ((r == 0 || r == 1) && f >= 0 && f < 3)
                         continue;
@@ -150,9 +151,42 @@ namespace OreSeeds.Tiles
 
         public override bool RightClick(int i, int j)
         {
-            RandomUpdate(i, j);
+            //RandomUpdate(i, j);
+            const int tempblockRadius = 5;
 
-            return base.RightClick(i, j);
+            Tile tile = Main.tile[i, j];
+            int offsetX = tile.TileFrameX / 18;
+            int offsetY = tile.TileFrameY / 18;
+
+            for (int r = -tempblockRadius; r <= tempblockRadius + 2; r++)
+            {
+                for (int f = -tempblockRadius; f <= tempblockRadius + 3; f++)
+                {
+                    bool left = r == -tempblockRadius;
+                    bool right = r == tempblockRadius + 2;
+                    bool top = f == -tempblockRadius;
+                    bool bottom = f == tempblockRadius + 3;
+
+                    if (top || bottom || left || right)
+                    {
+                        int posX = i - offsetX + r;
+                        int posY = j - offsetY + f;
+
+                        for (int p = -1; p <= 1; p++)
+                        {
+                            Dust.NewDustPerfect(
+                                   new Vector2(posX, posY) * 16 + new Vector2(((top || bottom) && !(left || right)) ? p : 0, ((left || right) && !(top || bottom)) ? p : 0) * 5.33f,
+                                   DustID.SteampunkSteam,
+                                   Vector2.Zero,
+                                   0,
+                                   new Color(80, 255, 255));
+                        }
+                    }
+                }
+            }
+
+
+                    return base.RightClick(i, j);
         }
 
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
