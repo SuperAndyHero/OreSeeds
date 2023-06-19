@@ -119,7 +119,7 @@ Mods: {
 		Items: {
 			RecyclerItem: {
 				DisplayName: Seed Recycler
-				Tooltip: Converts seeds into resources
+				Tooltip: Converts ore seeds into resources
 			}
 
 			CopperSeeds: {
@@ -562,7 +562,7 @@ Mods: {
 				Tooltip:
 					'''
 					Slightly accelerates the growth of plants in a within 5 blocks
-					Can effect other growth accelerators
+					Can effect other growth accelerators for reduced effect
 					'''
 			}
 		}

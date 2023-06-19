@@ -25,8 +25,8 @@ namespace OreSeeds.Tiles
             TileObjectData.addTile(Type);
 
             LocalizedText name = CreateMapEntryName();
-            AddMapEntry(new Color(119, 56, 56), name);
-
+            AddMapEntry(new Color(166, 252, 219), name);
+            DustType = DustID.Glass;
             AnimationFrameHeight = 54;
         }
 
@@ -41,7 +41,8 @@ namespace OreSeeds.Tiles
                 frame = ++frame % 4;
         }
 
-        //public const int 
+        public const int BlockRadius = 5;
+        public const int BaseGrowthPrecentChance = 12;
 
         public override void RandomUpdate(int i, int j)
         {
@@ -52,7 +53,7 @@ namespace OreSeeds.Tiles
                 OreSeeds.GrowLoopCount = 0;
                 OreSeeds.CanStartGrowLoop = !OreSeeds.CanStartGrowLoop;
             }
-            else if (OreSeeds.GrowLoopCount > OreSeeds.MaxRecursiveLoopCount)
+            else if (OreSeeds.GrowLoopCount >= OreSeeds.MaxRecursiveLoopCount)
                 return;
             else
                 OreSeeds.GrowLoopCount++;
@@ -63,12 +64,21 @@ namespace OreSeeds.Tiles
             int offsetX = tile.TileFrameX / 18;
             int offsetY = tile.TileFrameY / 18;
 
-            const int blockRadius = 5;
-            float chance = 7 * (((OreSeeds.GrowthSpeedMultiplier - 1) * 0.1f) + 1);//needs tweaking
-
-            for (int r = -blockRadius; r <= blockRadius + 1; r++)
+            for (int p = -2; p <= 2; p++)
             {
-                for (int f = -blockRadius; f <= blockRadius + 2; f++)
+                Dust.NewDustPerfect(
+                    new Vector2(i - offsetX + 1, j - offsetY + 1) * 16 + new Vector2(p * 6, Main.rand.NextFloat(-2f, 12f) - (p * 2)),
+                    DustID.ShimmerSpark,
+                    new Vector2(p * 0.05f, Main.rand.NextFloat(-0.7f, -0.25f)),
+                    0,
+                    Color.White, 1.5f);
+            }
+
+            float chance = (BaseGrowthPrecentChance * (((OreSeeds.GrowthSpeedMultiplier - 1) * 0.1f) + 1)) / (OreSeeds.GrowLoopCount + 1);//needs tweaking
+
+            for (int r = -BlockRadius; r <= BlockRadius + 1; r++)
+            {
+                for (int f = -BlockRadius; f <= BlockRadius + 2; f++)
                 {
                     if ((r == 0 || r == 1) && f >= 0 && f < 3)
                         continue;
@@ -152,20 +162,19 @@ namespace OreSeeds.Tiles
         public override bool RightClick(int i, int j)
         {
             //RandomUpdate(i, j);
-            const int tempblockRadius = 5;
 
             Tile tile = Main.tile[i, j];
             int offsetX = tile.TileFrameX / 18;
             int offsetY = tile.TileFrameY / 18;
 
-            for (int r = -tempblockRadius; r <= tempblockRadius + 2; r++)
+            for (int r = -BlockRadius; r <= BlockRadius + 2; r++)
             {
-                for (int f = -tempblockRadius; f <= tempblockRadius + 3; f++)
+                for (int f = -BlockRadius; f <= BlockRadius + 3; f++)
                 {
-                    bool left = r == -tempblockRadius;
-                    bool right = r == tempblockRadius + 2;
-                    bool top = f == -tempblockRadius;
-                    bool bottom = f == tempblockRadius + 3;
+                    bool left = r == -BlockRadius;
+                    bool right = r == BlockRadius + 2;
+                    bool top = f == -BlockRadius;
+                    bool bottom = f == BlockRadius + 3;
 
                     if (top || bottom || left || right)
                     {

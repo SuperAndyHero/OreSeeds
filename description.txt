@@ -3,9 +3,9 @@ This mod adds growable plants which produce ores (and more) and can be planted w
 Plus supports ores from:
 +Calamity
 +Thorium
-+Spirit (Port Planned)
++Starlight River
++Spirit
 +Shadows of Abbadon (Port Planned)
-+Starlight River (Unreleased)
 
 It is suggested you have recipe browser too.
 

@@ -11,7 +11,8 @@ namespace OreSeeds
 	{
         public static OreSeeds Instance { get; set; }
 
-        public const int MaxRecursiveLoopCount = 1;//total recusion count is 1 above this
+        //this could have been made a bool so that only the first can activate other growth accels, but I decided to instead divide the grow chance after every loop
+        public const int MaxRecursiveLoopCount = 2;//the amount of secondary activations
 
         //these are used bye tiles that speed up growth to limit how many times they can activate eachother in a single tick
         public static int GrowLoopCount = 0;

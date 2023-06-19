@@ -39,9 +39,9 @@ namespace OreSeeds.Items
                 .Register();
 
             CreateRecipe()
-                .AddIngredient(ItemID.Sawmill, 1)
-                .AddIngredient(ItemID.CopperBar, 25)
-                .AddIngredient(ItemID.StoneBlock, 50)
+                .AddIngredient(ItemID.ManaCrystal, 4)
+                .AddIngredient(ItemID.LifeCrystal, 1)
+                .AddIngredient(ItemID.Sunflower, 1)
                 .AddIngredient(ItemID.Topaz, 20)
                 //.AddTile(TileID.WorkBenches)
                 .Register();
