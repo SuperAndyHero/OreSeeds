@@ -113,7 +113,7 @@ Mods: {
 			SaltPlant.MapEntry: Salt Plant
 			PepperPlant.MapEntry: Pepper Plant
 			SeaSaltPlant.MapEntry: Sea Salt Plant
-			GrowCrystal.MapEntry: Grow Crystal
+			GrowCrystal.MapEntry: Growth Crystal
 		}
 
 		Items: {

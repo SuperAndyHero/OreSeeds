@@ -33,9 +33,9 @@ Tell me if ive missed any ores from a supported mod, what mods I should add supp
 
 Credits:
 
-Developer: [c/40fff8:SuperAndyHero#1185] [c/2F3C70:<@317900589830897675>]
+Developer: [c/40fff8:SuperAndyHero] [c/2F3C70:<@317900589830897675>]
 
-Any sprites not listed below: [c/40fff8:SuperAndyHero#1185]
+Any sprites not listed below: [c/40fff8:SuperAndyHero]
 
 Cryonic, Perrenial, Scoria, Aerialite, and Victory Shard Sprites: [c/FFee51:32Polaris#2721]
 

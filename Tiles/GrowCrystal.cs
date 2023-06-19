@@ -88,8 +88,8 @@ namespace OreSeeds.Tiles
                         int posX = i - offsetX + r;
                         int posY = j - offsetY + f;
 
-                        ModTile modtile = ModContent.GetModTile(Main.tile[posX, posY].TileType);//works on any modded tile...
-                        bool isValidTile;
+                        ModTile modtile = ModContent.GetModTile(Main.tile[posX, posY].TileType);//works on any modded tile for now...
+                        bool isValidTile;//for showing dust
 
                         if (modtile is not null)//does not check if is a ore plant, so that it works on modded plants
                         {
