@@ -1,6 +1,6 @@
 author = SuperAndyHero
-version = 2.7
-displayName = Ore Seeds Beta
+version = 2.7.1
+displayName = Ore Seeds
 homepage = https://discord.gg/upFBjZS
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, icon_workshop.png, description_workshop.txt
 weakReferences = miningcracks_take_on_luiafk

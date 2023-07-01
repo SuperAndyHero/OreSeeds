@@ -2,220 +2,220 @@
 Mods: {
 	OreSeeds: {
 		DescriptionTag: {
-			CraftedAt: Создается на
-			NoSeeds: Семена не выпадают
-			RareSeeds: Семена выпадают редко
-			LessSeeds: Маленький шанс выпадения вещей
-			CraftedDemonAltar: Создается на демоническом алтаре
-			CraftedCrimsonAltar: Создается на багровом алтаре
+			CraftedAt: РЎРѕР·РґР°РµС‚СЃСЏ РЅР°
+			NoSeeds: РЎРµРјРµРЅР° РЅРµ РІС‹РїР°РґР°СЋС‚
+			RareSeeds: РЎРµРјРµРЅР° РІС‹РїР°РґР°СЋС‚ СЂРµРґРєРѕ
+			LessSeeds: РњР°Р»РµРЅСЊРєРёР№ С€Р°РЅСЃ РІС‹РїР°РґРµРЅРёСЏ РІРµС‰РµР№
+			CraftedDemonAltar: РЎРѕР·РґР°РµС‚СЃСЏ РЅР° РґРµРјРѕРЅРёС‡РµСЃРєРѕРј Р°Р»С‚Р°СЂРµ
+			CraftedCrimsonAltar: РЎРѕР·РґР°РµС‚СЃСЏ РЅР° Р±Р°РіСЂРѕРІРѕРј Р°Р»С‚Р°СЂРµ
 		}
 		
 		DescriptionInfo: {
-			WaterWarning: Будет расти только в воде
-			NightWarning: Растет лучше во время ночи
-			DayWarning: Растет лучше во время дня
-			HellWarning: Будет расти только в аду или рядом с ним
-			HardmodeWarning: Будет расти только в хардмоде
-			MoonlordWarning: Будет расти только после убийства лунного лорда
-			ItemInfo: "[c/858585:{Удерживайте ]SHIFT[c/858585: для тэгов или ]CTRL[c/858585: для доп.инфо}]"
+			WaterWarning: Р‘СѓРґРµС‚ СЂР°СЃС‚Рё С‚РѕР»СЊРєРѕ РІ РІРѕРґРµ
+			NightWarning: Р Р°СЃС‚РµС‚ Р»СѓС‡С€Рµ РІРѕ РІСЂРµРјСЏ РЅРѕС‡Рё
+			DayWarning: Р Р°СЃС‚РµС‚ Р»СѓС‡С€Рµ РІРѕ РІСЂРµРјСЏ РґРЅСЏ
+			HellWarning: Р‘СѓРґРµС‚ СЂР°СЃС‚Рё С‚РѕР»СЊРєРѕ РІ Р°РґСѓ РёР»Рё СЂСЏРґРѕРј СЃ РЅРёРј
+			HardmodeWarning: Р‘СѓРґРµС‚ СЂР°СЃС‚Рё С‚РѕР»СЊРєРѕ РІ С…Р°СЂРґРјРѕРґРµ
+			MoonlordWarning: Р‘СѓРґРµС‚ СЂР°СЃС‚Рё С‚РѕР»СЊРєРѕ РїРѕСЃР»Рµ СѓР±РёР№СЃС‚РІР° Р»СѓРЅРЅРѕРіРѕ Р»РѕСЂРґР°
+			ItemInfo: "[c/858585:{РЈРґРµСЂР¶РёРІР°Р№С‚Рµ ]SHIFT[c/858585: РґР»СЏ С‚СЌРіРѕРІ РёР»Рё ]CTRL[c/858585: РґР»СЏ РґРѕРї.РёРЅС„Рѕ}]"
 			#recycle ui
-			RecycleInfo: Шанс *% получить предметы с семян
-			RecycleInfo2: ПКМ, чтобы переработать все
-			RecycleButton: Переработать
+			RecycleInfo: РЁР°РЅСЃ *% РїРѕР»СѓС‡РёС‚СЊ РїСЂРµРґРјРµС‚С‹ СЃ СЃРµРјСЏРЅ
+			RecycleInfo2: РџРљРњ, С‡С‚РѕР±С‹ РїРµSСЂРµСЂР°Р±РѕС‚Р°С‚СЊ РІСЃРµ
+			RecycleButton: РџРµСЂРµСЂР°Р±РѕС‚Р°С‚СЊ
 		}
 		
 		ItemTooltip: {
-			RecyclerItem: Перерабатывает семена в ресурсы
+			RecyclerItem: РџРµСЂРµСЂР°Р±Р°С‚С‹РІР°РµС‚ СЃРµРјРµРЅР° РІ СЂРµСЃСѓСЂСЃС‹
 		}
 		
 		ItemName: {
-			RecyclerItem: Устройство для переработки семян
+			RecyclerItem: РЈСЃС‚СЂРѕР№СЃС‚РІРѕ РґР»СЏ РїРµСЂРµСЂР°Р±РѕС‚РєРё СЃРµРјСЏРЅ
 			#seeds
-			CopperSeeds: Медные семена
-			TinSeeds: Оловянные семена
-			IronSeeds: Железные семена
-			LeadSeeds: Свинцовые семена
-			SilverSeeds: Серебряные семена
-			TungstenSeeds: Вольфрамовые семена
-			GoldSeeds: Золотые семена
-			PlatinumSeeds: Платиновые семена
-			MeteoriteSeeds: Семена метеорита
-			DemoniteSeeds: Демонитовые семена
-			CrimtaneSeeds: Кримтанитовые семена
-			ObsidianSeeds: Семена обсидиана
-			HellstoneSeeds: Семена адского камня
-			CobaltSeeds: Кобальтовые семена
-			PalladiumSeeds: Палладиевые семена
-			MythrilSeeds: Мифриловые семена
-			OrichalcumSeeds: Орихалковые семена
-			AdamantiteSeeds: Адамантитовые семена
-			TitaniumSeeds: Семена титана
-			ChlorophyteSeeds: Семена хлорофита
-			LuminiteSeeds: Люминитовые семена
-			AmethystSeeds: Семена аметиста
-			TopazSeeds: Семена топаза
-			SapphireSeeds: Семена сапфира
-			EmeraldSeeds: Семена изумруда
-			RubySeeds: Семена рубина
-			DiamondSeeds: Семена алмаза
-			AmberSeeds: Семена янтаря
-			FossilSeeds: Семена окаменелости
-			CrystalSeeds: Семена кристалла
-			CursedFlameSeeds: Семена проклятого пламени
-			StarSeeds: Семена звезд
-			BoneSeeds: Семена костей
-			SoulofLightSeeds: Семена эссенции света
-			SoulofNightSeeds: Семена эссенции ночи
-			SoulofFlightSeeds: Семена эссенции воздуха
-			SoulofMightSeeds: Семена эссенции могущества
-			SoulofSightSeeds: Семена эссенции прозрения
-			SoulofFrightSeeds: Семена эссенции ужаса
-			ThoriumSeeds: Семена ториума
-			SmoothCoalSeeds: Семена гладкого угля
-			OpalSeeds: Семена опала
-			LifeQuartzSeeds: Семена осколка кристалла жизни
-			AquaiteSeeds: Акваитовые семена
-			PearlSeeds: Семена жемчужины
-			MagmaSeeds: Магмовые семена
-			LodestoneSeeds: Семена магнетита
-			ValadiumSeeds: Валадивые семена
-			IllumiteSeeds: Иллюмитовые семена
-			SeaPrismSeeds: Семена морской призмы
-			AerialiteSeeds: Аэриалитовые семена
-			VictoryShardSeeds: Семена осколков победы
-			CharredSeeds: Зювитовые семена
-			CryonicSeeds: Семена крионита
-			HallowedSeeds: Освященные семена 
-			PerennialSeeds: Многолетнии семена
-			ScoriaSeeds: Магматитовые семена
-			AstralSeeds: Астральные семена
-			ChaosEssenceSeeds: Семена эссенции хаоса
-			EleumEssenceSeeds: Семена эссенции элеума
-			SunlightEssenceSeeds: Семена эссенции солнечного света
-			ExodiumClusterSeeds: Семена кластеров экзодиума
-			UelibloomSeeds: Буйные семена
-			AuricSeeds: Златые семена
-			BlightSeeds: Семена фитофтороза
-			CosmodiumSeeds: Семена космодиума
-			CryotineSeeds: Криотиновые семена
-			GelatineSeeds: Желатиновые семена
-			CosmorockSeeds: Семена косморока
-			CerniumSeeds: Семена церниума
-			FlariumSeeds: Флариумовые семена
-			OblivionSeeds: Семена забвения
-			LapisSeeds: Семена лазурита
-			EnchantedGraniteSeeds: Семена зачарованного гранита
-			AncientMarbleSeeds: Семена древнего мрамора
-			CryoliteSeeds: Криолитовые семена
-			SpiritSeeds: Семена духа
-			StarPieceSeeds: Семена осколка звезды
-			ThermiteSeeds: Термитные семена
-			FloranSeeds: Флорановые семена
-			PuriumSeeds: Семена пуриума
-			DalantiniumSeeds: Далантиновые семена
-			LythenSeeds: Семена литена
-			AquamarineSeeds: Семена аквамарина
-			PalestoneSeeds: Семена фундука
-			MoonstoneSeeds: Семена лунного камня
-			VitricSeeds: Стекловидные семена
-			AstroscrapSeeds: Астроскраповые семена
-			SaltSeeds: Соленные семена
-			PepperSeeds: Семена перца
-			SeaSaltSeeds: Семена морской соли
+			CopperSeeds: РњРµРґРЅС‹Рµ СЃРµРјРµРЅР°
+			TinSeeds: РћР»РѕРІСЏРЅРЅС‹Рµ СЃРµРјРµРЅР°
+			IronSeeds: Р–РµР»РµР·РЅС‹Рµ СЃРµРјРµРЅР°
+			LeadSeeds: РЎРІРёРЅС†РѕРІС‹Рµ СЃРµРјРµРЅР°
+			SilverSeeds: РЎРµСЂРµР±СЂСЏРЅС‹Рµ СЃРµРјРµРЅР°
+			TungstenSeeds: Р’РѕР»СЊС„СЂР°РјРѕРІС‹Рµ СЃРµРјРµРЅР°
+			GoldSeeds: Р—РѕР»РѕС‚С‹Рµ СЃРµРјРµРЅР°
+			PlatinumSeeds: РџР»Р°С‚РёРЅРѕРІС‹Рµ СЃРµРјРµРЅР°
+			MeteoriteSeeds: РЎРµРјРµРЅР° РјРµС‚РµРѕСЂРёС‚Р°
+			DemoniteSeeds: Р”РµРјРѕРЅРёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			CrimtaneSeeds: РљСЂРёРјС‚Р°РЅРёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			ObsidianSeeds: РЎРµРјРµРЅР° РѕР±СЃРёРґРёР°РЅР°
+			HellstoneSeeds: РЎРµРјРµРЅР° Р°РґСЃРєРѕРіРѕ РєР°РјРЅСЏ
+			CobaltSeeds: РљРѕР±Р°Р»СЊС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			PalladiumSeeds: РџР°Р»Р»Р°РґРёРµРІС‹Рµ СЃРµРјРµРЅР°
+			MythrilSeeds: РњРёС„СЂРёР»РѕРІС‹Рµ СЃРµРјРµРЅР°
+			OrichalcumSeeds: РћСЂРёС…Р°Р»РєРѕРІС‹Рµ СЃРµРјРµРЅР°
+			AdamantiteSeeds: РђРґР°РјР°РЅС‚РёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			TitaniumSeeds: РЎРµРјРµРЅР° С‚РёС‚Р°РЅР°
+			ChlorophyteSeeds: РЎРµРјРµРЅР° С…Р»РѕСЂРѕС„РёС‚Р°
+			LuminiteSeeds: Р›СЋРјРёРЅРёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			AmethystSeeds: РЎРµРјРµРЅР° Р°РјРµС‚РёСЃС‚Р°
+			TopazSeeds: РЎРµРјРµРЅР° С‚РѕРїР°Р·Р°
+			SapphireSeeds: РЎРµРјРµРЅР° СЃР°РїС„РёСЂР°
+			EmeraldSeeds: РЎРµРјРµРЅР° РёР·СѓРјСЂСѓРґР°
+			RubySeeds: РЎРµРјРµРЅР° СЂСѓР±РёРЅР°
+			DiamondSeeds: РЎРµРјРµРЅР° Р°Р»РјР°Р·Р°
+			AmberSeeds: РЎРµРјРµРЅР° СЏРЅС‚Р°СЂСЏ
+			FossilSeeds: РЎРµРјРµРЅР° РѕРєР°РјРµРЅРµР»РѕСЃС‚Рё
+			CrystalSeeds: РЎРµРјРµРЅР° РєСЂРёСЃС‚Р°Р»Р»Р°
+			CursedFlameSeeds: РЎРµРјРµРЅР° РїСЂРѕРєР»СЏС‚РѕРіРѕ РїР»Р°РјРµРЅРё
+			StarSeeds: РЎРµРјРµРЅР° Р·РІРµР·Рґ
+			BoneSeeds: РЎРµРјРµРЅР° РєРѕСЃС‚РµР№
+			SoulofLightSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё СЃРІРµС‚Р°
+			SoulofNightSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё РЅРѕС‡Рё
+			SoulofFlightSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё РІРѕР·РґСѓС…Р°
+			SoulofMightSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё РјРѕРіСѓС‰РµСЃС‚РІР°
+			SoulofSightSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё РїСЂРѕР·СЂРµРЅРёСЏ
+			SoulofFrightSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё СѓР¶Р°СЃР°
+			ThoriumSeeds: РЎРµРјРµРЅР° С‚РѕСЂРёСѓРјР°
+			SmoothCoalSeeds: РЎРµРјРµРЅР° РіР»Р°РґРєРѕРіРѕ СѓРіР»СЏ
+			OpalSeeds: РЎРµРјРµРЅР° РѕРїР°Р»Р°
+			LifeQuartzSeeds: РЎРµРјРµРЅР° РѕСЃРєРѕР»РєР° РєСЂРёСЃС‚Р°Р»Р»Р° Р¶РёР·РЅРё
+			AquaiteSeeds: РђРєРІР°РёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			PearlSeeds: РЎРµРјРµРЅР° Р¶РµРјС‡СѓР¶РёРЅС‹
+			MagmaSeeds: РњР°РіРјРѕРІС‹Рµ СЃРµРјРµРЅР°
+			LodestoneSeeds: РЎРµРјРµРЅР° РјР°РіРЅРµС‚РёС‚Р°
+			ValadiumSeeds: Р’Р°Р»Р°РґРёРІС‹Рµ СЃРµРјРµРЅР°
+			IllumiteSeeds: РР»Р»СЋРјРёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			SeaPrismSeeds: РЎРµРјРµРЅР° РјРѕСЂСЃРєРѕР№ РїСЂРёР·РјС‹
+			AerialiteSeeds: РђСЌСЂРёР°Р»РёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			VictoryShardSeeds: РЎРµРјРµРЅР° РѕСЃРєРѕР»РєРѕРІ РїРѕР±РµРґС‹
+			CharredSeeds: Р—СЋРІРёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			CryonicSeeds: РЎРµРјРµРЅР° РєСЂРёРѕРЅРёС‚Р°
+			HallowedSeeds: РћСЃРІСЏС‰РµРЅРЅС‹Рµ СЃРµРјРµРЅР° 
+			PerennialSeeds: РњРЅРѕРіРѕР»РµС‚РЅРёРё СЃРµРјРµРЅР°
+			ScoriaSeeds: РњР°РіРјР°С‚РёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			AstralSeeds: РђСЃС‚СЂР°Р»СЊРЅС‹Рµ СЃРµРјРµРЅР°
+			ChaosEssenceSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё С…Р°РѕСЃР°
+			EleumEssenceSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё СЌР»РµСѓРјР°
+			SunlightEssenceSeeds: РЎРµРјРµРЅР° СЌСЃСЃРµРЅС†РёРё СЃРѕР»РЅРµС‡РЅРѕРіРѕ СЃРІРµС‚Р°
+			ExodiumClusterSeeds: РЎРµРјРµРЅР° РєР»Р°СЃС‚РµСЂРѕРІ СЌРєР·РѕРґРёСѓРјР°
+			UelibloomSeeds: Р‘СѓР№РЅС‹Рµ СЃРµРјРµРЅР°
+			AuricSeeds: Р—Р»Р°С‚С‹Рµ СЃРµРјРµРЅР°
+			BlightSeeds: РЎРµРјРµРЅР° С„РёС‚РѕС„С‚РѕСЂРѕР·Р°
+			CosmodiumSeeds: РЎРµРјРµРЅР° РєРѕСЃРјРѕРґРёСѓРјР°
+			CryotineSeeds: РљСЂРёРѕС‚РёРЅРѕРІС‹Рµ СЃРµРјРµРЅР°
+			GelatineSeeds: Р–РµР»Р°С‚РёРЅРѕРІС‹Рµ СЃРµРјРµРЅР°
+			CosmorockSeeds: РЎРµРјРµРЅР° РєРѕСЃРјРѕСЂРѕРєР°
+			CerniumSeeds: РЎРµРјРµРЅР° С†РµСЂРЅРёСѓРјР°
+			FlariumSeeds: Р¤Р»Р°СЂРёСѓРјРѕРІС‹Рµ СЃРµРјРµРЅР°
+			OblivionSeeds: РЎРµРјРµРЅР° Р·Р°Р±РІРµРЅРёСЏ
+			LapisSeeds: РЎРµРјРµРЅР° Р»Р°Р·СѓСЂРёС‚Р°
+			EnchantedGraniteSeeds: РЎРµРјРµРЅР° Р·Р°С‡Р°СЂРѕРІР°РЅРЅРѕРіРѕ РіСЂР°РЅРёС‚Р°
+			AncientMarbleSeeds: РЎРµРјРµРЅР° РґСЂРµРІРЅРµРіРѕ РјСЂР°РјРѕСЂР°
+			CryoliteSeeds: РљСЂРёРѕР»РёС‚РѕРІС‹Рµ СЃРµРјРµРЅР°
+			SpiritSeeds: РЎРµРјРµРЅР° РґСѓС…Р°
+			StarPieceSeeds: РЎРµРјРµРЅР° РѕСЃРєРѕР»РєР° Р·РІРµР·РґС‹
+			ThermiteSeeds: РўРµСЂРјРёС‚РЅС‹Рµ СЃРµРјРµРЅР°
+			FloranSeeds: Р¤Р»РѕСЂР°РЅРѕРІС‹Рµ СЃРµРјРµРЅР°
+			PuriumSeeds: РЎРµРјРµРЅР° РїСѓСЂРёСѓРјР°
+			DalantiniumSeeds: Р”Р°Р»Р°РЅС‚РёРЅРѕРІС‹Рµ СЃРµРјРµРЅР°
+			LythenSeeds: РЎРµРјРµРЅР° Р»РёС‚РµРЅР°
+			AquamarineSeeds: РЎРµРјРµРЅР° Р°РєРІР°РјР°СЂРёРЅР°
+			PalestoneSeeds: РЎРµРјРµРЅР° С„СѓРЅРґСѓРєР°
+			MoonstoneSeeds: РЎРµРјРµРЅР° Р»СѓРЅРЅРѕРіРѕ РєР°РјРЅСЏ
+			VitricSeeds: РЎС‚РµРєР»РѕРІРёРґРЅС‹Рµ СЃРµРјРµРЅР°
+			AstroscrapSeeds: РђСЃС‚СЂРѕСЃРєСЂР°РїРѕРІС‹Рµ СЃРµРјРµРЅР°
+			SaltSeeds: РЎРѕР»РµРЅРЅС‹Рµ СЃРµРјРµРЅР°
+			PepperSeeds: РЎРµРјРµРЅР° РїРµСЂС†Р°
+			SeaSaltSeeds: РЎРµРјРµРЅР° РјРѕСЂСЃРєРѕР№ СЃРѕР»Рё
 		}
 		
 		MapObject: {
-			CopperPlant: Медное растение
-			TinPlant: Оловянное растение
-			IronPlant: Железное растение
-			LeadPlant: Свинцовое растение
-			SilverPlant: Серебряное растение
-			TungstenPlant: Вольфрамовое растение
-			GoldPlant: Золотое растение
-			PlatinumPlant: Платиновое растение
-			MeteoritePlant: Метеоритовое растение
-			DemonitePlant: Демонитовое растение
-			CrimtanePlant: Кримтанитовое растение
-			ObsidianPlant: Обсидиановое растение
-			HellstonePlant: Растение адского камня
-			CobaltPlant: Кобальтовое Растение
-			PalladiumPlant: Палладиевое растение
-			MythrilPlant: Мифриловое растение
-			OrichalcumPlant: Орихалковое растение
-			AdamantitePlant: Адамантитовое растение
-			TitaniumPlant: Титановое растение
-			ChlorophytePlant: Хлорофитовое растение
-			LuminitePlant: Люминитовое растение
-			AmethystPlant: Аметистовое растение
-			TopazPlant: Топазное растение
-			SapphirePlant: Сапфировое растение
-			EmeraldPlant: Изумрудное растение
-			RubyPlant: Рубиновое растение
-			DiamondPlant: Алмазное растение
-			AmberPlant: Янтарное растение
-			FossilPlant: Окаменеллое растение
-			CrystalPlant: Кристалльное растение
-			CursedFlamePlant: Растение проклятого пламени
-			StarPlant: Звездное растение
-			BonePlant: Костяное растение
-			SoulofLightPlant: Растение эссенции света
-			SoulofNightPlant: Растение эссенции ночи
-			SoulofFlightPlant: Растение эссенции воздуха
-			SoulofMightPlant: Растение эссенции могущества
-			SoulofSightPlant: Растение эссенции прозрения
-			SoulofFrightPlant: Растение эссенции ужаса
-			ThoriumPlant: Ториумовое растение
-			SmoothCoalPlant: Растение гладкого угля
-			OpalPlant: Опаловое растение
-			LifeQuartzPlant: Растение осколка кристалла жизн
-			AquaitePlant: Акваитовое растение
-			PearlPlant: Жемчужное растение
-			MagmaPlant: Магмовое растение
-			LodestonePlant: Магнетитовое растение
-			ValadiumPlant: Валадивое растение
-			IllumitePlant: Иллюмитовое растение
-			SeaPrismPlant: Растение морской призмы
-			AerialitePlant: Аэриалитовое растение
-			VictoryShardPlant: Растение осколков победы
-			CharredPlant: Зювитовое растение
-			CryonicPlant: Растение крионита
-			HallowedPlant: Освященное растение
-			PerennialPlant: Многолетнее растение
-			ScoriaPlant: Магматитовое растение
-			AstralPlant: Астральное растение
-			ChaosEssencePlant: Растение эссенции хаоса
-			EleumEssencePlant: Растение эссенции элеума
-			SunlightEssencePlant: Растение эссенции солнечного света
-			ExodiumClusterPlant: Растение кластеров экзодиума
-			UelibloomPlant: Буйное растение
-			AuricPlant: Златое растение
-			BlightPlant: Растение фитофтороза
-			CosmodiumPlant: Космодивое растение
-			CryotinePlant: Криотиновое растение
-			GelatinePlant: Желатиновые растение
-			CosmorockPlant: Растение косморока
-			CerniumPlant: Цернивое растение
-			FlariumPlant: Флариумовое растение
-			OblivionPlant: Растение забвения
-			LapisPlant: Лазуритовое растение
-			EnchantedGranitePlant: Растение зачарованного гранита
-			AncientMarblePlant: Растение древнего мрамора
-			CryolitePlant: Криолитовое растение
-			SpiritPlant: Растение духа
-			StarPiecePlant: Растение осколка звезды
-			ThermitePlant: Термитное растение
-			FloranPlant: Флорановое растение
-			PuriumPlant: Растение пуриума
-			DalantiniumPlant: Далантиновое растение
-			LythenPlant: Растение литена
-			AquamarinePlant: Аквамариновое растение
-			PalestonePlant: Растение фундука
-			MoonstonePlant: Растение лунного камня
-			VitricPlant: Стекловидное растение
-			AstroscrapPlant: Астроскраповое растение 
-			SaltPlant: Растение соли
-			PepperPlant: Растение перца
-			SeaSaltPlant: Растение морской соли
+			CopperPlant: РњРµРґРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			TinPlant: РћР»РѕРІСЏРЅРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			IronPlant: Р–РµР»РµР·РЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			LeadPlant: РЎРІРёРЅС†РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			SilverPlant: РЎРµСЂРµР±СЂСЏРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			TungstenPlant: Р’РѕР»СЊС„СЂР°РјРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			GoldPlant: Р—РѕР»РѕС‚РѕРµ СЂР°СЃС‚РµРЅРёРµ
+			PlatinumPlant: РџР»Р°С‚РёРЅРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			MeteoritePlant: РњРµС‚РµРѕСЂРёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			DemonitePlant: Р”РµРјРѕРЅРёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			CrimtanePlant: РљСЂРёРјС‚Р°РЅРёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			ObsidianPlant: РћР±СЃРёРґРёР°РЅРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			HellstonePlant: Р Р°СЃС‚РµРЅРёРµ Р°РґСЃРєРѕРіРѕ РєР°РјРЅСЏ
+			CobaltPlant: РљРѕР±Р°Р»СЊС‚РѕРІРѕРµ Р Р°СЃС‚РµРЅРёРµ
+			PalladiumPlant: РџР°Р»Р»Р°РґРёРµРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			MythrilPlant: РњРёС„СЂРёР»РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			OrichalcumPlant: РћСЂРёС…Р°Р»РєРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			AdamantitePlant: РђРґР°РјР°РЅС‚РёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			TitaniumPlant: РўРёС‚Р°РЅРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			ChlorophytePlant: РҐР»РѕСЂРѕС„РёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			LuminitePlant: Р›СЋРјРёРЅРёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			AmethystPlant: РђРјРµС‚РёСЃС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			TopazPlant: РўРѕРїР°Р·РЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			SapphirePlant: РЎР°РїС„РёСЂРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			EmeraldPlant: РР·СѓРјСЂСѓРґРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			RubyPlant: Р СѓР±РёРЅРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			DiamondPlant: РђР»РјР°Р·РЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			AmberPlant: РЇРЅС‚Р°СЂРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			FossilPlant: РћРєР°РјРµРЅРµР»Р»РѕРµ СЂР°СЃС‚РµРЅРёРµ
+			CrystalPlant: РљСЂРёСЃС‚Р°Р»Р»СЊРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			CursedFlamePlant: Р Р°СЃС‚РµРЅРёРµ РїСЂРѕРєР»СЏС‚РѕРіРѕ РїР»Р°РјРµРЅРё
+			StarPlant: Р—РІРµР·РґРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			BonePlant: РљРѕСЃС‚СЏРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			SoulofLightPlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё СЃРІРµС‚Р°
+			SoulofNightPlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё РЅРѕС‡Рё
+			SoulofFlightPlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё РІРѕР·РґСѓС…Р°
+			SoulofMightPlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё РјРѕРіСѓС‰РµСЃС‚РІР°
+			SoulofSightPlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё РїСЂРѕР·СЂРµРЅРёСЏ
+			SoulofFrightPlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё СѓР¶Р°СЃР°
+			ThoriumPlant: РўРѕСЂРёСѓРјРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			SmoothCoalPlant: Р Р°СЃС‚РµРЅРёРµ РіР»Р°РґРєРѕРіРѕ СѓРіР»СЏ
+			OpalPlant: РћРїР°Р»РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			LifeQuartzPlant: Р Р°СЃС‚РµРЅРёРµ РѕСЃРєРѕР»РєР° РєСЂРёСЃС‚Р°Р»Р»Р° Р¶РёР·РЅ
+			AquaitePlant: РђРєРІР°РёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			PearlPlant: Р–РµРјС‡СѓР¶РЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			MagmaPlant: РњР°РіРјРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			LodestonePlant: РњР°РіРЅРµС‚РёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			ValadiumPlant: Р’Р°Р»Р°РґРёРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			IllumitePlant: РР»Р»СЋРјРёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			SeaPrismPlant: Р Р°СЃС‚РµРЅРёРµ РјРѕСЂСЃРєРѕР№ РїСЂРёР·РјС‹
+			AerialitePlant: РђСЌСЂРёР°Р»РёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			VictoryShardPlant: Р Р°СЃС‚РµРЅРёРµ РѕСЃРєРѕР»РєРѕРІ РїРѕР±РµРґС‹
+			CharredPlant: Р—СЋРІРёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			CryonicPlant: Р Р°СЃС‚РµРЅРёРµ РєСЂРёРѕРЅРёС‚Р°
+			HallowedPlant: РћСЃРІСЏС‰РµРЅРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			PerennialPlant: РњРЅРѕРіРѕР»РµС‚РЅРµРµ СЂР°СЃС‚РµРЅРёРµ
+			ScoriaPlant: РњР°РіРјР°С‚РёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			AstralPlant: РђСЃС‚СЂР°Р»СЊРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			ChaosEssencePlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё С…Р°РѕСЃР°
+			EleumEssencePlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё СЌР»РµСѓРјР°
+			SunlightEssencePlant: Р Р°СЃС‚РµРЅРёРµ СЌСЃСЃРµРЅС†РёРё СЃРѕР»РЅРµС‡РЅРѕРіРѕ СЃРІРµС‚Р°
+			ExodiumClusterPlant: Р Р°СЃС‚РµРЅРёРµ РєР»Р°СЃС‚РµСЂРѕРІ СЌРєР·РѕРґРёСѓРјР°
+			UelibloomPlant: Р‘СѓР№РЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			AuricPlant: Р—Р»Р°С‚РѕРµ СЂР°СЃС‚РµРЅРёРµ
+			BlightPlant: Р Р°СЃС‚РµРЅРёРµ С„РёС‚РѕС„С‚РѕСЂРѕР·Р°
+			CosmodiumPlant: РљРѕСЃРјРѕРґРёРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			CryotinePlant: РљСЂРёРѕС‚РёРЅРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			GelatinePlant: Р–РµР»Р°С‚РёРЅРѕРІС‹Рµ СЂР°СЃС‚РµРЅРёРµ
+			CosmorockPlant: Р Р°СЃС‚РµРЅРёРµ РєРѕСЃРјРѕСЂРѕРєР°
+			CerniumPlant: Р¦РµСЂРЅРёРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			FlariumPlant: Р¤Р»Р°СЂРёСѓРјРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			OblivionPlant: Р Р°СЃС‚РµРЅРёРµ Р·Р°Р±РІРµРЅРёСЏ
+			LapisPlant: Р›Р°Р·СѓСЂРёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			EnchantedGranitePlant: Р Р°СЃС‚РµРЅРёРµ Р·Р°С‡Р°СЂРѕРІР°РЅРЅРѕРіРѕ РіСЂР°РЅРёС‚Р°
+			AncientMarblePlant: Р Р°СЃС‚РµРЅРёРµ РґСЂРµРІРЅРµРіРѕ РјСЂР°РјРѕСЂР°
+			CryolitePlant: РљСЂРёРѕР»РёС‚РѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			SpiritPlant: Р Р°СЃС‚РµРЅРёРµ РґСѓС…Р°
+			StarPiecePlant: Р Р°СЃС‚РµРЅРёРµ РѕСЃРєРѕР»РєР° Р·РІРµР·РґС‹
+			ThermitePlant: РўРµСЂРјРёС‚РЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			FloranPlant: Р¤Р»РѕСЂР°РЅРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			PuriumPlant: Р Р°СЃС‚РµРЅРёРµ РїСѓСЂРёСѓРјР°
+			DalantiniumPlant: Р”Р°Р»Р°РЅС‚РёРЅРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			LythenPlant: Р Р°СЃС‚РµРЅРёРµ Р»РёС‚РµРЅР°
+			AquamarinePlant: РђРєРІР°РјР°СЂРёРЅРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			PalestonePlant: Р Р°СЃС‚РµРЅРёРµ С„СѓРЅРґСѓРєР°
+			MoonstonePlant: Р Р°СЃС‚РµРЅРёРµ Р»СѓРЅРЅРѕРіРѕ РєР°РјРЅСЏ
+			VitricPlant: РЎС‚РµРєР»РѕРІРёРґРЅРѕРµ СЂР°СЃС‚РµРЅРёРµ
+			AstroscrapPlant: РђСЃС‚СЂРѕСЃРєСЂР°РїРѕРІРѕРµ СЂР°СЃС‚РµРЅРёРµ 
+			SaltPlant: Р Р°СЃС‚РµРЅРёРµ СЃРѕР»Рё
+			PepperPlant: Р Р°СЃС‚РµРЅРёРµ РїРµСЂС†Р°
+			SeaSaltPlant: Р Р°СЃС‚РµРЅРёРµ РјРѕСЂСЃРєРѕР№ СЃРѕР»Рё
 		}
 	}
 }
